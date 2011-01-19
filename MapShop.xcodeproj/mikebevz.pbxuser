@@ -386,6 +386,9 @@
 			B29E0A3412E730D700835600 /* PBXTextBookmark */ = B29E0A3412E730D700835600 /* PBXTextBookmark */;
 			B29E0A3512E730D700835600 /* PBXTextBookmark */ = B29E0A3512E730D700835600 /* PBXTextBookmark */;
 			B29E0A3612E730D700835600 /* PBXTextBookmark */ = B29E0A3612E730D700835600 /* PBXTextBookmark */;
+			B29E0A3712E7329300835600 /* PBXTextBookmark */ = B29E0A3712E7329300835600 /* PBXTextBookmark */;
+			B29E0A3812E7329900835600 /* PBXTextBookmark */ = B29E0A3812E7329900835600 /* PBXTextBookmark */;
+			B29E0A3912E732AF00835600 /* PBXTextBookmark */ = B29E0A3912E732AF00835600 /* PBXTextBookmark */;
 		};
 		sourceControlManager = B25B364712E4542300F15585 /* Source Control */;
 		userBuildSettings = {
@@ -466,8 +469,8 @@
 	B25B37C112E46B2B00F15585 /* AddRegionController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1674, 1781}}";
-			sepNavSelRange = "{281, 0}";
-			sepNavVisRange = "{0, 1498}";
+			sepNavSelRange = "{108, 0}";
+			sepNavVisRange = "{0, 1488}";
 			sepNavWindowFrame = "{{15, 7}, {1103, 766}}";
 		};
 	};
@@ -634,7 +637,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 91";
 		rLen = 0;
-		rLoc = 2578;
+		rLoc = 2568;
 		rType = 0;
 		vrLen = 1510;
 		vrLoc = 1602;
@@ -1075,7 +1078,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 102";
 		rLen = 0;
-		rLoc = 2997;
+		rLoc = 2987;
 		rType = 0;
 		vrLen = 1709;
 		vrLoc = 1642;
@@ -1559,7 +1562,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 102";
 		rLen = 0;
-		rLoc = 2997;
+		rLoc = 2987;
 		rType = 0;
 		vrLen = 1709;
 		vrLoc = 1642;
@@ -2022,7 +2025,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 102";
 		rLen = 0;
-		rLoc = 2997;
+		rLoc = 2987;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 0;
@@ -2162,7 +2165,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 102";
 		rLen = 0;
-		rLoc = 2997;
+		rLoc = 2987;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 0;
@@ -2172,7 +2175,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 14";
 		rLen = 0;
-		rLoc = 281;
+		rLoc = 271;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 0;
@@ -2212,7 +2215,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 14";
 		rLen = 0;
-		rLoc = 281;
+		rLoc = 271;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 0;
@@ -2301,7 +2304,7 @@
 		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
 		name = "AddRegionController.m: 14";
 		rLen = 0;
-		rLoc = 281;
+		rLoc = 271;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 0;
@@ -2335,5 +2338,35 @@
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 9875;
+	};
+	B29E0A3712E7329300835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B29E09A512E7246400835600 /* ShopsViewController.m */;
+		name = "ShopsViewController.m: 327";
+		rLen = 0;
+		rLoc = 11136;
+		rType = 0;
+		vrLen = 307;
+		vrLoc = 10827;
+	};
+	B29E0A3812E7329900835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
+		name = "AddRegionController.m: 14";
+		rLen = 0;
+		rLoc = 271;
+		rType = 0;
+		vrLen = 1498;
+		vrLoc = 0;
+	};
+	B29E0A3912E732AF00835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
+		name = "AddRegionController.m: 6";
+		rLen = 0;
+		rLoc = 108;
+		rType = 0;
+		vrLen = 1488;
+		vrLoc = 0;
 	};
 }

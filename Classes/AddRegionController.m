@@ -3,7 +3,7 @@
 //  MapShop
 //
 //  Created by Mike Bevz on 17/01/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 AndAnts. All rights reserved.
 //
 
 #import "AddRegionController.h"
