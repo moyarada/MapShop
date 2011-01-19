@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSManagedObjectModel_CurrentVersionName</key>
+	<string>MapShop</string>
+	<key>NSManagedObjectModel_VersionHashes</key>
+	<dict>
+		<key>MapShop</key>
+		<dict>
+			<key>Area</key>
+			<data>
+			ShnjFD3QGriboXFoUMu4JBKldV5fhrVB+GYOzbCTlI4=
+			</data>
+			<key>City</key>
+			<data>
+			vxasBnCb7irf88iK7LpBQTXBuqeokZULd630MBAinXo=
+			</data>
+			<key>Region</key>
+			<data>
+			UySjG42RE7GhKOvWiQxWBFT1gHqdVhTortFtZpGybZQ=
+			</data>
+			<key>Shop</key>
+			<data>
+			L3Wi/6UaSnQ8xMdbPnlJnS5gaOyqQ9/cfCGdi03TPoM=
+			</data>
+		</dict>
+	</dict>
+</dict>
+</plist>

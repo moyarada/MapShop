@@ -1,1 +1,2 @@
-build/**/*
+build/Debug-iphonesimulator
+build/MapShop.build

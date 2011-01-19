@@ -193,6 +193,20 @@
 			B25B362A12E4541600F15585 /* MapShop */,
 		);
 		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					1384,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
@@ -368,6 +382,10 @@
 			B29E0A2C12E72EBF00835600 /* XCBuildMessageTextBookmark */ = B29E0A2C12E72EBF00835600 /* XCBuildMessageTextBookmark */;
 			B29E0A2D12E72EBF00835600 /* PBXTextBookmark */ = B29E0A2D12E72EBF00835600 /* PBXTextBookmark */;
 			B29E0A3212E72EF500835600 /* PBXTextBookmark */ = B29E0A3212E72EF500835600 /* PBXTextBookmark */;
+			B29E0A3312E730D700835600 /* PBXTextBookmark */ = B29E0A3312E730D700835600 /* PBXTextBookmark */;
+			B29E0A3412E730D700835600 /* PBXTextBookmark */ = B29E0A3412E730D700835600 /* PBXTextBookmark */;
+			B29E0A3512E730D700835600 /* PBXTextBookmark */ = B29E0A3512E730D700835600 /* PBXTextBookmark */;
+			B29E0A3612E730D700835600 /* PBXTextBookmark */ = B29E0A3612E730D700835600 /* PBXTextBookmark */;
 		};
 		sourceControlManager = B25B364712E4542300F15585 /* Source Control */;
 		userBuildSettings = {
@@ -1152,9 +1170,9 @@
 	B29E09A512E7246400835600 /* ShopsViewController.m */ = {
 		uiCtxt = {
 			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{4658, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{4709, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{4759, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 11142}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {1027, 4368}}";
+			sepNavIntBoundsRect = "{{0, 0}, {2511, 4147}}";
 			sepNavSelRange = "{11079, 0}";
-			sepNavVisRange = "{10770, 307}";
+			sepNavVisRange = "{9412, 1663}";
 			sepNavWindowFrame = "{{15, 7}, {1103, 766}}";
 		};
 	};
@@ -2277,5 +2295,45 @@
 		rType = 0;
 		vrLen = 307;
 		vrLoc = 10827;
+	};
+	B29E0A3312E730D700835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */;
+		name = "AddRegionController.m: 14";
+		rLen = 0;
+		rLoc = 281;
+		rType = 0;
+		vrLen = 1498;
+		vrLoc = 0;
+	};
+	B29E0A3412E730D700835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B29E09A512E7246400835600 /* ShopsViewController.m */;
+		name = "ShopsViewController.m: 327";
+		rLen = 0;
+		rLoc = 11136;
+		rType = 0;
+		vrLen = 1663;
+		vrLoc = 9469;
+	};
+	B29E0A3512E730D700835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B29E096612E7200C00835600 /* AreasViewController.m */;
+		name = "AreasViewController.m: 330";
+		rLen = 0;
+		rLoc = 11630;
+		rType = 0;
+		vrLen = 1608;
+		vrLoc = 9893;
+	};
+	B29E0A3612E730D700835600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B25B3B5912E604F900F15585 /* CitiesViewController.m */;
+		name = "CitiesViewController.m: 333";
+		rLen = 0;
+		rLoc = 11573;
+		rType = 0;
+		vrLen = 1694;
+		vrLoc = 9875;
 	};
 }
