@@ -1,20 +1,21 @@
 //
-//  ShopsViewController.m
+//  ShopPointsViewController.m
 //  MapShop
 //
-//  Created by Mike Bevz on 19/01/11.
+//  Created by Mike Bevz on 20/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ShopsViewController.h"
+#import "ShopPointsViewController.h"
 #import "AddRegionController.h"
-#import "ShopDetailedViewController.h"
+#import "SPoint.h"
 
-@implementation ShopsViewController
+@implementation ShopPointsViewController
 
-@synthesize fetchedResultsController=fetchedResultsController_, 
+@synthesize currentShop, 
+			fetchedResultsController=fetchedResultsController_, 
 			managedObjectContext=managedObjectContext_,
-			currentArea, navigationController;
+			navigationItemDelegate, navigationController;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -25,18 +26,28 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.title = [[NSString alloc] initWithFormat:@" %@", [currentArea valueForKey:@"name"]];
+	
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
-	self.navigationItem.rightBarButtonItem = addButton;
-	NSLog(@"Current region is %@", currentArea);
+	self.navigationItemDelegate.rightBarButtonItem = addButton;
+	[addButton release];
+	self.navigationItem.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"points"];
+	self.tabBarItem.title = @"Test";
+	
+	//self.tabBarItem.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"Points"];
+	
 }
 
+- (void) awakeFromNib {
+	[super awakeFromNib];
+	
+	
+}
 
-/*
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -56,7 +67,7 @@
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return YES;// (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -82,7 +93,6 @@
 	//[managedObject release];
 }
 
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -93,7 +103,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	[self configureCell:cell atIndexPath:indexPath];
+   [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -113,13 +123,14 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 		
 		NSError *error = nil;
 		if (![context save:&error]) {
 			NSLog(@"Error: %@", error);
 		}
+		
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -149,16 +160,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	ShopDetailedViewController *shopDetailedView = [[ShopDetailedViewController alloc] initWithNibName:@"ShopDetailedViewController" bundle:[NSBundle mainBundle]];
-
-	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	shopDetailedView.currentShop = managedObject;
-	shopDetailedView.managedObjectContext = self.managedObjectContext;
-	
-	[navigationController pushViewController:shopDetailedView animated:YES];
-	
-	[shopDetailedView release];
-	
 	/*
 	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
@@ -167,7 +168,6 @@
 	 [detailViewController release];
 	 */
 }
-
 
 #pragma mark -
 #pragma mark Fetched results controller
@@ -184,10 +184,10 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shop" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SPoint" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
 	
-	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", currentArea]];
+	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"shop == %@", currentShop]];
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
@@ -292,8 +292,8 @@
 
 - (void)addNewItem {
 	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
-	addRegionController.item = @"Shop";
-	addRegionController.parent = currentArea;
+	addRegionController.item = @"SPoint";
+	addRegionController.parent = currentShop;
 	
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
 	
@@ -302,7 +302,6 @@
 	[navController release];
 	[addRegionController release];
 }
-
 
 
 #pragma mark -
@@ -322,7 +321,6 @@
 
 
 - (void)dealloc {
-	[navigationController release];
 	[fetchedResultsController_ release];
 	[managedObjectContext_ release];
     [super dealloc];

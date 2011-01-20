@@ -12,6 +12,7 @@
 #import "cities.h";
 #import "Area.h"
 #import "Shop.h"
+#import "SPoint.h"
 
 
 @implementation AddRegionController
@@ -109,6 +110,14 @@
 		
 		[model setName:regionName.text];
 		[model setArea:(Area *)parent];
+	}
+	
+	if (item == @"SPoint") {
+		SPoint *model = (SPoint *)[NSEntityDescription insertNewObjectForEntityForName:@"SPoint" inManagedObjectContext:context];
+		
+		[model setName:regionName.text];
+		[model setShop:(Shop *) parent];
+	
 	}
 	
 	regionName.text = @"";

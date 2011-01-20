@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>B29E238D12E88B2A00835600</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>ShopDetailedViewController.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>B29E238E12E88B2A00835600</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>ShopDetailedViewController.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>B29E23C812E8911100835600</string>
+						<key>history</key>
+						<array>
+							<string>B29E238812E88B0D00835600</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1103, 669}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>15 63 1103 710 0 0 1280 778 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -269,6 +310,8 @@
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>B29E218912E85AC400835600</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -276,12 +319,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>38</integer>
+									<integer>30</integer>
+									<integer>16</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {163, 966}}</string>
+							<string>{{0, 31}, {163, 966}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -318,7 +362,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AddRegionController.m</string>
+								<string>ShopDetailedViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +370,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AddRegionController.m</string>
+										<string>ShopDetailedViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B29E0A3912E732AF00835600</string>
+										<string>B29E23C712E8911100835600</string>
 										<key>history</key>
 										<array>
 											<string>B25B3BBC12E609E800F15585</string>
@@ -348,14 +392,23 @@
 											<string>B29E099812E7242900835600</string>
 											<string>B29E09DC12E7287000835600</string>
 											<string>B29E09DD12E7287000835600</string>
-											<string>B29E09F512E72C1100835600</string>
-											<string>B29E09F612E72C1100835600</string>
-											<string>B29E09F712E72C1100835600</string>
 											<string>B29E09F912E72C1100835600</string>
-											<string>B29E0A0912E72C7C00835600</string>
-											<string>B29E0A1112E72CAC00835600</string>
-											<string>B29E0A1B12E72D2700835600</string>
-											<string>B29E0A1C12E72D2700835600</string>
+											<string>B29E0A8112E7907E00835600</string>
+											<string>B29E0A8212E7907E00835600</string>
+											<string>B29E219012E85EB100835600</string>
+											<string>B29E21FF12E86D1300835600</string>
+											<string>B29E220012E86D1300835600</string>
+											<string>B29E222912E86FB600835600</string>
+											<string>B29E225212E8735600835600</string>
+											<string>B29E225412E8735600835600</string>
+											<string>B29E228812E876F400835600</string>
+											<string>B29E22F312E87C6500835600</string>
+											<string>B29E232312E87F6A00835600</string>
+											<string>B29E232D12E8803A00835600</string>
+											<string>B29E23A612E88E5F00835600</string>
+											<string>B29E23AD12E88E8900835600</string>
+											<string>B29E23AE12E88E8900835600</string>
+											<string>B29E23A712E88E5F00835600</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -553,9 +606,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>B29E227712E8751900835600</string>
+		<string>B29E227812E8751900835600</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B25B363E12E4542300F15585</string>
+		<string>B29E238D12E88B2A00835600</string>
 		<string>/Users/mikebevz/Development/MapShop/MapShop.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -580,7 +636,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ShopsViewController.m</string>
+								<string>ShopDetailedViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -651,7 +707,7 @@
 			<key>WindowToolGUID</key>
 			<string>B25B363E12E4542300F15585</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -899,7 +955,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {695, 631}}</string>
 								<key>RubberWindowFrame</key>
-								<string>10 92 695 672 0 0 1280 778 </string>
+								<string>12 93 695 672 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -928,7 +984,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>10 92 695 672 0 0 1280 778 </string>
+			<string>12 93 695 672 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

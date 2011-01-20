@@ -1,20 +1,18 @@
 //
-//  ShopsViewController.m
+//  ShopCategoriesViewController.m
 //  MapShop
 //
-//  Created by Mike Bevz on 19/01/11.
+//  Created by Mike Bevz on 20/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ShopsViewController.h"
+#import "ShopCategoriesViewController.h"
 #import "AddRegionController.h"
-#import "ShopDetailedViewController.h"
 
-@implementation ShopsViewController
+@implementation ShopCategoriesViewController
 
-@synthesize fetchedResultsController=fetchedResultsController_, 
-			managedObjectContext=managedObjectContext_,
-			currentArea, navigationController;
+@synthesize currentShop, 
+fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -25,10 +23,11 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.title = [[NSString alloc] initWithFormat:@" %@", [currentArea valueForKey:@"name"]];
+	self.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"categories"];
+	self.tabBarItem.title = @"Test";
+	
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItem.rightBarButtonItem = addButton;
-	NSLog(@"Current region is %@", currentArea);
 }
 
 
@@ -56,7 +55,7 @@
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return YES;// (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -82,7 +81,6 @@
 	//[managedObject release];
 }
 
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -93,7 +91,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	[self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -108,24 +106,19 @@
 */
 
 
-
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-		
-		NSError *error = nil;
-		if (![context save:&error]) {
-			NSLog(@"Error: %@", error);
-		}
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
+*/
 
 
 /*
@@ -149,16 +142,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-	ShopDetailedViewController *shopDetailedView = [[ShopDetailedViewController alloc] initWithNibName:@"ShopDetailedViewController" bundle:[NSBundle mainBundle]];
-
-	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	shopDetailedView.currentShop = managedObject;
-	shopDetailedView.managedObjectContext = self.managedObjectContext;
-	
-	[navigationController pushViewController:shopDetailedView animated:YES];
-	
-	[shopDetailedView release];
-	
 	/*
 	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
@@ -184,10 +167,10 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shop" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
 	
-	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"area == %@", currentArea]];
+	//[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"shops == %@", currentArea]];
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
@@ -292,8 +275,8 @@
 
 - (void)addNewItem {
 	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
-	addRegionController.item = @"Shop";
-	addRegionController.parent = currentArea;
+	addRegionController.item = @"Category";
+	addRegionController.parent = currentShop;
 	
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
 	
@@ -302,8 +285,6 @@
 	[navController release];
 	[addRegionController release];
 }
-
-
 
 #pragma mark -
 #pragma mark Memory management
@@ -322,7 +303,6 @@
 
 
 - (void)dealloc {
-	[navigationController release];
 	[fetchedResultsController_ release];
 	[managedObjectContext_ release];
     [super dealloc];
