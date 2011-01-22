@@ -365,6 +365,7 @@
 	[cityViewController release];
 	[fetchedResultsController_ release];
 	[managedObjectContext_ release];
+	[regionsArray release];
     [super dealloc];
 }
 

@@ -12,11 +12,10 @@
 
 @interface ShopDetailedViewController : UIViewController <UITabBarDelegate> {
 	NSManagedObject *currentShop;
-	UITextField *commentField;
-	UIWebView *categories;
-	UIWebView *points;
-	UIButton *addCategoryBtn;
-	UIButton *addPointBtn;
+	//UIWebView *categories;
+	//UIWebView *points;
+	//UIButton *addCategoryBtn;
+	//UIButton *addPointBtn;
 	UITabBar *tabBar;
 	
 	NSFetchedResultsController *fetchedResultsController_;
@@ -27,12 +26,15 @@
 }
 
 @property (nonatomic, retain) NSManagedObject *currentShop;
-@property (nonatomic, retain) IBOutlet UITextField *commentField;
 
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (void)loadShopPointsView;
+- (void)loadShopCategories;
+
 
 
 @end

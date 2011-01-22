@@ -24,9 +24,10 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.title = [[NSString alloc] initWithFormat:@" %@", [currentCity valueForKey:@"name"]];
+	self.title = [[[NSString alloc] initWithFormat:@" %@", [currentCity valueForKey:@"name"]] autorelease];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItem.rightBarButtonItem = addButton;
+	[addButton release];
 	NSLog(@"Current region is %@", currentCity);
 }
 
@@ -154,6 +155,7 @@
 	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	shopsViewController.currentArea = managedObject;	
 	
+	[managedObject release];
 	[navigationController pushViewController:shopsViewController animated:YES];
 	
 	
@@ -323,6 +325,7 @@
 	[shopsViewController release];
 	[fetchedResultsController_ release];
 	[managedObjectContext_ release];
+	[currentCity release];
     [super dealloc];
 }
 

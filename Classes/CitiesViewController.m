@@ -326,6 +326,7 @@
 	[areasViewController release];
 	[fetchedResultsController_ release];
 	[managedObjectContext_ release];
+	[currentRegion release];
     [super dealloc];
 }
 

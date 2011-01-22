@@ -7,7 +7,7 @@
 //
 
 #import "ShopPointsViewController.h"
-#import "AddRegionController.h"
+#import "AddPointViewController.h"
 #import "SPoint.h"
 
 @implementation ShopPointsViewController
@@ -30,10 +30,8 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItemDelegate.rightBarButtonItem = addButton;
 	[addButton release];
-	self.navigationItem.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"points"];
-	self.tabBarItem.title = @"Test";
 	
-	//self.tabBarItem.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"Points"];
+	self.navigationItem.title = [[NSString alloc] initWithFormat:@" %@ %@", [currentShop valueForKey:@"name"], @"points"];
 	
 }
 
@@ -291,16 +289,17 @@
 #pragma mark Actions
 
 - (void)addNewItem {
-	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
-	addRegionController.item = @"SPoint";
-	addRegionController.parent = currentShop;
+	AddPointViewController *addPointController = [[AddPointViewController alloc] initWithNibName:@"AddPointViewController" bundle:[NSBundle mainBundle]];
+	addPointController.item = @"SPoint";
+	addPointController.parent = currentShop;
 	
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
-	
-	[self.navigationController pushViewController:addRegionController animated:YES];
-	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPointController];
+	[addPointController release];
 	[navController release];
-	[addRegionController release];
+	[self.navigationController pushViewController:addPointController animated:YES];
+	
+	
+	
 }
 
 

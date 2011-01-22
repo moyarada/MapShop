@@ -2,7 +2,7 @@
 //  SPoint.m
 //  MapShop
 //
-//  Created by Mike Bevz on 20/01/11.
+//  Created by Mike Bevz on 21/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,9 +12,11 @@
 
 @implementation SPoint 
 
-@dynamic latitude;
 @dynamic name;
+@dynamic altitude;
 @dynamic longitude;
+@dynamic comment;
+@dynamic latitude;
 @dynamic shop;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation ShopDetailedViewController
 
-@synthesize currentShop, commentField,
+@synthesize currentShop,
 			fetchedResultsController=fetchedResultsController_, 
 			managedObjectContext=managedObjectContext_,
 			tabBar;
@@ -24,10 +24,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         // Custom initialization
-		
-		
-		
-		
+	
     }
     return self;
 }
@@ -42,7 +39,9 @@
 	self.title = [currentShop valueForKey:@"name"];
 	
 	tabBar.selectedItem = [tabBar.items objectAtIndex:0];
-	
+	if (!shopPointsViewController) {
+		[self loadShopPointsView];
+	}
 	//[self.view addSubview:tabBarController.view];
 	
 	/*
@@ -140,9 +139,25 @@
 	
 }
 
+// Sent to the delegate after the customizing modal view is displayed.
 - (void)tabBar:(UITabBar *)tabBar didBeginCustomizingItems:(NSArray *)items {
+	NSLog(@"Did begin");
 	
-	
+}
+
+// Sent to the delegate after the customizing modal view is dismissed.
+- (void)tabBar:(UITabBar *)tabBar didEndCustomizingItems:(NSArray *)items changed:(BOOL)changed {
+	NSLog(@"Did end");
+}
+
+// Sent to the delegate before the customizing modal view is displayed.
+- (void)tabBar:(UITabBar *)tabBar willBeginCustomizingItems:(NSArray *)items {
+	NSLog(@"Will begin");
+}
+
+// Sent to the delegate before the customizing modal view is dismissed.
+- (void)tabBar:(UITabBar *)tabBar willEndCustomizingItems:(NSArray *)items changed:(BOOL)changed {
+	NSLog(@"Will End");
 }
 
 - (void)loadShopPointsView {
@@ -186,14 +201,20 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	self.tabBar = nil;
+	shopCategoriesViewController = nil;
+	shopPointsViewController = nil;
 }
 
 
 - (void)dealloc {
-	[commentField release];
+	[shopPointsViewController release];
+	[shopCategoriesViewController release];
 	[currentShop release];
 	[tabBar release];
-    [super dealloc];
+	[fetchedResultsController_ release];
+	[managedObjectContext_ release];
+	[super dealloc];
 }
 
 

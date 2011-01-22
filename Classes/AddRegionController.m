@@ -46,33 +46,8 @@
     return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
 #pragma mark -
-#pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	[super viewDidUnload];
-	// Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	self.submitBtn = nil;
-	self.regionName = nil;
-}
-
-
-- (void)dealloc {
-	[item release];
-	[parent release];
-	[regionName release];
-	[submitBtn release];
-    [super dealloc];
-}
+#pragma mark Actions
 
 -(IBAction)saveData {
 	
@@ -117,7 +92,7 @@
 		
 		[model setName:regionName.text];
 		[model setShop:(Shop *) parent];
-	
+		
 	}
 	
 	regionName.text = @"";
@@ -133,6 +108,35 @@
 	[appDelegate.navigationController popViewControllerAnimated:YES];
 	[rootViewController release];
 	
+}
+
+
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	[super viewDidUnload];
+	// Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+	self.submitBtn = nil;
+	self.regionName = nil;
+}
+
+
+- (void)dealloc {
+	[item release];
+	[parent release];
+	[regionName release];
+	[submitBtn release];
+    [super dealloc];
 }
 
 

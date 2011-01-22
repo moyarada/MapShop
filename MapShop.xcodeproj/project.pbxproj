@@ -29,7 +29,6 @@
 		B29E096C12E721A700835600 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E096B12E721A700835600 /* Area.m */; };
 		B29E09A712E7246400835600 /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E09A512E7246400835600 /* ShopsViewController.m */; };
 		B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E09A612E7246400835600 /* ShopsViewController.xib */; };
-		B29E09D212E7278C00835600 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E09D112E7278C00835600 /* Shop.m */; };
 		B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */; };
 		B29E0A3E12E7441C00835600 /* ShopDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */; };
 		B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E213712E8583D00835600 /* CFNetwork.framework */; };
@@ -39,7 +38,11 @@
 		B29E21BB12E8643D00835600 /* ShopCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */; };
 		B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */; };
 		B29E21E612E86BF000835600 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E21E412E86BF000835600 /* Category.m */; };
-		B29E224D12E8733F00835600 /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E224C12E8733F00835600 /* SPoint.m */; };
+		B29E247912E9990300835600 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E247712E9990300835600 /* AddPointViewController.m */; };
+		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
+		B29E24C312E9AD9600835600 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E24C012E9AD9600835600 /* Shop.m */; };
+		B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E259A12E9B9E200835600 /* CoreLocation.framework */; };
+		B29E25CD12E9BA8B00835600 /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E25CC12E9BA8B00835600 /* SPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +80,6 @@
 		B29E09A412E7246400835600 /* ShopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopsViewController.h; sourceTree = "<group>"; };
 		B29E09A512E7246400835600 /* ShopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopsViewController.m; sourceTree = "<group>"; };
 		B29E09A612E7246400835600 /* ShopsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopsViewController.xib; path = Classes/ShopsViewController.xib; sourceTree = "<group>"; };
-		B29E09D012E7278C00835600 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
-		B29E09D112E7278C00835600 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailedViewController.h; sourceTree = "<group>"; };
 		B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailedViewController.m; sourceTree = "<group>"; };
 		B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopDetailedViewController.xib; path = Classes/ShopDetailedViewController.xib; sourceTree = "<group>"; };
@@ -94,8 +95,14 @@
 		B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopCategoriesViewController.xib; path = Classes/ShopCategoriesViewController.xib; sourceTree = "<group>"; };
 		B29E21E312E86BF000835600 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		B29E21E412E86BF000835600 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
-		B29E224B12E8733F00835600 /* SPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPoint.h; sourceTree = "<group>"; };
-		B29E224C12E8733F00835600 /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
+		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
+		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
+		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
+		B29E24BF12E9AD9600835600 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		B29E24C012E9AD9600835600 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		B29E259A12E9B9E200835600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B29E25CB12E9BA8B00835600 /* SPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPoint.h; sourceTree = "<group>"; };
+		B29E25CC12E9BA8B00835600 /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +116,7 @@
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */,
 				B29E213C12E8584800835600 /* SystemConfiguration.framework in Frameworks */,
+				B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +151,8 @@
 				B29E21B412E8640F00835600 /* ShopPointsViewController.m */,
 				B29E21B812E8643D00835600 /* ShopCategoriesViewController.h */,
 				B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */,
+				B29E247612E9990300835600 /* AddPointViewController.h */,
+				B29E247712E9990300835600 /* AddPointViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -167,6 +177,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				B29E218512E85ABD00835600 /* MapShopIPad-Info.plist */,
+				B29E259A12E9B9E200835600 /* CoreLocation.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B29E247812E9990300835600 /* AddPointViewController.xib */,
 				B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */,
 				B29E21B512E8640F00835600 /* ShopPointsViewController.xib */,
 				B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */,
@@ -303,6 +315,7 @@
 				B29E0A3E12E7441C00835600 /* ShopDetailedViewController.xib in Resources */,
 				B29E21B712E8640F00835600 /* ShopPointsViewController.xib in Resources */,
 				B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */,
+				B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +344,13 @@
 				B29E096812E7200C00835600 /* AreasViewController.m in Sources */,
 				B29E096C12E721A700835600 /* Area.m in Sources */,
 				B29E09A712E7246400835600 /* ShopsViewController.m in Sources */,
-				B29E09D212E7278C00835600 /* Shop.m in Sources */,
 				B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */,
 				B29E21B612E8640F00835600 /* ShopPointsViewController.m in Sources */,
 				B29E21BB12E8643D00835600 /* ShopCategoriesViewController.m in Sources */,
 				B29E21E612E86BF000835600 /* Category.m in Sources */,
-				B29E224D12E8733F00835600 /* SPoint.m in Sources */,
+				B29E247912E9990300835600 /* AddPointViewController.m in Sources */,
+				B29E24C312E9AD9600835600 /* Shop.m in Sources */,
+				B29E25CD12E9BA8B00835600 /* SPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,18 +526,18 @@
 			isa = XCVersionGroup;
 			children = (
 				28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */,
+				B29E24BF12E9AD9600835600 /* Shop.h */,
+				B29E24C012E9AD9600835600 /* Shop.m */,
 				B29E096A12E721A700835600 /* Area.h */,
 				B29E096B12E721A700835600 /* Area.m */,
 				B25B3E3412E6481F00F15585 /* regions.h */,
 				B25B3E3512E6481F00F15585 /* regions.m */,
 				B25B3E3612E6481F00F15585 /* cities.h */,
 				B25B3E3712E6481F00F15585 /* cities.m */,
-				B29E09D012E7278C00835600 /* Shop.h */,
-				B29E09D112E7278C00835600 /* Shop.m */,
 				B29E21E312E86BF000835600 /* Category.h */,
 				B29E21E412E86BF000835600 /* Category.m */,
-				B29E224B12E8733F00835600 /* SPoint.h */,
-				B29E224C12E8733F00835600 /* SPoint.m */,
+				B29E25CB12E9BA8B00835600 /* SPoint.h */,
+				B29E25CC12E9BA8B00835600 /* SPoint.m */,
 			);
 			currentVersion = 28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */;
 			path = MapShop.xcdatamodeld;
