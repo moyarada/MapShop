@@ -2,7 +2,7 @@
 //  Category.h
 //  MapShop
 //
-//  Created by Mike Bevz on 20/01/11.
+//  Created by Mike Bevz on 22/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 }
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSSet* shops;
 
 @end

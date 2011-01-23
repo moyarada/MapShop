@@ -22,11 +22,14 @@
 		B25B3B5B12E604F900F15585 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B3B5912E604F900F15585 /* CitiesViewController.m */; };
 		B25B3B5C12E604F900F15585 /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B3B5A12E604F900F15585 /* CitiesViewController.xib */; };
 		B25B3B7912E6070400F15585 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B25B3B7812E6070400F15585 /* Settings.bundle */; };
-		B25B3E3812E6481F00F15585 /* regions.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B3E3512E6481F00F15585 /* regions.m */; };
-		B25B3E3912E6481F00F15585 /* cities.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B3E3712E6481F00F15585 /* cities.m */; };
+		B28355D712EB869C001246FB /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CC12EB869C001246FB /* Area.m */; };
+		B28355D812EB869C001246FB /* cities.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* cities.m */; };
+		B28355D912EB869C001246FB /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D012EB869C001246FB /* Shop.m */; };
+		B28355DA12EB869C001246FB /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D212EB869C001246FB /* Category.m */; };
+		B28355DB12EB869C001246FB /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D412EB869C001246FB /* SPoint.m */; };
+		B28355DC12EB869C001246FB /* regions.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D612EB869C001246FB /* regions.m */; };
 		B29E096812E7200C00835600 /* AreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E096612E7200C00835600 /* AreasViewController.m */; };
 		B29E096912E7200C00835600 /* AreasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E096712E7200C00835600 /* AreasViewController.xib */; };
-		B29E096C12E721A700835600 /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E096B12E721A700835600 /* Area.m */; };
 		B29E09A712E7246400835600 /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E09A512E7246400835600 /* ShopsViewController.m */; };
 		B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E09A612E7246400835600 /* ShopsViewController.xib */; };
 		B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */; };
@@ -37,12 +40,9 @@
 		B29E21B712E8640F00835600 /* ShopPointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21B512E8640F00835600 /* ShopPointsViewController.xib */; };
 		B29E21BB12E8643D00835600 /* ShopCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */; };
 		B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */; };
-		B29E21E612E86BF000835600 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E21E412E86BF000835600 /* Category.m */; };
 		B29E247912E9990300835600 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E247712E9990300835600 /* AddPointViewController.m */; };
 		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
-		B29E24C312E9AD9600835600 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E24C012E9AD9600835600 /* Shop.m */; };
 		B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E259A12E9B9E200835600 /* CoreLocation.framework */; };
-		B29E25CD12E9BA8B00835600 /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E25CC12E9BA8B00835600 /* SPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,15 +68,21 @@
 		B25B3B5912E604F900F15585 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		B25B3B5A12E604F900F15585 /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CitiesViewController.xib; path = Classes/CitiesViewController.xib; sourceTree = "<group>"; };
 		B25B3B7812E6070400F15585 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		B25B3E3412E6481F00F15585 /* regions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regions.h; sourceTree = "<group>"; };
-		B25B3E3512E6481F00F15585 /* regions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = regions.m; sourceTree = "<group>"; };
-		B25B3E3612E6481F00F15585 /* cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cities.h; sourceTree = "<group>"; };
-		B25B3E3712E6481F00F15585 /* cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cities.m; sourceTree = "<group>"; };
+		B28355CB12EB869C001246FB /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
+		B28355CC12EB869C001246FB /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
+		B28355CD12EB869C001246FB /* cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cities.h; sourceTree = "<group>"; };
+		B28355CE12EB869C001246FB /* cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cities.m; sourceTree = "<group>"; };
+		B28355CF12EB869C001246FB /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		B28355D012EB869C001246FB /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		B28355D112EB869C001246FB /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		B28355D212EB869C001246FB /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		B28355D312EB869C001246FB /* SPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPoint.h; sourceTree = "<group>"; };
+		B28355D412EB869C001246FB /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
+		B28355D512EB869C001246FB /* regions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regions.h; sourceTree = "<group>"; };
+		B28355D612EB869C001246FB /* regions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = regions.m; sourceTree = "<group>"; };
 		B29E096512E7200C00835600 /* AreasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasViewController.h; sourceTree = "<group>"; };
 		B29E096612E7200C00835600 /* AreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasViewController.m; sourceTree = "<group>"; };
 		B29E096712E7200C00835600 /* AreasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreasViewController.xib; path = Classes/AreasViewController.xib; sourceTree = "<group>"; };
-		B29E096A12E721A700835600 /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
-		B29E096B12E721A700835600 /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
 		B29E09A412E7246400835600 /* ShopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopsViewController.h; sourceTree = "<group>"; };
 		B29E09A512E7246400835600 /* ShopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopsViewController.m; sourceTree = "<group>"; };
 		B29E09A612E7246400835600 /* ShopsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopsViewController.xib; path = Classes/ShopsViewController.xib; sourceTree = "<group>"; };
@@ -93,16 +99,10 @@
 		B29E21B812E8643D00835600 /* ShopCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCategoriesViewController.h; sourceTree = "<group>"; };
 		B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCategoriesViewController.m; sourceTree = "<group>"; };
 		B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopCategoriesViewController.xib; path = Classes/ShopCategoriesViewController.xib; sourceTree = "<group>"; };
-		B29E21E312E86BF000835600 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		B29E21E412E86BF000835600 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
-		B29E24BF12E9AD9600835600 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
-		B29E24C012E9AD9600835600 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		B29E259A12E9B9E200835600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B29E25CB12E9BA8B00835600 /* SPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPoint.h; sourceTree = "<group>"; };
-		B29E25CC12E9BA8B00835600 /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,18 +339,18 @@
 				B25B364D12E4544800F15585 /* RootViewController.m in Sources */,
 				B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */,
 				B25B3B5B12E604F900F15585 /* CitiesViewController.m in Sources */,
-				B25B3E3812E6481F00F15585 /* regions.m in Sources */,
-				B25B3E3912E6481F00F15585 /* cities.m in Sources */,
 				B29E096812E7200C00835600 /* AreasViewController.m in Sources */,
-				B29E096C12E721A700835600 /* Area.m in Sources */,
 				B29E09A712E7246400835600 /* ShopsViewController.m in Sources */,
 				B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */,
 				B29E21B612E8640F00835600 /* ShopPointsViewController.m in Sources */,
 				B29E21BB12E8643D00835600 /* ShopCategoriesViewController.m in Sources */,
-				B29E21E612E86BF000835600 /* Category.m in Sources */,
 				B29E247912E9990300835600 /* AddPointViewController.m in Sources */,
-				B29E24C312E9AD9600835600 /* Shop.m in Sources */,
-				B29E25CD12E9BA8B00835600 /* SPoint.m in Sources */,
+				B28355D712EB869C001246FB /* Area.m in Sources */,
+				B28355D812EB869C001246FB /* cities.m in Sources */,
+				B28355D912EB869C001246FB /* Shop.m in Sources */,
+				B28355DA12EB869C001246FB /* Category.m in Sources */,
+				B28355DB12EB869C001246FB /* SPoint.m in Sources */,
+				B28355DC12EB869C001246FB /* regions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,18 +526,18 @@
 			isa = XCVersionGroup;
 			children = (
 				28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */,
-				B29E24BF12E9AD9600835600 /* Shop.h */,
-				B29E24C012E9AD9600835600 /* Shop.m */,
-				B29E096A12E721A700835600 /* Area.h */,
-				B29E096B12E721A700835600 /* Area.m */,
-				B25B3E3412E6481F00F15585 /* regions.h */,
-				B25B3E3512E6481F00F15585 /* regions.m */,
-				B25B3E3612E6481F00F15585 /* cities.h */,
-				B25B3E3712E6481F00F15585 /* cities.m */,
-				B29E21E312E86BF000835600 /* Category.h */,
-				B29E21E412E86BF000835600 /* Category.m */,
-				B29E25CB12E9BA8B00835600 /* SPoint.h */,
-				B29E25CC12E9BA8B00835600 /* SPoint.m */,
+				B28355CB12EB869C001246FB /* Area.h */,
+				B28355CC12EB869C001246FB /* Area.m */,
+				B28355CD12EB869C001246FB /* cities.h */,
+				B28355CE12EB869C001246FB /* cities.m */,
+				B28355CF12EB869C001246FB /* Shop.h */,
+				B28355D012EB869C001246FB /* Shop.m */,
+				B28355D112EB869C001246FB /* Category.h */,
+				B28355D212EB869C001246FB /* Category.m */,
+				B28355D312EB869C001246FB /* SPoint.h */,
+				B28355D412EB869C001246FB /* SPoint.m */,
+				B28355D512EB869C001246FB /* regions.h */,
+				B28355D612EB869C001246FB /* regions.m */,
 			);
 			currentVersion = 28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */;
 			path = MapShop.xcdatamodeld;

@@ -2,7 +2,7 @@
 //  Shop.m
 //  MapShop
 //
-//  Created by Mike Bevz on 21/01/11.
+//  Created by Mike Bevz on 22/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 
 @implementation Shop 
 
+@dynamic id;
 @dynamic name;
 @dynamic comment;
 @dynamic points;

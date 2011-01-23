@@ -2,7 +2,7 @@
 //  regions.m
 //  MapShop
 //
-//  Created by Mike Bevz on 18/01/11.
+//  Created by Mike Bevz on 22/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 @implementation regions 
 
 @dynamic name;
+@dynamic id;
 @dynamic cities;
 
 @end
