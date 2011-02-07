@@ -21,13 +21,24 @@
 		B25B37C412E46B2B00F15585 /* AddRegionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B37C212E46B2B00F15585 /* AddRegionController.xib */; };
 		B25B3B5B12E604F900F15585 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B3B5912E604F900F15585 /* CitiesViewController.m */; };
 		B25B3B5C12E604F900F15585 /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B3B5A12E604F900F15585 /* CitiesViewController.xib */; };
-		B25B3B7912E6070400F15585 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B25B3B7812E6070400F15585 /* Settings.bundle */; };
 		B28355D712EB869C001246FB /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CC12EB869C001246FB /* Area.m */; };
-		B28355D812EB869C001246FB /* cities.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* cities.m */; };
+		B28355D812EB869C001246FB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* City.m */; };
 		B28355D912EB869C001246FB /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D012EB869C001246FB /* Shop.m */; };
 		B28355DA12EB869C001246FB /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D212EB869C001246FB /* Category.m */; };
 		B28355DB12EB869C001246FB /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D412EB869C001246FB /* SPoint.m */; };
-		B28355DC12EB869C001246FB /* regions.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D612EB869C001246FB /* regions.m */; };
+		B28355DC12EB869C001246FB /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D612EB869C001246FB /* Region.m */; };
+		B290453012FDD3900090A524 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452B12FDD3750090A524 /* libRestKitCoreData.a */; };
+		B290453312FDD3960090A524 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452112FDD3750090A524 /* libRestKitNetwork.a */; };
+		B290453412FDD3970090A524 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452312FDD3750090A524 /* libRestKitObjectMapping.a */; };
+		B290453E12FDD3A60090A524 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452512FDD3750090A524 /* libRestKitSupport.a */; };
+		B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B290454D12FDD3D80090A524 /* MobileCoreServices.framework */; };
+		B290465812FDE5CA0090A524 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */; };
+		B29047F812FE1E4A0090A524 /* BG.png in Resources */ = {isa = PBXBuildFile; fileRef = B29047F612FE1E4A0090A524 /* BG.png */; };
+		B29047F912FE1E4A0090A524 /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29047F712FE1E4A0090A524 /* BG@2x.png */; };
+		B290481512FF1E210090A524 /* RegionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B290481312FF1E210090A524 /* RegionsViewController.m */; };
+		B290481612FF1E210090A524 /* RegionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290481412FF1E210090A524 /* RegionsViewController.xib */; };
+		B29048CA12FF2BA90090A524 /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C812FF2BA90090A524 /* listbg.png */; };
+		B29048CB12FF2BA90090A524 /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C912FF2BA90090A524 /* listbg@2x.png */; };
 		B29E096812E7200C00835600 /* AreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E096612E7200C00835600 /* AreasViewController.m */; };
 		B29E096912E7200C00835600 /* AreasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E096712E7200C00835600 /* AreasViewController.xib */; };
 		B29E09A712E7246400835600 /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E09A512E7246400835600 /* ShopsViewController.m */; };
@@ -44,6 +55,72 @@
 		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
 		B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E259A12E9B9E200835600 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B290452012FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A07FC1255161B00976E89;
+			remoteInfo = RestKitNetwork;
+		};
+		B290452212FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A08031255162C00976E89;
+			remoteInfo = RestKitObjectMapping;
+		};
+		B290452412FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A080C12551D3000976E89;
+			remoteInfo = RestKitSupport;
+		};
+		B290452612FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E64F125231F600531FA8;
+			remoteInfo = "RestKitJSONParser+YAJL";
+		};
+		B290452812FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E66B1252353700531FA8;
+			remoteInfo = "RestKitJSONParser+SBJSON";
+		};
+		B290452A12FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A081412551D5300976E89;
+			remoteInfo = RestKitCoreData;
+		};
+		B290452C12FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2523360511E79F090048F9B4;
+			remoteInfo = RestKitThree20;
+		};
+		B290452E12FDD3750090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
+			remoteInfo = UISpec;
+		};
+		B290455612FDD5D90090A524 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25956956126DF0A8004BAC4C;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,19 +144,27 @@
 		B25B3B5812E604F900F15585 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		B25B3B5912E604F900F15585 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		B25B3B5A12E604F900F15585 /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CitiesViewController.xib; path = Classes/CitiesViewController.xib; sourceTree = "<group>"; };
-		B25B3B7812E6070400F15585 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B28355CB12EB869C001246FB /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
 		B28355CC12EB869C001246FB /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
-		B28355CD12EB869C001246FB /* cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cities.h; sourceTree = "<group>"; };
-		B28355CE12EB869C001246FB /* cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cities.m; sourceTree = "<group>"; };
+		B28355CD12EB869C001246FB /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		B28355CE12EB869C001246FB /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		B28355CF12EB869C001246FB /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		B28355D012EB869C001246FB /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		B28355D112EB869C001246FB /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		B28355D212EB869C001246FB /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		B28355D312EB869C001246FB /* SPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPoint.h; sourceTree = "<group>"; };
 		B28355D412EB869C001246FB /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
-		B28355D512EB869C001246FB /* regions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regions.h; sourceTree = "<group>"; };
-		B28355D612EB869C001246FB /* regions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = regions.m; sourceTree = "<group>"; };
+		B28355D512EB869C001246FB /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		B28355D612EB869C001246FB /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
+		B290450A12FDD3750090A524 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		B290454D12FDD3D80090A524 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B29047F612FE1E4A0090A524 /* BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG.png; sourceTree = "<group>"; };
+		B29047F712FE1E4A0090A524 /* BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG@2x.png"; sourceTree = "<group>"; };
+		B290481212FF1E210090A524 /* RegionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionsViewController.h; sourceTree = "<group>"; };
+		B290481312FF1E210090A524 /* RegionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionsViewController.m; sourceTree = "<group>"; };
+		B290481412FF1E210090A524 /* RegionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegionsViewController.xib; path = Classes/RegionsViewController.xib; sourceTree = "<group>"; };
+		B29048C812FF2BA90090A524 /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
+		B29048C912FF2BA90090A524 /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
 		B29E096512E7200C00835600 /* AreasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasViewController.h; sourceTree = "<group>"; };
 		B29E096612E7200C00835600 /* AreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasViewController.m; sourceTree = "<group>"; };
 		B29E096712E7200C00835600 /* AreasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreasViewController.xib; path = Classes/AreasViewController.xib; sourceTree = "<group>"; };
@@ -117,6 +202,12 @@
 				B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */,
 				B29E213C12E8584800835600 /* SystemConfiguration.framework in Frameworks */,
 				B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */,
+				B290453012FDD3900090A524 /* libRestKitCoreData.a in Frameworks */,
+				B290453312FDD3960090A524 /* libRestKitNetwork.a in Frameworks */,
+				B290453412FDD3970090A524 /* libRestKitObjectMapping.a in Frameworks */,
+				B290453E12FDD3A60090A524 /* libRestKitSupport.a in Frameworks */,
+				B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */,
+				B290465812FDE5CA0090A524 /* libRestKitJSONParserYAJL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +244,8 @@
 				B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */,
 				B29E247612E9990300835600 /* AddPointViewController.h */,
 				B29E247712E9990300835600 /* AddPointViewController.m */,
+				B290481212FF1E210090A524 /* RegionsViewController.h */,
+				B290481312FF1E210090A524 /* RegionsViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -169,6 +262,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B290450A12FDD3750090A524 /* RestKit.xcodeproj */,
 				B25B37BD12E46ACD00F15585 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -194,6 +288,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B29048C812FF2BA90090A524 /* listbg.png */,
+				B29048C912FF2BA90090A524 /* listbg@2x.png */,
+				B290481412FF1E210090A524 /* RegionsViewController.xib */,
+				B29047F612FE1E4A0090A524 /* BG.png */,
+				B29047F712FE1E4A0090A524 /* BG@2x.png */,
 				B29E247812E9990300835600 /* AddPointViewController.xib */,
 				B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */,
 				B29E21B512E8640F00835600 /* ShopPointsViewController.xib */,
@@ -205,7 +304,6 @@
 				B25B364C12E4544800F15585 /* RootViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* MapShop-Info.plist */,
-				B25B3B7812E6070400F15585 /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -219,6 +317,7 @@
 				28D801B30F44B63D00FB423F /* CoreData.framework */,
 				B29E213712E8583D00835600 /* CFNetwork.framework */,
 				B29E213B12E8584800835600 /* SystemConfiguration.framework */,
+				B290454D12FDD3D80090A524 /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,6 +328,21 @@
 				2819305F112F816700ECF9B4 /* MapShop.xcdatamodeld */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		B290450B12FDD3750090A524 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B290452112FDD3750090A524 /* libRestKitNetwork.a */,
+				B290452312FDD3750090A524 /* libRestKitObjectMapping.a */,
+				B290452512FDD3750090A524 /* libRestKitSupport.a */,
+				B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */,
+				B290452912FDD3750090A524 /* libRestKitJSONParserSBJSON.a */,
+				B290452B12FDD3750090A524 /* libRestKitCoreData.a */,
+				B290452D12FDD3750090A524 /* libRestKitThree20.a */,
+				B290452F12FDD3750090A524 /* UISpec.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B29E218912E85AC400835600 /* Resources-iPad */ = {
@@ -252,6 +366,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B290455712FDD5D90090A524 /* PBXTargetDependency */,
 			);
 			name = MapShop;
 			productName = MapShop;
@@ -292,6 +407,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B290450B12FDD3750090A524 /* Products */;
+					ProjectRef = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MapShop */,
@@ -299,6 +420,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B290452112FDD3750090A524 /* libRestKitNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitNetwork.a;
+			remoteRef = B290452012FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452312FDD3750090A524 /* libRestKitObjectMapping.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitObjectMapping.a;
+			remoteRef = B290452212FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452512FDD3750090A524 /* libRestKitSupport.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitSupport.a;
+			remoteRef = B290452412FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserYAJL.a;
+			remoteRef = B290452612FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452912FDD3750090A524 /* libRestKitJSONParserSBJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserSBJSON.a;
+			remoteRef = B290452812FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452B12FDD3750090A524 /* libRestKitCoreData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitCoreData.a;
+			remoteRef = B290452A12FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452D12FDD3750090A524 /* libRestKitThree20.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitThree20.a;
+			remoteRef = B290452C12FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B290452F12FDD3750090A524 /* UISpec.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UISpec.app;
+			remoteRef = B290452E12FDD3750090A524 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -309,13 +489,17 @@
 				B25B364E12E4544800F15585 /* RootViewController.xib in Resources */,
 				B25B37C412E46B2B00F15585 /* AddRegionController.xib in Resources */,
 				B25B3B5C12E604F900F15585 /* CitiesViewController.xib in Resources */,
-				B25B3B7912E6070400F15585 /* Settings.bundle in Resources */,
 				B29E096912E7200C00835600 /* AreasViewController.xib in Resources */,
 				B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */,
 				B29E0A3E12E7441C00835600 /* ShopDetailedViewController.xib in Resources */,
 				B29E21B712E8640F00835600 /* ShopPointsViewController.xib in Resources */,
 				B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */,
 				B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */,
+				B29047F812FE1E4A0090A524 /* BG.png in Resources */,
+				B29047F912FE1E4A0090A524 /* BG@2x.png in Resources */,
+				B290481612FF1E210090A524 /* RegionsViewController.xib in Resources */,
+				B29048CA12FF2BA90090A524 /* listbg.png in Resources */,
+				B29048CB12FF2BA90090A524 /* listbg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +530,12 @@
 				B29E21BB12E8643D00835600 /* ShopCategoriesViewController.m in Sources */,
 				B29E247912E9990300835600 /* AddPointViewController.m in Sources */,
 				B28355D712EB869C001246FB /* Area.m in Sources */,
-				B28355D812EB869C001246FB /* cities.m in Sources */,
+				B28355D812EB869C001246FB /* City.m in Sources */,
 				B28355D912EB869C001246FB /* Shop.m in Sources */,
 				B28355DA12EB869C001246FB /* Category.m in Sources */,
 				B28355DB12EB869C001246FB /* SPoint.m in Sources */,
-				B28355DC12EB869C001246FB /* regions.m in Sources */,
+				B28355DC12EB869C001246FB /* Region.m in Sources */,
+				B290481512FF1E210090A524 /* RegionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +548,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B290455712FDD5D90090A524 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = B290455612FDD5D90090A524 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -374,17 +567,23 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_SHADOW = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				HEADER_SEARCH_PATHS = ./RestKit/Build;
 				INFOPLIST_FILE = "MapShop-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = MapShop;
 				SDKROOT = iphoneos4.1;
@@ -396,12 +595,25 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				HEADER_SEARCH_PATHS = RestKit/build;
 				INFOPLIST_FILE = "MapShop-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = MapShop;
 				SDKROOT = iphoneos4.1;
@@ -528,16 +740,16 @@
 				28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */,
 				B28355CB12EB869C001246FB /* Area.h */,
 				B28355CC12EB869C001246FB /* Area.m */,
-				B28355CD12EB869C001246FB /* cities.h */,
-				B28355CE12EB869C001246FB /* cities.m */,
+				B28355CD12EB869C001246FB /* City.h */,
+				B28355CE12EB869C001246FB /* City.m */,
 				B28355CF12EB869C001246FB /* Shop.h */,
 				B28355D012EB869C001246FB /* Shop.m */,
 				B28355D112EB869C001246FB /* Category.h */,
 				B28355D212EB869C001246FB /* Category.m */,
 				B28355D312EB869C001246FB /* SPoint.h */,
 				B28355D412EB869C001246FB /* SPoint.m */,
-				B28355D512EB869C001246FB /* regions.h */,
-				B28355D612EB869C001246FB /* regions.m */,
+				B28355D512EB869C001246FB /* Region.h */,
+				B28355D612EB869C001246FB /* Region.m */,
 			);
 			currentVersion = 28C3AD890F43EF2300507BA6 /* MapShop.xcdatamodel */;
 			path = MapShop.xcdatamodeld;

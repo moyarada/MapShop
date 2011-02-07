@@ -8,8 +8,8 @@
 
 #import "AddRegionController.h"
 #import "MapShopAppDelegate.h"
-#import "regions.h"
-#import "cities.h";
+#import "Region.h"
+#import "City.h";
 #import "Area.h"
 #import "Shop.h"
 #import "SPoint.h"
@@ -51,62 +51,62 @@
 
 -(IBAction)saveData {
 	
-	MapShopAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-	NSManagedObjectContext *context = [appDelegate managedObjectContext];
+	//MapShopAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	//NSManagedObjectContext *context = [appDelegate managedObjectContext];
 	
 	//NSManagedObject *newRegion;
 	//newRegion = [NSEntityDescription insertNewObjectForEntityForName:@"regions" inManagedObjectContext:context];
 	//[newRegion setValue:regionName.text forKey:@"name"];
 	if (item == @"Region") {
-		regions *model = (regions *)[NSEntityDescription insertNewObjectForEntityForName:item inManagedObjectContext:context];
-		[model setName:regionName.text];
+	//	regions *model = (regions *)[NSEntityDescription insertNewObjectForEntityForName:item inManagedObjectContext:context];
+	//	[model setName:regionName.text];
 	}	
 	
 	if (item == @"City") {
-		cities *model = (cities *)[NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
+	//	cities *model = (cities *)[NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
 		
-		[model setName: regionName.text];
-		[model setRegion: (regions *)parent];
+	//	[model setName: regionName.text];
+	//	[model setRegion: (regions *)parent];
 		//(regions*)[parent addCitiesObject: model];
 		//regions *regs = (regions *)[NSEntityDescription entityForName:parent inManagedObjectContext:context];
 		//[model regions:regs];
 	}
 	
 	if (item == @"Area") {
-		Area *model = (Area *)[NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:context];
+	//	Area *model = (Area *)[NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:context];
 		
-		[model setName:regionName.text];
-		[model setCity:(cities *)parent];
+	//	[model setName:regionName.text];
+	//	[model setCity:(cities *)parent];
 		
 	}
 	
 	if (item == @"Shop") {
-		Shop *model = (Shop *)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
+	//	Shop *model = (Shop *)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
 		
-		[model setName:regionName.text];
-		[model setArea:(Area *)parent];
+	//	[model setName:regionName.text];
+	//	[model setArea:(Area *)parent];
 	}
 	
 	if (item == @"SPoint") {
-		SPoint *model = (SPoint *)[NSEntityDescription insertNewObjectForEntityForName:@"SPoint" inManagedObjectContext:context];
+	//	SPoint *model = (SPoint *)[NSEntityDescription insertNewObjectForEntityForName:@"SPoint" inManagedObjectContext:context];
 		
-		[model setName:regionName.text];
-		[model setShop:(Shop *) parent];
+	//	[model setName:regionName.text];
+	//	[model setShop:(Shop *) parent];
 		
 	}
 	
 	regionName.text = @"";
 	
-	NSError *error;
+	//NSError *error;
 	
-	if (![context save:&error]) {
-		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	}
+	//if (![context save:&error]) {
+	//	NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+	//}
 	
-	RootViewController *rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
+	//RootViewController *rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
 	
-	[appDelegate.navigationController popViewControllerAnimated:YES];
-	[rootViewController release];
+	//[appDelegate.navigationController popViewControllerAnimated:YES];
+	//[rootViewController release];
 	
 }
 

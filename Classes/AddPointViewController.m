@@ -54,7 +54,7 @@
 #pragma mark Actions
 
 -(IBAction)saveData {
-	
+	/*
 	MapShopAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 	NSManagedObjectContext *context = [appDelegate managedObjectContext];
 	
@@ -76,10 +76,10 @@
 	if (![context save:&error]) {
 		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
 	}
-	
+	*/
 	//RootViewController *rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
 	
-	[appDelegate.navigationController popViewControllerAnimated:YES];
+	//[appDelegate.navigationController popViewControllerAnimated:YES];
 	//[rootViewController release];
 	
 }

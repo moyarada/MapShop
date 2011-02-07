@@ -9,7 +9,7 @@
 #import "Area.h"
 
 #import "Shop.h"
-#import "cities.h"
+#import "City.h"
 
 @implementation Area 
 
