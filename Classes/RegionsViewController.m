@@ -8,6 +8,9 @@
 
 #import "RegionsViewController.h"
 #import "Region.h"
+#import "City.h"
+#import "CitiesViewController.h"
+#import "AddRegionController.h"
 
 @implementation RegionsViewController
 
@@ -35,19 +38,40 @@
 	_tableView.backgroundColor = [UIColor clearColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 		
-	UIBarButtonItem* reloadItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonWasPressed:)] autorelease];
-	[self.navigationItem setRightBarButtonItem:reloadItem];
+	//UIBarButtonItem* reloadItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonWasPressed:)] autorelease];
+	//[self.navigationItem setRightBarButtonItem:reloadItem];
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
+	self.navigationItem.rightBarButtonItem = addButton;
 	
+	[self loadData];
 	[self loadObjectsFromDataStore];
 	
 
 }
+
+
+#pragma mark -
+#pragma mark Actions
+
+- (void)addNewItem {
+	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
+	addRegionController.item = @"Region";
+	addRegionController.parent = currentRegion;
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
+	
+	[self.navigationController pushViewController:addRegionController animated:YES];
+	
+	[navController release];
+	[addRegionController release];
+}
+
 
 #pragma mark -
 #pragma mark RestKit
 
 - (void)loadObjectsFromDataStore {
 	[_statuses release];
+	NSLog(@"Loading data from Store");
 	NSFetchRequest* request = [Region fetchRequest];
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
@@ -57,6 +81,7 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+	NSLog(@"Objects loaded");
 	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	NSLog(@"Loaded regions: %@", objects);
@@ -71,12 +96,15 @@
 }
 
 - (void)loadData {
+	NSLog(@"Loading data");
 	RKObjectManager* objectManager = [RKObjectManager sharedManager];
 	[[objectManager loadObjectsAtResourcePath:@"/regions.json" objectClass:[Region class] delegate:self] retain];
+	NSLog(@"Loading data");
 }
 
 - (void)reloadButtonWasPressed:(id)sender {
 	// Load the object model via RestKit
+	NSLog(@"push the button");
 	[self loadData];
 }
 
@@ -121,15 +149,11 @@
 #pragma mark -
 #pragma mark Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return [_statuses count];
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return [_statuses count];
 }
 
 
@@ -145,7 +169,7 @@
 		cell.textLabel.backgroundColor = [UIColor clearColor];
 		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];
 	}
-	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
+	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] name];
 	return cell;
 }
 
@@ -212,10 +236,19 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+	
+	CitiesViewController *cityViewController = [[CitiesViewController alloc] initWithNibName:@"CitiesViewController" bundle:[NSBundle mainBundle]];
+	
+	cityViewController.currentRegion = [_statuses objectAtIndex:indexPath.row];	
+	cityViewController.navigationController = self.navigationController;
+	
+	[self.navigationController pushViewController:cityViewController animated:YES];
+	[cityViewController release];
+	
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CGSize size = [[[_statuses objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
+	CGSize size = [[[_statuses objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
 	return size.height + 10;
 }
 
@@ -237,6 +270,8 @@
 
 
 - (void)dealloc {
+	[_tableView release];
+	[_statuses release];
     [super dealloc];
 }
 

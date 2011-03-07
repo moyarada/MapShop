@@ -13,13 +13,13 @@
 	UITextField *regionName;
 	UIButton *submitBtn;
 	NSString *item;
-	NSManagedObject *parent;
+	NSArray *parent;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *regionName;
 @property (nonatomic, retain) IBOutlet UIButton *submitBtn;
 @property (nonatomic, retain) NSString *item;
-@property (nonatomic, retain) NSManagedObject *parent;
+@property (nonatomic, retain) NSArray *parent;
 
 -(IBAction)saveData;
 @end

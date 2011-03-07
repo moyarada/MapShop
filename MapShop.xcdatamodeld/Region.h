@@ -8,15 +8,14 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-//#import "cities.h"
-//@class cities;
 
-@interface Region :  RKManagedObject  
+@interface Region : RKManagedObject  
 {
+
 }
 
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, retain) NSNumber* id;
-//@property (nonatomic, retain) NSSet* cities;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * comment;
 
 @end

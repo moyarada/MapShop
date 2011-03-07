@@ -7,22 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 #import "AreasViewController.h"
 
-
-@interface CitiesViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface CitiesViewController : UITableViewController <RKObjectLoaderDelegate> {
 
 @private 
-	NSFetchedResultsController *fetchedResultsController_;
-    NSManagedObjectContext *managedObjectContext_;
-	NSManagedObject *currentRegion;
+	NSArray *currentRegion;
 	AreasViewController *areasViewController;
 	UINavigationController *navigationController;
+	NSArray* cities;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObject *currentRegion;
+@property (nonatomic, retain) NSArray *currentRegion;
 @property (nonatomic, retain) UINavigationController *navigationController;
+
+- (void)loadObjectsFromDataStore;
 
 @end

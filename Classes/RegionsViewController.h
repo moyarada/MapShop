@@ -12,8 +12,10 @@
 @interface RegionsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> {
 	UITableView* _tableView;
 	NSArray* _statuses;
+	NSArray* currentRegion;
 }
 
 - (void)loadObjectsFromDataStore;
+- (void)loadData;
 
 @end

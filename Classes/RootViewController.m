@@ -208,13 +208,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	cityViewController = [[CitiesViewController alloc] initWithNibName:@"CitiesViewController" bundle:[NSBundle mainBundle]];
-	cityViewController.managedObjectContext = self.managedObjectContext;
+	//cityViewController.managedObjectContext = self.managedObjectContext;
 	
-	NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	cityViewController.currentRegion = managedObject;	
+	//NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	//cityViewController.currentRegion = managedObject;	
 	cityViewController.navigationController = navigationController;
 	
 	[navigationController pushViewController:cityViewController animated:YES];
+	
 	[cityViewController release];
 	/*
 	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

@@ -10,7 +10,7 @@
 #import <RestKit/CoreData/CoreData.h>
 #import "Region.h"
 //@class Area;
-//@class regions;
+@class Region;
 
 @interface City :  RKManagedObject   
 {
@@ -19,6 +19,7 @@
 
 @property (nonatomic, retain) NSNumber* id;
 @property (nonatomic, retain) NSString* name;
+@property (nonatomic, retain) NSString* comment;
 @property (nonatomic, retain) Region* region;
 //@property (nonatomic, retain) NSSet* areas;
 

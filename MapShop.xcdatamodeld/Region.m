@@ -10,9 +10,9 @@
 
 @implementation Region 
 
-@dynamic name;
 @dynamic id;
-//@dynamic cities;
+@dynamic name;
+@dynamic comment;
 
 #pragma mark RKObjectMappable methods
 
@@ -20,12 +20,12 @@
 	return [NSDictionary dictionaryWithKeysAndObjects:
 			@"id", @"id",
 			@"name", @"name",
+			@"comment", @"description",
 			nil];
 }
 
 + (NSString*)primaryKeyProperty {
 	return @"id";
 }
-
 
 @end

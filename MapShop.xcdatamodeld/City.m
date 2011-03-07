@@ -15,7 +15,7 @@
 
 @dynamic id;
 @dynamic name;
-@dynamic region;
+//@dynamic region;
 //@dynamic areas;
 
 #pragma mark RKObjectMappable methods
@@ -24,6 +24,8 @@
 	return [NSDictionary dictionaryWithKeysAndObjects:
 			@"id", @"id",
 			@"name", @"name",
+			@"comment", @"description",
+			@"region_id",@"region_id",
 			nil];
 }
 

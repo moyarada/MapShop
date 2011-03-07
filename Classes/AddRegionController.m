@@ -36,6 +36,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	
+	
 }
 
 
@@ -60,6 +63,7 @@
 	if (item == @"Region") {
 	//	regions *model = (regions *)[NSEntityDescription insertNewObjectForEntityForName:item inManagedObjectContext:context];
 	//	[model setName:regionName.text];
+		
 	}	
 	
 	if (item == @"City") {
