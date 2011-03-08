@@ -9,10 +9,13 @@
 #import "GenericTableViewController.h"
 #import "AddRegionController.h"
 #import "City.h"
+#import "MapShopAppDelegate.h"
 
 @implementation GenericTableViewController
 
-@synthesize currentItem, parentItem, navigationController, parentId, entityName;
+@synthesize currentItem, parentItem;
+@synthesize navigationController;
+@synthesize parentId, entityName;
 
 #pragma mark -
 #pragma mark Initialization
@@ -35,14 +38,14 @@
 - (void)addNewItem {
 	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
 	addRegionController.item = self.entityName;
-	//addRegionController.parent = currentItem;
-	addRegionController.parentId = self.parentId;
+	if ([self parentId]) {
+		addRegionController.parentId = self.parentId;
+	}
+	
 	addRegionController.navigationController = self.navigationController;
-	//UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
 	
 	[self.navigationController pushViewController:addRegionController animated:YES];
-	
-	//[navController release];
+
 	[addRegionController release];
 }
 
@@ -72,14 +75,15 @@
 	_tableView.backgroundColor = [UIColor clearColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	
-	
+	MapShopAppDelegate *appDelegate = (MapShopAppDelegate *)[[UIApplication sharedApplication] delegate];
+	self.navigationController = [appDelegate navigationController];
 	
 	
 }
 
 - (void) setOptions {
-	self.currentItem = [City object];
-	self.entityName = @"City";
+	//self.currentItem = [Region object];
+	//self.entityName = @"Region";
 }
 
 - (void)viewDidLoad {
@@ -90,9 +94,9 @@
 	
 	[addButton release];
 	
-	[self loadData];
-	[self loadObjectsFromDataStore];
 	
+	//[self loadObjectsFromDataStore];
+	[self loadData];
 	
 }
 
@@ -210,20 +214,32 @@
 	//NSLog(@"Objects loaded");
 	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"Loaded items: %@", objects);
+	NSLog(@"Loaded items in generic: %@", objects);
 	[self loadObjectsFromDataStore];
-	
 	[_tableView reloadData];
 	
-	
 }
-
-
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 	[alert show];
 	NSLog(@"Hit error: %@", error);
+}
+
+- (void)loadObjectsFromDataStore {
+	[_items release];
+	NSLog(@"Loading data from Store in generic");
+	NSFetchRequest* request = [[currentItem class] fetchRequest];
+	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+	
+	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
+	//[request setPredicate:predicate];
+	
+	_items = [[[currentItem class] objectsWithFetchRequest:request] retain];
+	NSLog(@" Items in generic = %@", _items);
+	
+	
 }
 
 - (void)loadData {

@@ -6,15 +6,15 @@
 	<dict>
 		<key>AddPointViewController.nib</key>
 		<data>
-		OehEAQEJvkonxAOz11RKfqVaDy0=
+		nBJtsrD0jr+jTUeKMvoFx6kk4hk=
 		</data>
 		<key>AddRegionController.nib</key>
 		<data>
-		KDguAoB1P7Gp29R30lvGUSqrxQ8=
+		aeWzQHSnAwGyyqbsSabxw2pgGPY=
 		</data>
 		<key>AreasViewController.nib</key>
 		<data>
-		xXMP9ie7xIeHWYTKgZ8frfJEdK0=
+		+ZoT/fQpKkklaHb7FCaQfOhvL2k=
 		</data>
 		<key>BG.png</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>CitiesViewController.nib</key>
 		<data>
-		+ZoT/fQpKkklaHb7FCaQfOhvL2k=
+		KNhrA/8N1zOZ3tn4blbSHnKHQow=
 		</data>
 		<key>MainWindow.nib</key>
 		<data>
@@ -42,19 +42,19 @@
 		</data>
 		<key>RegionsViewController.nib</key>
 		<data>
-		xXMP9ie7xIeHWYTKgZ8frfJEdK0=
+		Vmzx8rVpAvIli9vZHbgh8luLjrY=
 		</data>
 		<key>RootViewController.nib</key>
 		<data>
-		2UYRxp45jdmY4YbFKpdRJj5ArPU=
+		A44dkir1EPxvrrh9N/CQblHjoSI=
 		</data>
 		<key>ShopCategoriesViewController.nib</key>
 		<data>
-		Vmzx8rVpAvIli9vZHbgh8luLjrY=
+		xXMP9ie7xIeHWYTKgZ8frfJEdK0=
 		</data>
 		<key>ShopDetailedViewController.nib</key>
 		<data>
-		QrO7zdpjI9G2Yq63jDc60prkBzE=
+		B4j6RLngY093R/9NqYZ5K5b75Tk=
 		</data>
 		<key>ShopPointsViewController.nib</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>ShopsViewController.nib</key>
 		<data>
-		xXMP9ie7xIeHWYTKgZ8frfJEdK0=
+		Vmzx8rVpAvIli9vZHbgh8luLjrY=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>

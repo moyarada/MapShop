@@ -9,11 +9,14 @@
 #import "MapShopAppDelegate.h"
 #import "Region.h"
 #import "City.h"
-#import "RegionsViewController.h"
+#import "RegionViewController+Generic.h"
 #import "Area.h"
 
 
+
 @implementation MapShopAppDelegate
+
+@synthesize window, navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -74,12 +77,25 @@
 	//[dateFormats addObject:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
 	//[mapper setDateFormats:dateFormats];
 	
-	RegionsViewController* viewController = [[[RegionsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
-	UINavigationController* controller = [[UINavigationController alloc] initWithRootViewController:viewController];
-	UIWindow* window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	//RegionsViewController* viewController = [[[RegionsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
 	
-	[window addSubview:controller.view];
-    [window makeKeyAndVisible];
+	RegionViewController_Generic* genericViewController = [[RegionViewController_Generic alloc] initWithNibName:nil bundle:nil];
+	//Region* record = [Region objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
+	//genericViewController.parentItem = record;
+	//genericViewController.parentId = [record id];
+	
+	//genericViewController.navigationController = self.navigationController;
+	genericViewController.title = @"Regions";
+	
+	UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:genericViewController] autorelease];
+	
+	[self setNavigationController:controller];
+	[controller release];
+	self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	
+	
+	[self.window addSubview:[navigationController view]];
+    [self.window makeKeyAndVisible];
 	
     
     return YES;
@@ -87,7 +103,7 @@
 
 
 - (void)dealloc {
-    
+    [navigationController release];
     [super dealloc];
 }
 

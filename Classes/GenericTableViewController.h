@@ -10,13 +10,14 @@
 #import <RestKit/CoreData/CoreData.h>
 
 
-@interface GenericTableViewController : UITableViewController <RKObjectLoaderDelegate> {
+@interface GenericTableViewController : UITableViewController {
 	UITableView* _tableView;
 	NSArray* _items;
 	RKManagedObject* currentItem;
 	RKManagedObject* parentItem;
 	NSNumber* parentId;
 	NSString* entityName;
+	UINavigationController *navigationController;
 }
 
 @property (nonatomic, retain) RKManagedObject* currentItem;

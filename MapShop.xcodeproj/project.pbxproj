@@ -18,6 +18,7 @@
 		B255181413258011008BBECF /* GenericTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B255181313258011008BBECF /* GenericTableViewController.m */; };
 		B25519BC1325AD45008BBECF /* AreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25519BB1325AD45008BBECF /* AreasViewController.m */; };
 		B25519BF1325AD9C008BBECF /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25519BE1325AD9C008BBECF /* CitiesViewController.m */; };
+		B2551AB7132631A7008BBECF /* RegionViewController+Generic.m in Sources */ = {isa = PBXBuildFile; fileRef = B2551AB6132631A7008BBECF /* RegionViewController+Generic.m */; };
 		B25B364D12E4544800F15585 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B364B12E4544800F15585 /* RootViewController.m */; };
 		B25B364E12E4544800F15585 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B364C12E4544800F15585 /* RootViewController.xib */; };
 		B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */; };
@@ -142,6 +143,8 @@
 		B25519BB1325AD45008BBECF /* AreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasViewController.m; sourceTree = "<group>"; };
 		B25519BD1325AD9C008BBECF /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		B25519BE1325AD9C008BBECF /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
+		B2551AB5132631A7008BBECF /* RegionViewController+Generic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RegionViewController+Generic.h"; sourceTree = "<group>"; };
+		B2551AB6132631A7008BBECF /* RegionViewController+Generic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RegionViewController+Generic.m"; sourceTree = "<group>"; };
 		B25B364A12E4544800F15585 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B25B364B12E4544800F15585 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		B25B364C12E4544800F15585 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = Classes/RootViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				B25519BB1325AD45008BBECF /* AreasViewController.m */,
 				B25519BD1325AD9C008BBECF /* CitiesViewController.h */,
 				B25519BE1325AD9C008BBECF /* CitiesViewController.m */,
+				B2551AB5132631A7008BBECF /* RegionViewController+Generic.h */,
+				B2551AB6132631A7008BBECF /* RegionViewController+Generic.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				B255181413258011008BBECF /* GenericTableViewController.m in Sources */,
 				B25519BC1325AD45008BBECF /* AreasViewController.m in Sources */,
 				B25519BF1325AD9C008BBECF /* CitiesViewController.m in Sources */,
+				B2551AB7132631A7008BBECF /* RegionViewController+Generic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +632,7 @@
 				);
 				PRODUCT_NAME = MapShop;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -729,7 +735,7 @@
 				PRODUCT_NAME = MapShop;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
