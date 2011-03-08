@@ -15,7 +15,20 @@
 
 @dynamic id;
 @dynamic name;
-@dynamic city;
-@dynamic shops;
+@dynamic city_id;
+@dynamic comment;
+
++ (NSDictionary*)elementToPropertyMappings {
+	return [NSDictionary dictionaryWithKeysAndObjects:
+			@"id", @"id",
+			@"name", @"name",
+			@"comment", @"comment",
+			@"city_id",@"city_id",
+			nil];
+}
+
++ (NSString*)primaryKeyProperty {
+	return @"id";
+}
 
 @end

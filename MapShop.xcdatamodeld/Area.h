@@ -6,28 +6,19 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
-@class Shop;
-@class cities;
 
-@interface Area :  NSManagedObject  
+@interface Area :  RKManagedObject  
 {
 }
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) cities * city;
-@property (nonatomic, retain) NSSet* shops;
+@property (nonatomic, retain) NSNumber * city_id;
+@property (nonatomic, retain) NSString * comment;
 
-@end
-
-
-@interface Area (CoreDataGeneratedAccessors)
-- (void)addShopsObject:(Shop *)value;
-- (void)removeShopsObject:(Shop *)value;
-- (void)addShops:(NSSet *)value;
-- (void)removeShops:(NSSet *)value;
 
 @end
 

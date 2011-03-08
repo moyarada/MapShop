@@ -18,7 +18,7 @@
 @implementation AddRegionController
 
 @dynamic regionName, submitBtn;
-@synthesize item, parent;
+@synthesize item, parent, navigationController, parentId;
 
 #pragma mark -
 #pragma mark App life cycle
@@ -54,33 +54,36 @@
 
 -(IBAction)saveData {
 	
-	//MapShopAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-	//NSManagedObjectContext *context = [appDelegate managedObjectContext];
-	
-	//NSManagedObject *newRegion;
-	//newRegion = [NSEntityDescription insertNewObjectForEntityForName:@"regions" inManagedObjectContext:context];
-	//[newRegion setValue:regionName.text forKey:@"name"];
 	if (item == @"Region") {
-	//	regions *model = (regions *)[NSEntityDescription insertNewObjectForEntityForName:item inManagedObjectContext:context];
-	//	[model setName:regionName.text];
+
+		Region* region = [Region object];
+		region.name = regionName.text;
+		region.comment = @"Some comment";
+		
+		[[RKObjectManager sharedManager] postObject:region delegate:self]; 
 		
 	}	
 	
 	if (item == @"City") {
 	//	cities *model = (cities *)[NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:context];
 		
-	//	[model setName: regionName.text];
-	//	[model setRegion: (regions *)parent];
-		//(regions*)[parent addCitiesObject: model];
-		//regions *regs = (regions *)[NSEntityDescription entityForName:parent inManagedObjectContext:context];
-		//[model regions:regs];
+		
+		City* city = [City object];
+		city.name = regionName.text;
+		city.comment = @"Some comment";
+		city.region_id = self.parentId;
+		
+		[[RKObjectManager sharedManager] postObject:city delegate:self]; 
+
 	}
 	
 	if (item == @"Area") {
-	//	Area *model = (Area *)[NSEntityDescription insertNewObjectForEntityForName:@"Area" inManagedObjectContext:context];
+		Area* area = [Area object];
+		area.name = regionName.text;
+		area.comment = @"Some comment";
+		area.city_id = self.parentId;
 		
-	//	[model setName:regionName.text];
-	//	[model setCity:(cities *)parent];
+		[[RKObjectManager sharedManager] postObject:area delegate:self]; 
 		
 	}
 	
@@ -101,12 +104,7 @@
 	
 	regionName.text = @"";
 	
-	//NSError *error;
-	
-	//if (![context save:&error]) {
-	//	NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	//}
-	
+		
 	//RootViewController *rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
 	
 	//[appDelegate.navigationController popViewControllerAnimated:YES];
@@ -114,6 +112,26 @@
 	
 }
 
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+	//NSLog(@"Objects loaded");
+	//[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+	//[[NSUserDefaults standardUserDefaults] synchronize];
+	//NSLog(@"Loaded regions: %@", objects);
+	[self.navigationController popViewControllerAnimated:YES];
+	
+	
+	//[self loadObjectsFromDataStore];
+	//[_tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+	[alert show];
+	NSLog(@"Hit error: %@", error);
+}
 
 
 #pragma mark -
@@ -140,6 +158,7 @@
 	[parent release];
 	[regionName release];
 	[submitBtn release];
+	[navigationController release];
     [super dealloc];
 }
 

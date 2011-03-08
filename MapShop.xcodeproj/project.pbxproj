@@ -15,11 +15,13 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		B255181413258011008BBECF /* GenericTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B255181313258011008BBECF /* GenericTableViewController.m */; };
+		B25519BC1325AD45008BBECF /* AreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25519BB1325AD45008BBECF /* AreasViewController.m */; };
+		B25519BF1325AD9C008BBECF /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25519BE1325AD9C008BBECF /* CitiesViewController.m */; };
 		B25B364D12E4544800F15585 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B364B12E4544800F15585 /* RootViewController.m */; };
 		B25B364E12E4544800F15585 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B364C12E4544800F15585 /* RootViewController.xib */; };
 		B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */; };
 		B25B37C412E46B2B00F15585 /* AddRegionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B37C212E46B2B00F15585 /* AddRegionController.xib */; };
-		B25B3B5B12E604F900F15585 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B3B5912E604F900F15585 /* CitiesViewController.m */; };
 		B25B3B5C12E604F900F15585 /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25B3B5A12E604F900F15585 /* CitiesViewController.xib */; };
 		B28355D712EB869C001246FB /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CC12EB869C001246FB /* Area.m */; };
 		B28355D812EB869C001246FB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* City.m */; };
@@ -39,7 +41,6 @@
 		B290481612FF1E210090A524 /* RegionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290481412FF1E210090A524 /* RegionsViewController.xib */; };
 		B29048CA12FF2BA90090A524 /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C812FF2BA90090A524 /* listbg.png */; };
 		B29048CB12FF2BA90090A524 /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C912FF2BA90090A524 /* listbg@2x.png */; };
-		B29E096812E7200C00835600 /* AreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E096612E7200C00835600 /* AreasViewController.m */; };
 		B29E096912E7200C00835600 /* AreasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E096712E7200C00835600 /* AreasViewController.xib */; };
 		B29E09A712E7246400835600 /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E09A512E7246400835600 /* ShopsViewController.m */; };
 		B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E09A612E7246400835600 /* ShopsViewController.xib */; };
@@ -135,14 +136,18 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MapShop_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapShop_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapShop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapShop-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B255181213258011008BBECF /* GenericTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericTableViewController.h; sourceTree = "<group>"; };
+		B255181313258011008BBECF /* GenericTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericTableViewController.m; sourceTree = "<group>"; };
+		B25519BA1325AD45008BBECF /* AreasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasViewController.h; sourceTree = "<group>"; };
+		B25519BB1325AD45008BBECF /* AreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasViewController.m; sourceTree = "<group>"; };
+		B25519BD1325AD9C008BBECF /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
+		B25519BE1325AD9C008BBECF /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		B25B364A12E4544800F15585 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B25B364B12E4544800F15585 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		B25B364C12E4544800F15585 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = Classes/RootViewController.xib; sourceTree = "<group>"; };
 		B25B37C012E46B2B00F15585 /* AddRegionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRegionController.h; sourceTree = "<group>"; };
 		B25B37C112E46B2B00F15585 /* AddRegionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRegionController.m; sourceTree = "<group>"; };
 		B25B37C212E46B2B00F15585 /* AddRegionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddRegionController.xib; path = Classes/AddRegionController.xib; sourceTree = "<group>"; };
-		B25B3B5812E604F900F15585 /* CitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
-		B25B3B5912E604F900F15585 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		B25B3B5A12E604F900F15585 /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CitiesViewController.xib; path = Classes/CitiesViewController.xib; sourceTree = "<group>"; };
 		B28355CB12EB869C001246FB /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
 		B28355CC12EB869C001246FB /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
@@ -165,8 +170,6 @@
 		B290481412FF1E210090A524 /* RegionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegionsViewController.xib; path = Classes/RegionsViewController.xib; sourceTree = "<group>"; };
 		B29048C812FF2BA90090A524 /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		B29048C912FF2BA90090A524 /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
-		B29E096512E7200C00835600 /* AreasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasViewController.h; sourceTree = "<group>"; };
-		B29E096612E7200C00835600 /* AreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasViewController.m; sourceTree = "<group>"; };
 		B29E096712E7200C00835600 /* AreasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreasViewController.xib; path = Classes/AreasViewController.xib; sourceTree = "<group>"; };
 		B29E09A412E7246400835600 /* ShopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopsViewController.h; sourceTree = "<group>"; };
 		B29E09A512E7246400835600 /* ShopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopsViewController.m; sourceTree = "<group>"; };
@@ -230,10 +233,6 @@
 				B25B364B12E4544800F15585 /* RootViewController.m */,
 				B25B37C012E46B2B00F15585 /* AddRegionController.h */,
 				B25B37C112E46B2B00F15585 /* AddRegionController.m */,
-				B25B3B5812E604F900F15585 /* CitiesViewController.h */,
-				B25B3B5912E604F900F15585 /* CitiesViewController.m */,
-				B29E096512E7200C00835600 /* AreasViewController.h */,
-				B29E096612E7200C00835600 /* AreasViewController.m */,
 				B29E09A412E7246400835600 /* ShopsViewController.h */,
 				B29E09A512E7246400835600 /* ShopsViewController.m */,
 				B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */,
@@ -246,6 +245,12 @@
 				B29E247712E9990300835600 /* AddPointViewController.m */,
 				B290481212FF1E210090A524 /* RegionsViewController.h */,
 				B290481312FF1E210090A524 /* RegionsViewController.m */,
+				B255181213258011008BBECF /* GenericTableViewController.h */,
+				B255181313258011008BBECF /* GenericTableViewController.m */,
+				B25519BA1325AD45008BBECF /* AreasViewController.h */,
+				B25519BB1325AD45008BBECF /* AreasViewController.m */,
+				B25519BD1325AD9C008BBECF /* CitiesViewController.h */,
+				B25519BE1325AD9C008BBECF /* CitiesViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -522,8 +527,6 @@
 				28193060112F816700ECF9B4 /* MapShop.xcdatamodeld in Sources */,
 				B25B364D12E4544800F15585 /* RootViewController.m in Sources */,
 				B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */,
-				B25B3B5B12E604F900F15585 /* CitiesViewController.m in Sources */,
-				B29E096812E7200C00835600 /* AreasViewController.m in Sources */,
 				B29E09A712E7246400835600 /* ShopsViewController.m in Sources */,
 				B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */,
 				B29E21B612E8640F00835600 /* ShopPointsViewController.m in Sources */,
@@ -536,6 +539,9 @@
 				B28355DB12EB869C001246FB /* SPoint.m in Sources */,
 				B28355DC12EB869C001246FB /* Region.m in Sources */,
 				B290481512FF1E210090A524 /* RegionsViewController.m in Sources */,
+				B255181413258011008BBECF /* GenericTableViewController.m in Sources */,
+				B25519BC1325AD45008BBECF /* AreasViewController.m in Sources */,
+				B25519BF1325AD9C008BBECF /* CitiesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +594,7 @@
 				);
 				PRODUCT_NAME = MapShop;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};

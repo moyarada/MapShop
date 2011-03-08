@@ -11,6 +11,8 @@
 #import "City.h"
 #import "CitiesViewController.h"
 #import "AddRegionController.h"
+//#import "GenericTableViewController.h"
+#import "CitiesViewController.h"
 
 @implementation RegionsViewController
 
@@ -25,10 +27,11 @@
 	self.title = @"Regions";
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	
-	UIImageView* imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]] autorelease];
+	UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
 	imageView.frame = CGRectOffset(imageView.frame, 0, -64);
 	
 	[self.view insertSubview:imageView atIndex:0];
+	[imageView release];
 	
 	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480-64) style:UITableViewStylePlain];
 	_tableView.dataSource = self;
@@ -38,15 +41,25 @@
 	_tableView.backgroundColor = [UIColor clearColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 		
-	//UIBarButtonItem* reloadItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonWasPressed:)] autorelease];
-	//[self.navigationItem setRightBarButtonItem:reloadItem];
+	
+	
+
+}
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	UIBarButtonItem* reloadItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonWasPressed:)];
+	[self.navigationItem setLeftBarButtonItem:reloadItem];
+	[reloadItem release];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItem.rightBarButtonItem = addButton;
+	[addButton release];
 	
 	[self loadData];
 	[self loadObjectsFromDataStore];
 	
-
+	
 }
 
 
@@ -56,12 +69,10 @@
 - (void)addNewItem {
 	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
 	addRegionController.item = @"Region";
-	addRegionController.parent = currentRegion;
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
+	addRegionController.navigationController = self.navigationController;
 	
 	[self.navigationController pushViewController:addRegionController animated:YES];
 	
-	[navController release];
 	[addRegionController release];
 }
 
@@ -76,6 +87,7 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	_statuses = [[Region objectsWithFetchRequest:request] retain];
+	
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -117,11 +129,12 @@
 }
 */
 
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[self loadData];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -137,13 +150,13 @@
     [super viewDidDisappear:animated];
 }
 */
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
+
 
 
 #pragma mark -
@@ -160,7 +173,7 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString* reuseIdentifier = @"Region Cell";
+    NSString* reuseIdentifier = @"Regions Cell";
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	if (nil == cell) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] autorelease];
@@ -170,6 +183,7 @@
 		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];
 	}
 	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] name];
+	
 	return cell;
 }
 
@@ -193,19 +207,24 @@
 */
 
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //
+		NSArray* record = [_statuses objectAtIndex:indexPath.row];
+		Region* region = [Region objectWithPrimaryKeyValue:[record id]];
+		NSLog(@"Delete %@", region.name);
+		[[RKObjectManager sharedManager] deleteObject:region delegate:self];
+		//[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 
 /*
@@ -237,13 +256,19 @@
 	 [detailViewController release];
 	 */
 	
-	CitiesViewController *cityViewController = [[CitiesViewController alloc] initWithNibName:@"CitiesViewController" bundle:[NSBundle mainBundle]];
+	//CitiesViewController *cityViewController = [[CitiesViewController alloc] initWithNibName:@"CitiesViewController" bundle:[NSBundle mainBundle]];
+	CitiesViewController* genericViewController = [[CitiesViewController alloc] initWithNibName:nil bundle:nil];
+	Region* myregion = [Region objectWithPrimaryKeyValue:[[_statuses objectAtIndex:indexPath.row] id]];
+	genericViewController.parentItem = myregion;
+	genericViewController.parentId = [myregion id];
+
+	genericViewController.navigationController = self.navigationController;
+	genericViewController.title = [myregion name];
+
+	[self.navigationController pushViewController:genericViewController animated:YES];
 	
-	cityViewController.currentRegion = [_statuses objectAtIndex:indexPath.row];	
-	cityViewController.navigationController = self.navigationController;
-	
-	[self.navigationController pushViewController:cityViewController animated:YES];
-	[cityViewController release];
+	[genericViewController release];
+
 	
 }
 
@@ -266,6 +291,7 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+	[_statuses release];
 }
 
 

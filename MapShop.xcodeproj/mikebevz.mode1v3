@@ -202,7 +202,47 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>B255171113256F36008BBECF</string>
+				<string>B2551A461325B6FA008BBECF</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>GenericTableViewController.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>B2551A471325B6FA008BBECF</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>GenericTableViewController.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>B2551AAC1325C1E6008BBECF</string>
+						<key>history</key>
+						<array>
+							<string>B2551A2C1325B5E7008BBECF</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1103, 669}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>16 63 1103 710 0 0 1280 778 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>B255176913257A2A008BBECF</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>MapShopAppDelegate.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
@@ -210,16 +250,16 @@
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>B255171213256F36008BBECF</string>
+						<string>B255176A13257A2A008BBECF</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>MapShopAppDelegate.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>B255171F13256F6D008BBECF</string>
+						<string>B2551AAD1325C1E6008BBECF</string>
 						<key>history</key>
 						<array>
-							<string>B255170413256F2F008BBECF</string>
+							<string>B255177413257AA0008BBECF</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -309,6 +349,7 @@
 								<string>B25B37BD12E46ACD00F15585</string>
 								<string>2819305F112F816700ECF9B4</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -316,14 +357,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>24</integer>
-									<integer>11</integer>
-									<integer>10</integer>
+									<integer>47</integer>
+									<integer>25</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 157}, {271, 966}}</string>
+							<string>{{0, 174}, {271, 966}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -353,14 +393,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Region.m</string>
+								<string>AreasViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -368,52 +406,54 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Region.m</string>
+										<string>AreasViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B255171E13256F6C008BBECF</string>
+										<string>B2551AAB1325C1E6008BBECF</string>
 										<key>history</key>
 										<array>
 											<string>B29E23E012E8A25000835600</string>
 											<string>B29E244C12E8ABC300835600</string>
-											<string>B29E244E12E8ABC300835600</string>
 											<string>B29E24B512E99E8200835600</string>
-											<string>B29E24C812E9B05700835600</string>
 											<string>B29E24CF12E9B05700835600</string>
 											<string>B29E25BF12E9BA7D00835600</string>
-											<string>B290453712FDD3970090A524</string>
 											<string>B290453812FDD3970090A524</string>
 											<string>B290453912FDD3970090A524</string>
 											<string>B290453A12FDD3970090A524</string>
 											<string>B290453B12FDD3970090A524</string>
 											<string>B290453C12FDD3970090A524</string>
-											<string>B290458E12FDD80E0090A524</string>
 											<string>B290483912FF21580090A524</string>
 											<string>B290490012FF2C2C0090A524</string>
 											<string>B290491012FF2E640090A524</string>
 											<string>B290491112FF2E640090A524</string>
 											<string>B2C491181300A2F200422518</string>
-											<string>B2C4926513014F5800422518</string>
 											<string>B2C1C90C1302A16F007AF949</string>
 											<string>B2C1C90D1302A16F007AF949</string>
 											<string>B2C1C91C1302A206007AF949</string>
 											<string>B2C1C91D1302A206007AF949</string>
-											<string>B21863A313111F9A0093ED4E</string>
-											<string>B21863A413111F9A0093ED4E</string>
-											<string>B21863F0131131330093ED4E</string>
-											<string>B21863F7131131890093ED4E</string>
-											<string>B26F60ED1312AB590044883A</string>
-											<string>B255170713256F36008BBECF</string>
-											<string>B255170813256F36008BBECF</string>
-											<string>B255170A13256F36008BBECF</string>
-											<string>B255170B13256F36008BBECF</string>
-											<string>B255170C13256F36008BBECF</string>
-											<string>B255170D13256F36008BBECF</string>
-											<string>B255171B13256F6C008BBECF</string>
-											<string>B255171C13256F6C008BBECF</string>
-											<string>B255171D13256F6C008BBECF</string>
-											<string>B255170913256F36008BBECF</string>
+											<string>B255188313258D1F008BBECF</string>
+											<string>B255188413258D1F008BBECF</string>
+											<string>B255188E13258D1F008BBECF</string>
+											<string>B255189E13258E3D008BBECF</string>
+											<string>B255189F13258E3D008BBECF</string>
+											<string>B25519741325A70E008BBECF</string>
+											<string>B25519E41325B0E1008BBECF</string>
+											<string>B25519EE1325B0E1008BBECF</string>
+											<string>B2551A371325B6FA008BBECF</string>
+											<string>B2551A381325B6FA008BBECF</string>
+											<string>B2551A391325B6FA008BBECF</string>
+											<string>B2551AA01325C1E6008BBECF</string>
+											<string>B2551AA11325C1E6008BBECF</string>
+											<string>B2551AA21325C1E6008BBECF</string>
+											<string>B2551AA31325C1E6008BBECF</string>
+											<string>B2551AA41325C1E6008BBECF</string>
+											<string>B2551AA51325C1E6008BBECF</string>
+											<string>B2551AA61325C1E6008BBECF</string>
+											<string>B2551AA71325C1E6008BBECF</string>
+											<string>B2551AA81325C1E6008BBECF</string>
+											<string>B2551AA91325C1E6008BBECF</string>
+											<string>B2551AAA1325C1E6008BBECF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -611,11 +651,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>B255174A1325780A008BBECF</string>
+		<string>B255174C1325780A008BBECF</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>B255176913257A2A008BBECF</string>
+		<string>B2551A461325B6FA008BBECF</string>
 		<string>B25B363E12E4542300F15585</string>
-		<string>/Users/mikebevz/Development/MapShop/MapShop.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>B255171113256F36008BBECF</string>
+		<string>/Users/mikebevz/Development/MapShop/MapShop.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>1280 -225 1920 1025 1280 -280 1920 1080 </string>
@@ -639,7 +682,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapShopAppDelegate.m</string>
+								<string>CitiesViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

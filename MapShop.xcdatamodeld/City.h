@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* comment;
 @property (nonatomic, retain) Region* region;
+@property (nonatomic, retain) NSNumber* region_id;
 //@property (nonatomic, retain) NSSet* areas;
 
 @end

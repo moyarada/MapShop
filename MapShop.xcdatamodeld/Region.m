@@ -20,7 +20,7 @@
 	return [NSDictionary dictionaryWithKeysAndObjects:
 			@"id", @"id",
 			@"name", @"name",
-			@"comment", @"description",
+			@"comment", @"comment",
 			nil];
 }
 

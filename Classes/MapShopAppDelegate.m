@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
 #import "MapShopAppDelegate.h"
 #import "Region.h"
 #import "City.h"
 #import "RegionsViewController.h"
+#import "Area.h"
 
 
 @implementation MapShopAppDelegate
@@ -20,7 +20,7 @@
 	// Override point for customization after application launch.
 	NSLog(@"Loading main view");
 	// Initialize RestKit
-	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://127.0.0.1:3000"];
+	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://10.0.0.3:3000"];
 	objectManager.format = RKMappingFormatJSON;
 	RKObjectMapper* mapper = objectManager.mapper;
 	
@@ -30,6 +30,42 @@
 	// Add our element to object mappings
 	[mapper registerClass:[Region class] forElementNamed:@"region"];
 	[mapper registerClass:[City class] forElementNamed:@"city"];
+	[mapper registerClass:[Area class] forElementNamed:@"area"];
+	
+	RKRailsRouter* router = [[[RKRailsRouter alloc] init] autorelease];
+	
+	[router setModelName:@"Region" forClass:[Region class]]; 
+	//[router routeClass:[Region class] toResourcePath:@"/regions.json" 
+	//		 forMethod:RKRequestMethodGET]; 
+	[router routeClass:[Region class] toResourcePath:@"/regions.json" 
+			 forMethod:RKRequestMethodPOST]; 
+	[router routeClass:[Region class] toResourcePath:@"/regions/(id).json" 
+			 forMethod:RKRequestMethodPUT]; 
+	[router routeClass:[Region class] toResourcePath:@"/regions/(id).json" 
+			 forMethod:RKRequestMethodDELETE]; 
+	
+	
+	[router setModelName:@"City" forClass:[City class]]; 
+	//[router routeClass:[City class] toResourcePath:@"/regions/(region_id)/cities.json"  forMethod:RKRequestMethodGET];
+	[router routeClass:[City class] toResourcePath:@"/cities.json" 
+			 forMethod:RKRequestMethodPOST]; 
+	[router routeClass:[City class] toResourcePath:@"/cities/(id).json" 
+			 forMethod:RKRequestMethodPUT]; 
+	[router routeClass:[City class] toResourcePath:@"/cities/(id).json" 
+			 forMethod:RKRequestMethodDELETE]; 
+	
+	[router setModelName:@"Area" forClass:[Area class]]; 
+	//[router routeClass:[City class] toResourcePath:@"/regions/(region_id)/cities.json"  forMethod:RKRequestMethodGET];
+	[router routeClass:[Area class] toResourcePath:@"/areas.json" 
+			 forMethod:RKRequestMethodPOST]; 
+	[router routeClass:[Area class] toResourcePath:@"/areas/(id).json" 
+			 forMethod:RKRequestMethodPUT]; 
+	[router routeClass:[Area class] toResourcePath:@"/areas/(id).json" 
+			 forMethod:RKRequestMethodDELETE]; 
+	
+	
+	
+	[RKObjectManager sharedManager].router = router; 
 
 	// Update date format so that we can parse twitter dates properly
 	// Wed Sep 29 15:31:08 +0000 2010

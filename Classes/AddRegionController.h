@@ -7,19 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
 
-@interface AddRegionController : UIViewController {
+@interface AddRegionController : UIViewController <RKObjectLoaderDelegate>  {
 	UITextField *regionName;
 	UIButton *submitBtn;
 	NSString *item;
-	NSArray *parent;
+	RKManagedObject *parent;
+	UINavigationController *navigationController;
+	NSNumber *parentId;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *regionName;
 @property (nonatomic, retain) IBOutlet UIButton *submitBtn;
 @property (nonatomic, retain) NSString *item;
-@property (nonatomic, retain) NSArray *parent;
+@property (nonatomic, retain) RKManagedObject *parent;
+@property (nonatomic, retain) NSNumber *parentId;
+@property (nonatomic, retain) UINavigationController *navigationController;
 
 -(IBAction)saveData;
 @end

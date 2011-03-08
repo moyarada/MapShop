@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <CoreData/CoreData.h>
-//#import "RootViewController.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
+#import <RestKit/ObjectMapping/RKDynamicRouter.h>
+#import <RestKit/ObjectMapping/RKRailsRouter.h>
 
 @interface MapShopAppDelegate : NSObject <UIApplicationDelegate> {
 
