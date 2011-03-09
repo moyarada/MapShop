@@ -9,23 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
+#import "GenericTableViewController.h"
 
 
 @interface AddRegionController : UIViewController <RKObjectLoaderDelegate>  {
 	UITextField *regionName;
-	UIButton *submitBtn;
 	NSString *item;
 	RKManagedObject *parent;
 	UINavigationController *navigationController;
 	NSNumber *parentId;
+	GenericTableViewController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *regionName;
-@property (nonatomic, retain) IBOutlet UIButton *submitBtn;
 @property (nonatomic, retain) NSString *item;
 @property (nonatomic, retain) RKManagedObject *parent;
 @property (nonatomic, retain) NSNumber *parentId;
 @property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) GenericTableViewController *viewController;
+
+
 
 -(IBAction)saveData;
 @end

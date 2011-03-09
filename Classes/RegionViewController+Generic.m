@@ -15,24 +15,44 @@
 
 
 - (void) setOptions {
-	self.currentItem = [Region object];
+	//self.currentItem = [Region object];
 	self.entityName = @"Region";
 }
 
-
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
+	self.navigationItem.rightBarButtonItem = addButton;
+	
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadButtonWasPressed:)];
+	self.navigationItem.leftBarButtonItem = refreshButton;
+	
+	//[self loadObjectsFromDataStore];
+	[self loadData];
+	
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source.
+		
         NSArray* record = [_items objectAtIndex:indexPath.row];
 		Region* region = [Region objectWithPrimaryKeyValue:[record id]];
+		
+		[_items removeObjectAtIndex:indexPath.row];
+		[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		
 		NSLog(@"Delete %@", region.name);
 		[[RKObjectManager sharedManager] deleteObject:region delegate:self];
+		
+		
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+		//[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
     }   
 }
 
@@ -40,34 +60,15 @@
 	[_items release];
 	NSLog(@"Loading data from Store");
 	NSFetchRequest* request = [Region fetchRequest];
-	//NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
-	//[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
-	//[request setPredicate:predicate];
-	
-	_items = [[Region objectsWithFetchRequest:request] retain];
+	_items = [[[Region objectsWithFetchRequest:request] mutableCopy] retain];
 	NSLog(@" Items = %@", _items);
 	
 	
 }
 
-#pragma mark RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-	//NSLog(@"Objects loaded");
-	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"Loaded items: %@", objects);
-	[self loadObjectsFromDataStore];
-	[_tableView reloadData];	
-}
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
-	[alert show];
-	NSLog(@"Hit error: %@", error);
-}
 
 - (void)loadData {
 	//NSLog(@"Loading data");
@@ -98,6 +99,10 @@
 	
 }
 
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection: (NSInteger)section {
+	return [NSString stringWithFormat:@"Regions"];
+}
 
 
 - (void)didReceiveMemoryWarning {

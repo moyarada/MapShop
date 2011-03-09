@@ -10,9 +10,9 @@
 #import <RestKit/CoreData/CoreData.h>
 
 
-@interface GenericTableViewController : UITableViewController {
+@interface GenericTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> {
 	UITableView* _tableView;
-	NSArray* _items;
+	NSMutableArray *_items;
 	RKManagedObject* currentItem;
 	RKManagedObject* parentItem;
 	NSNumber* parentId;

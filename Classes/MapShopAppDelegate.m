@@ -11,7 +11,8 @@
 #import "City.h"
 #import "RegionViewController+Generic.h"
 #import "Area.h"
-
+#import "Shop.h"
+#import "SPoint.h"
 
 
 @implementation MapShopAppDelegate
@@ -34,6 +35,8 @@
 	[mapper registerClass:[Region class] forElementNamed:@"region"];
 	[mapper registerClass:[City class] forElementNamed:@"city"];
 	[mapper registerClass:[Area class] forElementNamed:@"area"];
+	[mapper registerClass:[Shop class] forElementNamed:@"shop"];
+	[mapper registerClass:[SPoint class] forElementNamed:@"point"];
 	
 	RKRailsRouter* router = [[[RKRailsRouter alloc] init] autorelease];
 	
@@ -66,6 +69,21 @@
 	[router routeClass:[Area class] toResourcePath:@"/areas/(id).json" 
 			 forMethod:RKRequestMethodDELETE]; 
 	
+	[router setModelName:@"Shop" forClass:[Shop class]]; 
+	[router routeClass:[Shop class] toResourcePath:@"/shops.json" 
+			 forMethod:RKRequestMethodPOST]; 
+	[router routeClass:[Shop class] toResourcePath:@"/shops/(id).json" 
+			 forMethod:RKRequestMethodPUT]; 
+	[router routeClass:[Shop class] toResourcePath:@"/shops/(id).json" 
+			 forMethod:RKRequestMethodDELETE]; 
+	
+	[router setModelName:@"SPoint" forClass:[SPoint class]]; 
+	[router routeClass:[SPoint class] toResourcePath:@"/points.json" 
+			 forMethod:RKRequestMethodPOST]; 
+	[router routeClass:[SPoint class] toResourcePath:@"/points/(id).json" 
+			 forMethod:RKRequestMethodPUT]; 
+	[router routeClass:[SPoint class] toResourcePath:@"/points/(id).json" 
+			 forMethod:RKRequestMethodDELETE]; 
 	
 	
 	[RKObjectManager sharedManager].router = router; 
@@ -77,22 +95,19 @@
 	//[dateFormats addObject:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
 	//[mapper setDateFormats:dateFormats];
 	
-	//RegionsViewController* viewController = [[[RegionsViewController alloc] initWithNibName:nil bundle:nil] autorelease];
 	
 	RegionViewController_Generic* genericViewController = [[RegionViewController_Generic alloc] initWithNibName:nil bundle:nil];
-	//Region* record = [Region objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
-	//genericViewController.parentItem = record;
-	//genericViewController.parentId = [record id];
 	
-	//genericViewController.navigationController = self.navigationController;
 	genericViewController.title = @"Regions";
 	
 	UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:genericViewController] autorelease];
-	
 	[self setNavigationController:controller];
+	[self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 	[controller release];
-	self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	[genericViewController release];
 	
+	
+	self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	
 	[self.window addSubview:[navigationController view]];
     [self.window makeKeyAndVisible];

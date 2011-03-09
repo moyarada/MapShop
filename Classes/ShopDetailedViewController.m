@@ -13,9 +13,7 @@
 @implementation ShopDetailedViewController
 
 @synthesize currentShop,
-			fetchedResultsController=fetchedResultsController_, 
-			managedObjectContext=managedObjectContext_,
-			tabBar;
+			tabBar, scrollView;
 
 
 #pragma mark -
@@ -24,73 +22,34 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         // Custom initialization
-	
+		
+		
+		
     }
     return self;
 }
 
-
+- (void)savePoint {
+	NSLog(@"Saving Point");
+	
+	[self.navigationController popViewControllerAnimated:YES];
+}
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = [currentShop valueForKey:@"name"];
+	self.title = [currentShop name];
+	
+	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePoint)];
+	self.navigationItem.rightBarButtonItem = saveButton;
 	
 	tabBar.selectedItem = [tabBar.items objectAtIndex:0];
-	if (!shopPointsViewController) {
-		[self loadShopPointsView];
+	if (!shopDetailsTabViewController) {
+		[self loadShopDetailsTabViewController];
 	}
-	//[self.view addSubview:tabBarController.view];
 	
-	/*
-	 
-	tabBarController = [[UITabBarController alloc] init];
-
-
-	
-	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] initWithCapacity:2];
-	
-	ShopPointsViewController *shopPointsViewController = [[ShopPointsViewController alloc] initWithStyle:UITableViewStylePlain];
-	shopPointsViewController.currentShop = currentShop;
-	shopPointsViewController.managedObjectContext = self.managedObjectContext;
-	shopPointsViewController.navigationItemDelegate = self.navigationItem;
-	shopPointsViewController.navigationController = self.navigationController;
-	shopPointsViewController.tabBarItem.title = @"Points";
-	shopPointsViewController.title = @"Points";
-	
-	[localViewControllersArray addObject:shopPointsViewController];
-		
-	
-	
-	
-	ShopCategoriesViewController *shopCategoriesViewController = [[ShopCategoriesViewController alloc] initWithStyle:UITableViewStylePlain];
-	
-	shopCategoriesViewController.currentShop = currentShop;
-	shopCategoriesViewController.managedObjectContext = self.managedObjectContext;
-	shopCategoriesViewController.tabBarItem.title = @"Categories";
-	shopCategoriesViewController.title = @"Categories";
-	
-	[localViewControllersArray addObject:shopCategoriesViewController];
-	[shopCategoriesViewController release];
-	
-	//tabBarController.viewControllers = localViewControllersArray;
-	[tabBarController setViewControllers:localViewControllersArray animated:YES];
-	
-	tabBarController.view.autoresizingMask==(UIViewAutoresizingFlexibleHeight);
-	
-	
-	
-
-	
-	[self.view addSubview:shopPointsViewController.view]; 
-	 
-	
-	
-	[shopPointsViewController release];
-
-	*/
 	
 }
 
@@ -109,7 +68,14 @@
 - (void)tabBar:(UITabBar *)tb didSelectItem:(UITabBarItem *)item {
     NSLog(@"item tag: %d", item.tag);
 	
-    if (item.tag == 1) {
+	if (item.tag == 0) {
+		if (shopDetailsTabViewController) {
+			[self.view bringSubviewToFront:scrollView];
+			[self.view bringSubviewToFront:tabBar];
+		} else {
+			[self loadShopDetailsTabViewController];
+		}
+	} else if (item.tag == 1) {
 		
 		if (shopPointsViewController) {
 			[self.view bringSubviewToFront:shopPointsViewController.view];
@@ -130,7 +96,7 @@
     }
     else {
         if (shopPointsViewController) {
-			[self.view bringSubviewToFront:shopPointsViewController.view];
+			[self.scrollView bringSubviewToFront:shopPointsViewController.view];
 			[self.view bringSubviewToFront:tabBar];
 		} else {
 			[self loadShopPointsView];
@@ -160,29 +126,53 @@
 	NSLog(@"Will End");
 }
 
-- (void)loadShopPointsView {
-	shopPointsViewController = [[ShopPointsViewController alloc] initWithStyle:UITableViewStylePlain];
-	shopPointsViewController.currentShop = currentShop;
-	shopPointsViewController.managedObjectContext = self.managedObjectContext;
-	shopPointsViewController.navigationItemDelegate = self.navigationItem;
-	shopPointsViewController.navigationController = self.navigationController;
-	shopPointsViewController.tabBarItem.title = @"Points";
-	shopPointsViewController.title = @"Points";
+- (void)loadShopDetailsTabViewController {
 	
-	[self.view addSubview:shopPointsViewController.view];
+	shopDetailsTabViewController = [[ShopDetailsTabViewController alloc] initWithNibName:@"ShopDetailsTabViewController" bundle:[NSBundle mainBundle]];
+	shopDetailsTabViewController.currentShop = currentShop;
+	
+
+	CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+	self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+	//scroll.contentInset=UIEdgeInsetsMake(64.0,0.0,44.0,0.0);
+	//scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(64.0,0.0,44.0,0.0);
+	self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, shopDetailsTabViewController.view.frame.size.height);
+	self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+	[self.scrollView addSubview:shopDetailsTabViewController.view];
+	[self.view addSubview:self.scrollView];
 	[self.view addSubview:tabBar];
 }
 
+
+
+
+- (void)loadShopPointsView {
+	
+	
+	shopPointsViewController = [[ShopPointsViewController alloc] initWithNibName:nil bundle:nil];
+	shopPointsViewController.parentItem = currentShop;
+	shopPointsViewController.parentId = [currentShop id];
+	shopPointsViewController.navigationItem = self.navigationItem;
+	shopPointsViewController.title = [currentShop name];
+	shopPointsViewController.navigationController = self.navigationController;
+	
+	[self.view addSubview:shopPointsViewController.view];
+	[self.view addSubview:tabBar];
+	 
+}
+
 - (void)loadShopCategories {
+	/*
 	shopCategoriesViewController = [[ShopCategoriesViewController alloc] initWithStyle:UITableViewStylePlain];
 	
 	shopCategoriesViewController.currentShop = currentShop;
-	shopCategoriesViewController.managedObjectContext = self.managedObjectContext;
+	//shopCategoriesViewController.managedObjectContext = self.managedObjectContext;
 	shopCategoriesViewController.tabBarItem.title = @"Categories";
 	shopCategoriesViewController.title = @"Categories";
 	
 	[self.view addSubview:shopCategoriesViewController.view];
-	[self.view addSubview:tabBar];
+	[self.view addSubview:tabBar];*/
 }
 
 
@@ -192,8 +182,7 @@
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
+    [super didReceiveMemoryWarning];    
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -204,16 +193,17 @@
 	self.tabBar = nil;
 	shopCategoriesViewController = nil;
 	shopPointsViewController = nil;
+	shopDetailsTabViewController = nil;
 }
 
 
 - (void)dealloc {
 	[shopPointsViewController release];
 	[shopCategoriesViewController release];
+	[shopDetailsTabViewController release];
 	[currentShop release];
 	[tabBar release];
-	[fetchedResultsController_ release];
-	[managedObjectContext_ release];
+	[scrollView release];
 	[super dealloc];
 }
 

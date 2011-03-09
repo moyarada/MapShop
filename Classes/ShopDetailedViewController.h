@@ -7,33 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/CoreData/CoreData.h>
 #import "ShopPointsViewController.h"
 #import "ShopCategoriesViewController.h"
+#import "ShopDetailsTabViewController.h"
+#import "Shop.h"
+
 
 @interface ShopDetailedViewController : UIViewController <UITabBarDelegate> {
-	NSManagedObject *currentShop;
+	Shop *currentShop;
 	//UIWebView *categories;
 	//UIWebView *points;
 	//UIButton *addCategoryBtn;
 	//UIButton *addPointBtn;
 	UITabBar *tabBar;
-	
-	NSFetchedResultsController *fetchedResultsController_;
-    NSManagedObjectContext *managedObjectContext_;
-	
+	UIScrollView *scrollView;
 	ShopPointsViewController *shopPointsViewController;
 	ShopCategoriesViewController *shopCategoriesViewController;
+	ShopDetailsTabViewController *shopDetailsTabViewController;
 }
 
-@property (nonatomic, retain) NSManagedObject *currentShop;
+@property (nonatomic, retain) Shop *currentShop;
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-
-- (void)loadShopPointsView;
-- (void)loadShopCategories;
+- (void) loadShopPointsView;
+- (void) loadShopCategories;
+- (void) loadShopDetailsTabViewController;
 
 
 

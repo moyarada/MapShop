@@ -8,7 +8,6 @@
 
 #import "SPoint.h"
 
-#import "Shop.h"
 
 @implementation SPoint 
 
@@ -18,6 +17,26 @@
 @dynamic comment;
 @dynamic name;
 @dynamic altitude;
-@dynamic shop;
+@dynamic shop_id;
+
+
+#pragma mark RKObjectMappable methods
+
++ (NSDictionary*)elementToPropertyMappings {
+	return [NSDictionary dictionaryWithKeysAndObjects:
+			@"id", @"id",
+			@"name", @"name",
+			@"comment", @"comment",
+			@"shop_id",@"shop_id",
+			@"altitude",@"altitude",
+			@"longitude",@"longitude",
+			@"latitude",@"latitude",
+			nil];
+}
+
++ (NSString*)primaryKeyProperty {
+	return @"id";
+}
+
 
 @end

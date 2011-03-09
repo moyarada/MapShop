@@ -17,8 +17,19 @@
 @dynamic id;
 @dynamic name;
 @dynamic comment;
-@dynamic points;
-@dynamic categories;
-@dynamic area;
+@dynamic area_id;
+
++ (NSDictionary*)elementToPropertyMappings {
+	return [NSDictionary dictionaryWithKeysAndObjects:
+			@"id", @"id",
+			@"name", @"name",
+			@"comment", @"comment",
+			@"area_id",@"area_id",
+			nil];
+}
+
++ (NSString*)primaryKeyProperty {
+	return @"id";
+}
 
 @end

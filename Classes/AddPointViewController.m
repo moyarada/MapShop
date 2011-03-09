@@ -9,11 +9,14 @@
 #import "AddPointViewController.h"
 #import "MapShopAppDelegate.h"
 #import "SPoint.h"
+#import <MapKit/MKAnnotation.h>
+#import <MapKit/MapKit.h>
 
 
 @implementation AddPointViewController
 
-@synthesize item, parent, commentFld, latFld, longFld, altFld;
+@synthesize item, parent, commentFld, latFld, longFld, altFld, 
+			mapView, navigationController, navItem;
 
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -27,18 +30,51 @@
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest; // or kCLLocationAccuracyBest
 		
 		
+		
     }
     return self;
 }
 
-
+- (void)savePoint {
+	NSLog(@"Saving Point");
+	
+	[self.navigationController popViewControllerAnimated:YES];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePoint)];
+	self.navigationItem.rightBarButtonItem = saveButton;
+	
 	//if (locationManager) {
 		[locationManager startUpdatingLocation];
 	//}
+	
+	mapView.showsUserLocation=TRUE;
+	mapView.mapType=MKMapTypeHybrid;
+	mapView.delegate = self;
+	
+	double lastLocationLat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLatitude"];
+	double lastLocationLong = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLongitude"];
+	
+	if (lastLocationLat) {
+		MKCoordinateRegion region;
+		MKCoordinateSpan span;
+		span.latitudeDelta=0.0039;
+		span.longitudeDelta=0.0034;
+		
+		CLLocationCoordinate2D location=mapView.userLocation.coordinate;
+		location.latitude = lastLocationLat;
+		location.longitude = lastLocationLong;
+		
+		region.span=span;
+		region.center = location;
+		
+		[mapView setRegion:region animated:FALSE];
+		[mapView regionThatFits:region];
+	}
 	
 }
 
@@ -93,11 +129,11 @@
 {
 	NSLog(@"Entering locationmanager did updatetolocation");
 	
-	//NSTimeInterval howRecent = [newLocation.timestamp timeIntervalSinceNow];
+	NSTimeInterval howRecent = [newLocation.timestamp timeIntervalSinceNow];
 	
-	//if (howRecent < -100) {
-	//	return;
-	//}
+	if (howRecent < -100) {
+		return;
+	}
 	
 	//if (newLocation.horizontalAccuracy > 100) { 
 	//	return;
@@ -128,11 +164,35 @@
 	longFld.text = longt;
 	
 	altFld.text = [NSString stringWithFormat:@" %1.2f", curAlt];
+	
+	// Update map
+	[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.latitude forKey:@"LastLocationLatitude"];
+	[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.longitude forKey:@"LastLocationLongitude"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	
 }
 
 -(void)locationManager:(CLLocationManager*)manager
 	  didFailWithError:(NSError*)error {
 	NSLog(@"Error ");
+	
+	if (error.code == kCLErrorDenied) {
+		[[[[UIAlertView alloc] initWithTitle:@"Aw snap!"
+									 message:@"User didn't allow location tracking"
+									delegate:nil
+						   cancelButtonTitle:@"OK"
+						   otherButtonTitles:nil] autorelease] show];
+		//self.toggle.on = NO;
+		[locationManager stopUpdatingLocation];
+	}
+			
+	
+}
+
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
+	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
+	annView.animatesDrop=TRUE;
+	return annView;
 }
 
 
@@ -156,6 +216,7 @@
 	self.altFld = nil;
 	[locationManager stopUpdatingLocation];
 	locationManager = nil;
+	mapView = nil;
 }
 
 - (void)dealloc {
@@ -167,6 +228,7 @@
 	[parent release];
 	[locationManager stopUpdatingLocation];
 	[locationManager release];
+	[mapView release];
 	//[curLat release];
 	//[curLong release];
 	//[curAlt release];

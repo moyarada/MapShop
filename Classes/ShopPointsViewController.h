@@ -7,22 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GenericTableViewController.h"
 
-
-@interface ShopPointsViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
-	NSManagedObject *currentShop;
-	NSFetchedResultsController *fetchedResultsController_;
-    NSManagedObjectContext *managedObjectContext_;
-	UINavigationItem *navigationItemDelegate;
-	UINavigationController *navigationController;
+@interface ShopPointsViewController : GenericTableViewController {
+	UINavigationItem *navigationItem;
 }
 
-@property (nonatomic, retain) NSManagedObject *currentShop;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) UINavigationItem *navigationItemDelegate;
-@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) UINavigationItem *navigationItem;
 
-- (void)addNewItem;
 
 @end

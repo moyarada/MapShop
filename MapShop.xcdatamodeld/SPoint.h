@@ -6,21 +6,24 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData/CoreData.h>
 
-@class Shop;
 
-@interface SPoint :  NSManagedObject  
+@interface SPoint :  RKManagedObject  
 {
 }
 
-@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * altitude;
-@property (nonatomic, retain) Shop * shop;
+@property (nonatomic, retain) NSNumber * shop_id;
+
+
+
 
 @end
 

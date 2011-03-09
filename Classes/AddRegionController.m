@@ -17,8 +17,8 @@
 
 @implementation AddRegionController
 
-@dynamic regionName, submitBtn;
-@synthesize item, parent, navigationController, parentId;
+@dynamic regionName;
+@synthesize item, parent, navigationController, parentId, viewController;
 
 #pragma mark -
 #pragma mark App life cycle
@@ -27,7 +27,7 @@
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        self.title = @"New item";
+        
     }
     return self;
 }
@@ -37,7 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	
+	self.title = [NSString stringWithFormat:@"New %@", item];
+	regionName.text = @"";
+	regionName.placeholder = [NSString stringWithFormat:@"Enter New %@", item];
+	[regionName becomeFirstResponder];
 	
 }
 
@@ -88,13 +91,22 @@
 	}
 	
 	if (item == @"Shop") {
-	//	Shop *model = (Shop *)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
+		Shop* shop = [Shop object];
+		shop.name = regionName.text;
+		shop.comment = @"Some comment";
+		shop.area_id = self.parentId;
 		
-	//	[model setName:regionName.text];
-	//	[model setArea:(Area *)parent];
+		[[RKObjectManager sharedManager] postObject:shop delegate:self]; 
 	}
 	
 	if (item == @"SPoint") {
+		
+		SPoint* point = [SPoint object];
+		point.name = regionName.text;
+		point.comment = @"Some comment";
+		point.shop_id = self.parentId;
+		
+		[[RKObjectManager sharedManager] postObject:point delegate:self]; 
 	//	SPoint *model = (SPoint *)[NSEntityDescription insertNewObjectForEntityForName:@"SPoint" inManagedObjectContext:context];
 		
 	//	[model setName:regionName.text];
@@ -102,7 +114,7 @@
 		
 	}
 	
-	regionName.text = @"";
+	
 	
 		
 	//RootViewController *rootViewController = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
@@ -120,11 +132,13 @@
 	//[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
 	//[[NSUserDefaults standardUserDefaults] synchronize];
 	//NSLog(@"Loaded regions: %@", objects);
-	[self.navigationController popViewControllerAnimated:YES];
 	
+	
+	[self.navigationController popViewControllerAnimated:YES];
+	[viewController loadData];
 	
 	//[self loadObjectsFromDataStore];
-	//[_tableView reloadData];
+	
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -148,7 +162,6 @@
 	[super viewDidUnload];
 	// Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-	self.submitBtn = nil;
 	self.regionName = nil;
 }
 
@@ -157,8 +170,8 @@
 	[item release];
 	[parent release];
 	[regionName release];
-	[submitBtn release];
 	[navigationController release];
+	[viewController release];
     [super dealloc];
 }
 

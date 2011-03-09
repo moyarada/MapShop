@@ -17,19 +17,6 @@
 @synthesize navigationController;
 @synthesize parentId, entityName;
 
-#pragma mark -
-#pragma mark Initialization
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
 
 
 #pragma mark -
@@ -41,6 +28,8 @@
 	if ([self parentId]) {
 		addRegionController.parentId = self.parentId;
 	}
+	
+	addRegionController.viewController = self;
 	
 	addRegionController.navigationController = self.navigationController;
 	
@@ -57,17 +46,23 @@
 -(void) loadView {
 	[super loadView];
 	
-	[self setOptions];
+	MapShopAppDelegate *appDelegate = (MapShopAppDelegate *)[[UIApplication sharedApplication] delegate];
+	self.navigationController = [appDelegate navigationController];
 	
-	//self.title = @"Items";
+	[self setOptions];
+
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	
 	UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
 	imageView.frame = CGRectOffset(imageView.frame, 0, -64);
-	
+	imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view insertSubview:imageView atIndex:0];
 	[imageView release];
-	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480-64) style:UITableViewStylePlain];
+
+	
+	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+	_tableView.autoresizesSubviews = YES;
+	_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_tableView.dataSource = self;
 	_tableView.delegate = self;
 	[self.view addSubview:_tableView];
@@ -75,8 +70,6 @@
 	_tableView.backgroundColor = [UIColor clearColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	
-	MapShopAppDelegate *appDelegate = (MapShopAppDelegate *)[[UIApplication sharedApplication] delegate];
-	self.navigationController = [appDelegate navigationController];
 	
 	
 }
@@ -92,9 +85,6 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
-	[addButton release];
-	
-	
 	//[self loadObjectsFromDataStore];
 	[self loadData];
 	
@@ -104,6 +94,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[_tableView reloadData];
 	//[self loadData];
 }
 
@@ -141,6 +132,10 @@
 }
  */
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return @"Remove";
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -156,7 +151,7 @@
 	
     if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] autorelease];
-		cell.textLabel.font = [UIFont systemFontOfSize:14];
+		cell.textLabel.font = [UIFont systemFontOfSize:18];
 		cell.textLabel.numberOfLines = 0;
 		cell.textLabel.backgroundColor = [UIColor clearColor];
 		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];    
@@ -170,8 +165,12 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CGSize size = [[[_items objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
+	CGSize size = [[[_items objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:CGSizeMake(300, 9000)];
 	return size.height + 10;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection: (NSInteger)section {
+	return [NSString stringWithFormat:@"%@", self.entityName];
 }
 
 
@@ -236,7 +235,7 @@
 	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
 	//[request setPredicate:predicate];
 	
-	_items = [[[currentItem class] objectsWithFetchRequest:request] retain];
+	_items = (NSMutableArray*)[[[currentItem class] objectsWithFetchRequest:request] retain];
 	NSLog(@" Items in generic = %@", _items);
 	
 	
@@ -287,6 +286,7 @@
 
 - (void)viewDidUnload {
 	[_items release];
+	//[_tableView release];
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }

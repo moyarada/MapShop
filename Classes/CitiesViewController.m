@@ -11,57 +11,9 @@
 
 @implementation CitiesViewController
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 - (void) setOptions {
 	self.currentItem = [City object];
 	self.entityName = @"City";
-}
-
-
-#pragma mark -
-#pragma mark Actions
-
-- (void)addNewItem {
-	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
-	addRegionController.item = self.entityName;
-	addRegionController.parentId = self.parentId;
-	addRegionController.navigationController = self.navigationController;
-	
-	[self.navigationController pushViewController:addRegionController animated:YES];
-	
-	//[navController release];
-	[addRegionController release];
 }
 
 
@@ -72,6 +24,10 @@
         // Delete the row from the data source.
         NSArray* record = [_items objectAtIndex:indexPath.row];
 		City* region = [City objectWithPrimaryKeyValue:[record id]];
+		
+		[_items removeObjectAtIndex:indexPath.row];
+		[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		
 		NSLog(@"Delete %@", region.name);
 		[[RKObjectManager sharedManager] deleteObject:region delegate:self];
     }   
@@ -90,7 +46,7 @@
 	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
 	[request setPredicate:predicate];
 	
-	_items = [[[currentItem class] objectsWithFetchRequest:request] retain];
+	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
 	NSLog(@" Items = %@", _items);
 	
 	
@@ -101,11 +57,12 @@
 	RKObjectManager* objectManager = [RKObjectManager sharedManager];
 	NSString* path = [NSString stringWithFormat:@"/regions/%@/cities.json", parentId];
 	[[objectManager loadObjectsAtResourcePath:path objectClass:[currentItem class] delegate:self] retain];
-	//City* city = [City object];
-	//city.region = [parentItem id];
-	//[[RKObjectManager sharedManager] getObject:currentItem delegate:self];
 	
 	NSLog(@"Loading data");
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection: (NSInteger)section {
+	return [NSString stringWithFormat:@"Cities"];
 }
 
 #pragma mark -
@@ -127,25 +84,5 @@
 	
 	
 }
-
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-    [super dealloc];
-}
-
 
 @end
