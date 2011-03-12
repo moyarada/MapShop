@@ -17,6 +17,8 @@
 @dynamic name;
 @dynamic city_id;
 @dynamic comment;
+@dynamic sync, upd, del;
+@dynamic city;
 
 + (NSDictionary*)elementToPropertyMappings {
 	return [NSDictionary dictionaryWithKeysAndObjects:
@@ -30,5 +32,9 @@
 + (NSString*)primaryKeyProperty {
 	return @"id";
 }
+
++ (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
+    [NSDictionary dictionaryWithObject:@"city_id" forKey:@"city"]; 
+} 
 
 @end

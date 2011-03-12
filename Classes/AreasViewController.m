@@ -45,7 +45,7 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"city_id=%@", parentId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"city=%@", parentItem];
 	[request setPredicate:predicate];
 	
 	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
@@ -73,7 +73,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	ShopsViewController* genericViewController = [[ShopsViewController alloc] initWithNibName:nil bundle:nil];
-	Area* record = [Area objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
+	Area* record = [_items objectAtIndex:indexPath.row];//[Area objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
 	genericViewController.parentItem = record;
 	genericViewController.parentId = [record id];
 	

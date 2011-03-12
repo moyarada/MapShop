@@ -17,15 +17,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSSet* shops;
-
-@end
-
-
-@interface Category (CoreDataGeneratedAccessors)
-- (void)addShopsObject:(Shop *)value;
-- (void)removeShopsObject:(Shop *)value;
-- (void)addShops:(NSSet *)value;
-- (void)removeShops:(NSSet *)value;
+@property (nonatomic, retain) NSNumber * sync;
+@property (nonatomic, retain) NSNumber * upd;
+@property (nonatomic, retain) NSNumber * del;
 
 @end
 

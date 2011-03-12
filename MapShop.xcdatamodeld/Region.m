@@ -13,6 +13,8 @@
 @dynamic id;
 @dynamic name;
 @dynamic comment;
+@dynamic sync, upd, del;
+@dynamic cities;
 
 #pragma mark RKObjectMappable methods
 
@@ -21,11 +23,22 @@
 			@"id", @"id",
 			@"name", @"name",
 			@"comment", @"comment",
+            
 			nil];
 }
 
 + (NSString*)primaryKeyProperty {
 	return @"id";
 }
+
++ (NSDictionary*)elementToRelationshipMappings { 
+    return [NSDictionary dictionaryWithKeysAndObjects: 
+            @"cities", @"cities", 
+            nil]; 
+} 
+
+
+
+
 
 @end

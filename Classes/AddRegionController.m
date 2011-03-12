@@ -9,7 +9,7 @@
 #import "AddRegionController.h"
 #import "MapShopAppDelegate.h"
 #import "Region.h"
-#import "City.h";
+#import "City.h"
 #import "Area.h"
 #import "Shop.h"
 #import "SPoint.h"
@@ -62,9 +62,13 @@
 		Region* region = [Region object];
 		region.name = regionName.text;
 		region.comment = @"Some comment";
-		
-		[[RKObjectManager sharedManager] postObject:region delegate:self]; 
-		
+		region.sync = [NSNumber numberWithBool:YES];
+        
+        [[RKObjectManager sharedManager] postObject:region delegate:self]; 
+        
+        //[viewController loadObjectsFromDataStore];
+        //[self.navigationController popViewControllerAnimated:YES];
+        
 	}	
 	
 	if (item == @"City") {
@@ -75,7 +79,13 @@
 		city.name = regionName.text;
 		city.comment = @"Some comment";
 		city.region_id = self.parentId;
-		
+		city.sync = [NSNumber numberWithBool:YES];
+        city.region = (Region*)parent;
+        
+        //[[RKObjectManager sharedManager].objectStore save];
+        //[viewController loadObjectsFromDataStore];
+        //[self.navigationController popViewControllerAnimated:YES];
+        
 		[[RKObjectManager sharedManager] postObject:city delegate:self]; 
 
 	}
@@ -85,9 +95,13 @@
 		area.name = regionName.text;
 		area.comment = @"Some comment";
 		area.city_id = self.parentId;
-		
+		area.city = (City*)parent;
+        area.sync = [NSNumber numberWithBool:YES];
 		[[RKObjectManager sharedManager] postObject:area delegate:self]; 
-		
+        //[[RKObjectManager sharedManager].objectStore save];
+        //[viewController loadObjectsFromDataStore];
+		//[self.navigationController popViewControllerAnimated:YES];
+        
 	}
 	
 	if (item == @"Shop") {
@@ -95,8 +109,14 @@
 		shop.name = regionName.text;
 		shop.comment = @"Some comment";
 		shop.area_id = self.parentId;
-		
+		shop.area = (Area*)self.parent;
+        shop.sync = [NSNumber numberWithBool:YES];
+        
 		[[RKObjectManager sharedManager] postObject:shop delegate:self]; 
+        //[[RKObjectManager sharedManager].objectStore save];
+        //[viewController loadObjectsFromDataStore];
+        //[self.navigationController popViewControllerAnimated:YES];
+        
 	}
 	
 	if (item == @"SPoint") {
@@ -105,8 +125,15 @@
 		point.name = regionName.text;
 		point.comment = @"Some comment";
 		point.shop_id = self.parentId;
-		
-		[[RKObjectManager sharedManager] postObject:point delegate:self]; 
+		point.shop = (Shop*)self.parent;
+        point.sync = [NSNumber numberWithBool:YES];
+        
+		//[[RKObjectManager sharedManager] postObject:point delegate:self]; 
+        [[RKObjectManager sharedManager].objectStore save];
+        [viewController loadObjectsFromDataStore];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        
 	//	SPoint *model = (SPoint *)[NSEntityDescription insertNewObjectForEntityForName:@"SPoint" inManagedObjectContext:context];
 		
 	//	[model setName:regionName.text];
@@ -133,12 +160,9 @@
 	//[[NSUserDefaults standardUserDefaults] synchronize];
 	//NSLog(@"Loaded regions: %@", objects);
 	
-	
-	[self.navigationController popViewControllerAnimated:YES];
-	[viewController loadData];
-	
-	//[self loadObjectsFromDataStore];
-	
+	[viewController loadObjectsFromDataStore];
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {

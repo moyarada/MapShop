@@ -4,13 +4,45 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>07-map-marker.png</key>
+		<data>
+		vAeeF8RGuUsY6O0gPL8LSKZSavc=
+		</data>
+		<key>103-map.png</key>
+		<data>
+		8+VmNlfHabxDtpdwi2l1sumGRi8=
+		</data>
+		<key>117-todo.png</key>
+		<data>
+		sMY7opCiWmZ0deXqHBFDTxeyo2I=
+		</data>
+		<key>168-upload-photo-2.png</key>
+		<data>
+		SPhX/5h2Rwgc7Eyh/AKks19cM28=
+		</data>
+		<key>172-pricetag.png</key>
+		<data>
+		0mOv0V1r9loN0WN+qUlevLqfdHI=
+		</data>
+		<key>193-location-arrow.png</key>
+		<data>
+		7aKr5vnAcLZI/s89+CU/ztIiQcs=
+		</data>
+		<key>71-compass.png</key>
+		<data>
+		YiwrU/CEV/RaTjfd5GOgBDhYa8Y=
+		</data>
+		<key>86-camera.png</key>
+		<data>
+		u1FYmbn8FNZp/du5ejrcYmG+fDg=
+		</data>
 		<key>AddPointViewController.nib</key>
 		<data>
-		nBJtsrD0jr+jTUeKMvoFx6kk4hk=
+		jrtHyCDcv90eG0HgSjEHUpKBvPw=
 		</data>
 		<key>AddRegionController.nib</key>
 		<data>
-		aeWzQHSnAwGyyqbsSabxw2pgGPY=
+		0w/tnKJdyzmMMjviuO/JqpfAUsA=
 		</data>
 		<key>AreasViewController.nib</key>
 		<data>
@@ -34,7 +66,7 @@
 		</data>
 		<key>MapShop.momd/MapShop.mom</key>
 		<data>
-		FO7KSfSA81JExKRxNoCnvqi7sm0=
+		NDe09ZqTfitjb3sg2Q6u4e6UhZc=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -54,7 +86,11 @@
 		</data>
 		<key>ShopDetailedViewController.nib</key>
 		<data>
-		B4j6RLngY093R/9NqYZ5K5b75Tk=
+		PvoLJyHNaHOM1N6TkCPyW/Lowag=
+		</data>
+		<key>ShopDetailsTabViewController.nib</key>
+		<data>
+		aqOTj1JQm06eo3DiACx2H/B9edA=
 		</data>
 		<key>ShopPointsViewController.nib</key>
 		<data>
@@ -66,7 +102,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		oCWDHj2/XIYx6GqdXL4l6w1OJ3A=
+		41iuda7D4WK2OKj2v2GErY+sNVM=
 		</data>
 		<key>listbg.png</key>
 		<data>
@@ -75,6 +111,10 @@
 		<key>listbg@2x.png</key>
 		<data>
 		vAWWCzigHHh0yOeDK+lrkE5fKlQ=
+		</data>
+		<key>shopThumb.png</key>
+		<data>
+		jdENJb8ucvYXbK/unVCVwyQ140I=
 		</data>
 	</dict>
 	<key>rules</key>

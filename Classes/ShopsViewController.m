@@ -44,7 +44,7 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"area_id=%@", parentId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"area=%@", parentItem];
 	[request setPredicate:predicate];
 	
 	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
@@ -73,7 +73,8 @@
 
 	
 	ShopDetailedViewController* detailedViewController = [[ShopDetailedViewController alloc] initWithNibName:@"ShopDetailedViewController" bundle:[NSBundle mainBundle]];
-	Shop * record = [Shop objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
+    Shop * record = [_items objectAtIndex:indexPath.row];
+    NSLog(@" %@", [_items objectAtIndex:indexPath.row]);
 	
 	detailedViewController.currentShop = record;
 	

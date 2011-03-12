@@ -30,7 +30,7 @@
 	}
 	
 	addRegionController.viewController = self;
-	
+	addRegionController.parent = self.parentItem;
 	addRegionController.navigationController = self.navigationController;
 	
 	[self.navigationController pushViewController:addRegionController animated:YES];
@@ -85,8 +85,8 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
-	//[self loadObjectsFromDataStore];
-	[self loadData];
+	[self loadObjectsFromDataStore];
+	//[self loadData];
 	
 }
 
@@ -211,9 +211,13 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
 	//NSLog(@"Objects loaded");
-	[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"Loaded items in generic: %@", objects);
+	//[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+	//[[NSUserDefaults standardUserDefaults] synchronize];
+	//NSLog(@"Loaded items in generic: %@", objects);
+    if ([objects count] > 0) {
+        NSLog(@"Showing first object %@", [objects objectAtIndex:0]);
+    }
+    
 	[self loadObjectsFromDataStore];
 	[_tableView reloadData];
 	
@@ -223,6 +227,10 @@
 	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 	[alert show];
 	NSLog(@"Hit error: %@", error);
+	
+	[self loadObjectsFromDataStore];
+	[_tableView reloadData];
+	
 }
 
 - (void)loadObjectsFromDataStore {
@@ -254,8 +262,73 @@
 - (void)reloadButtonWasPressed:(id)sender {
 	// Load the object model via RestKit
 	NSLog(@"push the button");
-	[self loadData];
+	//[self loadData];
+    [self syncData];
 }
+
+#pragma mark -
+#pragma mark Sync Data
+
+- (void) syncData {
+    NSLog(@"Sync data");
+    
+    //load all data
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSString* path = [NSString stringWithFormat:@"/regions.json", parentId];
+    [[objectManager loadObjectsAtResourcePath:path objectClass:[Region class] delegate:self] retain];
+   
+    path = [NSString stringWithFormat:@"/cities.json", parentId];
+    [[objectManager loadObjectsAtResourcePath:path objectClass:[City class] delegate:self] retain];
+    
+    path = [NSString stringWithFormat:@"/areas.json", parentId];
+    [[objectManager loadObjectsAtResourcePath:path objectClass:[Area class] delegate:self] retain];
+    
+    path = [NSString stringWithFormat:@"/shops.json", parentId];
+    [[objectManager loadObjectsAtResourcePath:path objectClass:[Shop class] delegate:self] retain];
+    
+    path = [NSString stringWithFormat:@"/points.json", parentId];
+    [[objectManager loadObjectsAtResourcePath:path objectClass:[SPoint class] delegate:self] retain];
+    
+    [path release];
+    
+    //1 push all changes to server
+    //[self createNewRegions];
+    
+    
+    
+}
+
+
+- (void) createNewRegions {
+    NSFetchRequest* request = [Region fetchRequest];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"sync == true"];
+	[request setPredicate:predicate];
+	
+	NSMutableArray *regions = [[[Region objectsWithFetchRequest:request] mutableCopy] retain];
+    
+    if ([regions count] > 0) {
+        for (Region *obj in regions) {
+            NSLog(@"Creating a region: %@", [obj id]);
+            [[RKObjectManager sharedManager] postObject:obj delegate:self]; 
+        }
+    }
+}
+
+- (void) createNewCities {
+    NSFetchRequest* request = [City fetchRequest];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat: @"sync == true"];
+	[request setPredicate:predicate];
+	
+	NSMutableArray *items = [[[City objectsWithFetchRequest:request] mutableCopy] retain];
+    
+    if ([items count] > 0) {
+        for (Region *obj in items) {
+            NSLog(@"Creating a city: %@", [obj id]);
+            [[RKObjectManager sharedManager] postObject:obj delegate:self]; 
+        }
+    }
+}
+
 
 
 

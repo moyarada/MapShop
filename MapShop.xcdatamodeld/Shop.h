@@ -9,7 +9,7 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-#import "Region.h"
+#import "Area.h"
 
 
 @interface Shop :  RKManagedObject    
@@ -20,7 +20,13 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSNumber * area_id;
-
+@property (nonatomic, retain) NSString * website;
+@property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSNumber * sync;
+@property (nonatomic, retain) NSNumber * upd;
+@property (nonatomic, retain) NSNumber * del;
+@property (nonatomic, retain) Area * area;
 
 @end
 

@@ -52,6 +52,7 @@
 		B290481612FF1E210090A524 /* RegionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290481412FF1E210090A524 /* RegionsViewController.xib */; };
 		B29048CA12FF2BA90090A524 /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C812FF2BA90090A524 /* listbg.png */; };
 		B29048CB12FF2BA90090A524 /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C912FF2BA90090A524 /* listbg@2x.png */; };
+		B2987C611329862C00338693 /* PointAnnotationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2987C601329862C00338693 /* PointAnnotationDelegate.m */; };
 		B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E09A612E7246400835600 /* ShopsViewController.xib */; };
 		B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */; };
 		B29E0A3E12E7441C00835600 /* ShopDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */; };
@@ -167,7 +168,7 @@
 		B2551FC913279593008BBECF /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "168-upload-photo-2.png"; path = "../../Downloads/glyphish-icons/icons/168-upload-photo-2.png"; sourceTree = SOURCE_ROOT; };
 		B2551FCB132795A5008BBECF /* 172-pricetag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "172-pricetag.png"; sourceTree = "<group>"; };
 		B2551FCD132795C8008BBECF /* 193-location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "193-location-arrow.png"; sourceTree = "<group>"; };
-		B25520271327AE1E008BBECF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B25520271327AE1E008BBECF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.1/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		B25B364A12E4544800F15585 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B25B364B12E4544800F15585 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		B25B37C012E46B2B00F15585 /* AddRegionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRegionController.h; sourceTree = "<group>"; };
@@ -193,6 +194,8 @@
 		B290481412FF1E210090A524 /* RegionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegionsViewController.xib; path = Classes/RegionsViewController.xib; sourceTree = "<group>"; };
 		B29048C812FF2BA90090A524 /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		B29048C912FF2BA90090A524 /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
+		B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointAnnotationDelegate.h; sourceTree = "<group>"; };
+		B2987C601329862C00338693 /* PointAnnotationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointAnnotationDelegate.m; sourceTree = "<group>"; };
 		B29E09A612E7246400835600 /* ShopsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopsViewController.xib; path = Classes/ShopsViewController.xib; sourceTree = "<group>"; };
 		B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailedViewController.h; sourceTree = "<group>"; };
 		B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailedViewController.m; sourceTree = "<group>"; };
@@ -210,7 +213,7 @@
 		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
-		B29E259A12E9B9E200835600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B29E259A12E9B9E200835600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = iphoneos4.1/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,8 @@
 				B2551D35132672B6008BBECF /* ShopsViewController.m */,
 				B2551E0113268675008BBECF /* ShopDetailsTabViewController.h */,
 				B2551E0213268675008BBECF /* ShopDetailsTabViewController.m */,
+				B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */,
+				B2987C601329862C00338693 /* PointAnnotationDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -301,8 +306,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				B29E218512E85ABD00835600 /* MapShopIPad-Info.plist */,
-				B29E259A12E9B9E200835600 /* CoreLocation.framework */,
-				B25520271327AE1E008BBECF /* MapKit.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -348,6 +351,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B29E259A12E9B9E200835600 /* CoreLocation.framework */,
+				B25520271327AE1E008BBECF /* MapKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -582,6 +587,7 @@
 				B2551AB7132631A7008BBECF /* RegionViewController+Generic.m in Sources */,
 				B2551D36132672B6008BBECF /* ShopsViewController.m in Sources */,
 				B2551E0413268675008BBECF /* ShopDetailsTabViewController.m in Sources */,
+				B2987C611329862C00338693 /* PointAnnotationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +617,8 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.1;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
@@ -642,7 +649,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -666,6 +674,7 @@
 				);
 				PRODUCT_NAME = MapShop;
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -692,8 +701,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = MapShopIPad;
-				SDKROOT = iphoneos4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -702,7 +711,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -718,8 +728,10 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = MapShopIPad;
-				SDKROOT = iphoneos4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -743,8 +755,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -762,6 +774,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -779,7 +792,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -795,8 +808,9 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = MapShopIPad;
-				SDKROOT = iphoneos4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 				ZERO_LINK = NO;
 			};
 			name = Distribution;

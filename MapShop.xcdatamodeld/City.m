@@ -17,6 +17,8 @@
 @dynamic name;
 @dynamic region_id;
 @dynamic comment;
+@dynamic sync, upd, del;
+@dynamic region;
 
 #pragma mark RKObjectMappable methods
 
@@ -33,10 +35,14 @@
 	return @"id";
 }
 
-//+ (NSDictionary*)elementToRelationshipMappings {
-//	return [NSDictionary dictionaryWithKeysAndObjects:
-//			@"region", @"region",
-//			nil];
-//}
++ (NSDictionary*)elementToRelationshipMappings {
+	return [NSDictionary dictionaryWithKeysAndObjects:
+			@"region", @"region",
+			nil];
+}
+
++ (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
+    [NSDictionary dictionaryWithObject:@"region_id" forKey:@"region"]; 
+} 
 
 @end

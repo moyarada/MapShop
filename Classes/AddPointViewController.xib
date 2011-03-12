@@ -42,13 +42,17 @@
 				<int key="NSvFlags">275</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="747394273">
+					<object class="IBUIImageView" id="1057940779">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{-20, -26}, {340, 493}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">BG.png</string>
+						</object>
 					</object>
 					<object class="IBUILabel" id="859278275">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -203,10 +207,10 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBMKMapView" id="987097648">
+					<object class="IBMKMapView" id="802288247">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{7, 184}, {304, 268}}</string>
+						<string key="NSFrame">{{7, 174}, {304, 278}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -271,7 +275,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="987097648"/>
+						<reference key="source" ref="802288247"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">21</int>
@@ -280,9 +284,18 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">mapView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="987097648"/>
+						<reference key="destination" ref="802288247"/>
 					</object>
 					<int key="connectionID">22</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">removeFocus</string>
+						<reference key="source" ref="69710412"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">20</int>
+					</object>
+					<int key="connectionID">23</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -306,8 +319,8 @@
 							<reference ref="95032732"/>
 							<reference ref="859278275"/>
 							<reference ref="309871003"/>
-							<reference ref="987097648"/>
-							<reference ref="747394273"/>
+							<reference ref="802288247"/>
+							<reference ref="1057940779"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -359,12 +372,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
-						<reference key="object" ref="747394273"/>
+						<reference key="object" ref="1057940779"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="987097648"/>
+						<reference key="object" ref="802288247"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -448,7 +461,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -456,6 +469,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">AddPointViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">removeFocus</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">removeFocus</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">removeFocus</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -529,6 +553,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../MapShop.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">BG.png</string>
+			<string key="NS.object.0">{320, 480}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>
 	</data>
 </archive>

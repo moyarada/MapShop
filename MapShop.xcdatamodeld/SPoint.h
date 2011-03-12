@@ -8,7 +8,7 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-
+#import "Shop.h"
 
 @interface SPoint :  RKManagedObject  
 {
@@ -21,9 +21,10 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * altitude;
 @property (nonatomic, retain) NSNumber * shop_id;
-
-
-
+@property (nonatomic, retain) NSNumber * sync;
+@property (nonatomic, retain) NSNumber * upd;
+@property (nonatomic, retain) NSNumber * del;
+@property (nonatomic, retain) Shop * shop;
 
 @end
 

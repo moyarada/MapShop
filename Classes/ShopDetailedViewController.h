@@ -25,6 +25,8 @@
 	ShopPointsViewController *shopPointsViewController;
 	ShopCategoriesViewController *shopCategoriesViewController;
 	ShopDetailsTabViewController *shopDetailsTabViewController;
+    UITextField *shopNameFld;
+    
 }
 
 @property (nonatomic, retain) Shop *currentShop;

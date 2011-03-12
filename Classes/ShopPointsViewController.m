@@ -34,6 +34,9 @@
 	
 	addPointViewController.navItem = self.navigationItem;
 	addPointViewController.navigationController = self.navigationController;
+	addPointViewController.parentId = self.parentId;
+    addPointViewController.viewController = self;
+    addPointViewController.parent = self.parentItem;
 	[self.navigationController pushViewController:addPointViewController animated:YES];
 	
 	[addPointViewController release];
@@ -68,12 +71,12 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"shop_id=%@", parentId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"shop=%@", parentItem];
 	[request setPredicate:predicate];
 	
 	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
 	NSLog(@" Items = %@", _items);
-	
+	[_tableView reloadData];
 	
 }
 
@@ -94,8 +97,8 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source.
-        NSArray* record = [_items objectAtIndex:indexPath.row];
-		SPoint* region = [SPoint objectWithPrimaryKeyValue:[record id]];
+        //NSArray* record = [_items objectAtIndex:indexPath.row];
+		SPoint* region = [_items objectAtIndex:indexPath.row];//[SPoint objectWithPrimaryKeyValue:[record id]];
 		
 		[_items removeObjectAtIndex:indexPath.row];
 		[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];

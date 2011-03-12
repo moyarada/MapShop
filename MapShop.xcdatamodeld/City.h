@@ -20,7 +20,10 @@
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* comment;
 @property (nonatomic, retain) NSNumber* region_id;
-
+@property (nonatomic, retain) NSNumber * sync;
+@property (nonatomic, retain) NSNumber * upd;
+@property (nonatomic, retain) NSNumber * del;
+@property (nonatomic, retain) Region * region;
 
 @end
 

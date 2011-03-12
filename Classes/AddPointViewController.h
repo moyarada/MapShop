@@ -11,14 +11,16 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import <MapKit/MKReverseGeocoder.h>
+#import "ShopPointsViewController.h"
 
-@interface AddPointViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation> {
+@interface AddPointViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation, RKObjectLoaderDelegate> {
 	UITextField *commentFld;
 	UITextField *latFld;
 	UITextField  *longFld;
 	UITextField  *altFld;
 	NSString *item;
 	RKManagedObject *parent;
+	NSNumber *parentId;
 	CLLocationManager *locationManager;
 	NSNumber *curLat;
 	NSNumber *curLong;
@@ -27,6 +29,7 @@
 	MKReverseGeocoder *geoCoder;
 	MKPlacemark *mPlacemark;
 	UINavigationItem *navItem;
+    ShopPointsViewController *viewController;
 }
 
 @property (nonatomic, retain) UINavigationController *navigationController;
@@ -37,6 +40,11 @@
 @property (nonatomic, retain) IBOutlet UITextField  *altFld;
 @property (nonatomic, retain) NSString *item;
 @property (nonatomic, retain) RKManagedObject *parent;
+@property (nonatomic, retain) NSNumber *parentId;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) ShopPointsViewController *viewController;
+
+- (IBAction) removeFocus;
+- (void) gotoLocation;
 
 @end

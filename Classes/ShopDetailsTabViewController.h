@@ -10,9 +10,10 @@
 #import "Shop.h"
 
 
-@interface ShopDetailsTabViewController : UIViewController {
+@interface ShopDetailsTabViewController : UIViewController <RKObjectLoaderDelegate> {
 	
 	Shop *currentShop;
+    UINavigationItem *navigationItem;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *thumb;
@@ -22,6 +23,9 @@
 @property (nonatomic, retain) IBOutlet UITextField *phone;
 @property (nonatomic, retain) IBOutlet UIButton *addPhotoBtn;
 @property (nonatomic, retain) Shop *currentShop;
+@property (nonatomic, retain) UINavigationItem *navigationItem;
+@property (nonatomic, retain) UINavigationController *navigationController;
 
-
+- (void) updateShop;
+- (void) resignFirstResponders;
 @end

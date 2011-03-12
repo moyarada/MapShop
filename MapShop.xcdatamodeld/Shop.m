@@ -18,6 +18,11 @@
 @dynamic name;
 @dynamic comment;
 @dynamic area_id;
+@dynamic website;
+@dynamic phone;
+@dynamic address;
+@dynamic sync, upd, del;
+@dynamic area;
 
 + (NSDictionary*)elementToPropertyMappings {
 	return [NSDictionary dictionaryWithKeysAndObjects:
@@ -25,11 +30,18 @@
 			@"name", @"name",
 			@"comment", @"comment",
 			@"area_id",@"area_id",
+            @"website",@"website",
+            @"phone",@"phone",
+            @"address",@"address",
 			nil];
 }
 
 + (NSString*)primaryKeyProperty {
 	return @"id";
 }
+
++ (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
+    [NSDictionary dictionaryWithObject:@"area_id" forKey:@"area"]; 
+} 
 
 @end

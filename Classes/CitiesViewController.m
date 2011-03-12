@@ -43,7 +43,7 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region=%@", parentItem];
 	[request setPredicate:predicate];
 	
 	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
@@ -71,7 +71,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	AreasViewController* genericViewController = [[AreasViewController alloc] initWithNibName:nil bundle:nil];
-	City* record = [City objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
+	City* record = [_items objectAtIndex:indexPath.row];//[City objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
 	genericViewController.parentItem = record;
 	genericViewController.parentId = [record id];
 	

@@ -32,6 +32,10 @@
 - (void)savePoint {
 	NSLog(@"Saving Point");
 	
+    
+    
+    
+    
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -42,8 +46,7 @@
 	
 	self.title = [currentShop name];
 	
-	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePoint)];
-	self.navigationItem.rightBarButtonItem = saveButton;
+	
 	
 	tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 	if (!shopDetailsTabViewController) {
@@ -70,6 +73,8 @@
 	
 	if (item.tag == 0) {
 		if (shopDetailsTabViewController) {
+            UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:shopDetailsTabViewController action:@selector(updateShop)] autorelease];
+            self.navigationItem.rightBarButtonItem = saveButton;
 			[self.view bringSubviewToFront:scrollView];
 			[self.view bringSubviewToFront:tabBar];
 		} else {
@@ -78,6 +83,10 @@
 	} else if (item.tag == 1) {
 		
 		if (shopPointsViewController) {
+            
+            UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:shopPointsViewController action:@selector(addNewItem)] autorelease];
+            self.navigationItem.rightBarButtonItem = addButton;
+            
 			[self.view bringSubviewToFront:shopPointsViewController.view];
 			[self.view bringSubviewToFront:tabBar];
 		} else {
@@ -130,7 +139,8 @@
 	
 	shopDetailsTabViewController = [[ShopDetailsTabViewController alloc] initWithNibName:@"ShopDetailsTabViewController" bundle:[NSBundle mainBundle]];
 	shopDetailsTabViewController.currentShop = currentShop;
-	
+	shopDetailsTabViewController.navigationItem = self.navigationItem;
+    //shopDetailsTabViewController.navigationController = self.navigationController;
 
 	CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 	self.scrollView = [[UIScrollView alloc] initWithFrame:frame];

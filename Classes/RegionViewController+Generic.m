@@ -29,7 +29,7 @@
 	self.navigationItem.leftBarButtonItem = refreshButton;
 	
 	//[self loadObjectsFromDataStore];
-	[self loadData];
+	//[self loadData];
 	
 }
 
@@ -64,7 +64,7 @@
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
 	_items = [[[Region objectsWithFetchRequest:request] mutableCopy] retain];
-	NSLog(@" Items = %@", _items);
+	//NSLog(@" Items = %@", _items);
 	
 	
 }
@@ -72,9 +72,9 @@
 
 - (void)loadData {
 	//NSLog(@"Loading data");
-	RKObjectManager* objectManager = [RKObjectManager sharedManager];
+	//RKObjectManager* objectManager = [RKObjectManager sharedManager];
 	//NSString* path = [NSString stringWithFormat:@"/regions.json"];
-	[[objectManager loadObjectsAtResourcePath:@"/regions.json" objectClass:[Region class] delegate:self] retain];
+	//[[objectManager loadObjectsAtResourcePath:@"/regions.json" objectClass:[Region class] delegate:self] retain];
 	
 	NSLog(@"Loading data");
 }
@@ -85,7 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	CitiesViewController* genericViewController = [[CitiesViewController alloc] initWithNibName:nil bundle:nil];
-	Region* record = [Region objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
+	Region* record = [_items objectAtIndex:indexPath.row];  // [Region objectWithPrimaryKeyValue:[[_items objectAtIndex:indexPath.row] id]];
 	genericViewController.parentItem = record;
 	genericViewController.parentId = [record id];
 	

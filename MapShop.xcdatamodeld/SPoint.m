@@ -11,14 +11,16 @@
 
 @implementation SPoint 
 
-@dynamic longitude;
-@dynamic id;
-@dynamic latitude;
-@dynamic comment;
-@dynamic name;
-@dynamic altitude;
-@dynamic shop_id;
 
+@dynamic id;
+@dynamic name;
+@dynamic comment;
+@dynamic altitude;
+@dynamic longitude;
+@dynamic latitude;
+@dynamic shop_id;
+@dynamic sync, upd, del;
+@dynamic shop;
 
 #pragma mark RKObjectMappable methods
 

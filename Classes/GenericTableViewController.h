@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/CoreData/CoreData.h>
-
+#import "Region.h"
+#import "City.h"
+#import "Area.h"
+#import "Shop.h"
+#import "SPoint.h"
 
 @interface GenericTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> {
 	UITableView* _tableView;
@@ -31,5 +35,7 @@
 - (void)loadData;
 - (void)addNewItem;
 - (void)setOptions;
-
+- (void)syncData;
+- (void) createNewRegions;
+- (void) createNewCities;
 @end

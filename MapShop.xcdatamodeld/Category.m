@@ -15,5 +15,6 @@
 @dynamic name;
 @dynamic id;
 @dynamic shops;
+@dynamic sync, upd, del;
 
 @end

@@ -279,7 +279,7 @@ fetchedResultsController=fetchedResultsController_, managedObjectContext=managed
 - (void)addNewItem {
 	AddRegionController *addRegionController = [[AddRegionController alloc] initWithNibName:@"AddRegionController" bundle:[NSBundle mainBundle]];
 	addRegionController.item = @"Category";
-	addRegionController.parent = currentShop;
+	//addRegionController.parent = currentShop;
 	
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addRegionController];
 	
