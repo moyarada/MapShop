@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericTableViewController.h"
-
+#import "Shop.h"
 @interface ShopPointsViewController : GenericTableViewController {
 	UINavigationItem *navigationItem;
 }

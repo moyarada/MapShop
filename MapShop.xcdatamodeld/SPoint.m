@@ -40,5 +40,9 @@
 	return @"id";
 }
 
++ (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
+    return [NSDictionary dictionaryWithObject:@"shop_id" forKey:@"shop"]; 
+} 
+
 
 @end

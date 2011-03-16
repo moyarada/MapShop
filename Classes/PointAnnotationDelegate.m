@@ -13,32 +13,44 @@
 @implementation PointAnnotationDelegate 
 
 
-@synthesize image, latitude, longitude;
+@synthesize image, latitude, longitude, title, subtitle, point_id;
 
 - (CLLocationCoordinate2D)coordinate;
 {
-    CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = 37.786996;
-    theCoordinate.longitude = -122.419281;
+    theCoordinate.latitude = [self.latitude doubleValue];
+    theCoordinate.longitude = [self.longitude doubleValue];
     return theCoordinate; 
 }
 
-- (NSString *)title
-{
-    return @"San Francisco";
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
+    self.latitude = [NSNumber numberWithDouble:newCoordinate.latitude];
+    self.longitude = [NSNumber numberWithDouble:newCoordinate.longitude];
 }
 
-// optional
-- (NSString *)subtitle
+// Implementing this method ensures the Key-Value observers will be notified when the properties
+// from which coordinate is derived have changed.
+//
++ (NSSet *)keyPathsForValuesAffectingCoordinate
 {
-    return @"Founded: June 29, 1776";
+    return [NSSet setWithObjects:@"latitude", @"longitude", nil];
 }
+
+-(id)init
+{
+    [super init];
+    
+	return self;
+}
+
 
 
 - (void)dealloc {
-	[image release];
+	//[image release];
+    //[latitude release];
+    //[longitude release];
+    //[title release];
+    //[subtitle release];
     [super dealloc];
 }
-
 
 @end

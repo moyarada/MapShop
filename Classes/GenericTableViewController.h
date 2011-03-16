@@ -22,6 +22,8 @@
 	NSNumber* parentId;
 	NSString* entityName;
 	UINavigationController *navigationController;
+    NSString *syncingEntity;
+    BOOL syncNow;
 }
 
 @property (nonatomic, retain) RKManagedObject* currentItem;
@@ -31,11 +33,11 @@
 @property (nonatomic, retain) NSString* entityName;
 
 
-- (void)loadObjectsFromDataStore;
-- (void)loadData;
-- (void)addNewItem;
-- (void)setOptions;
-- (void)syncData;
-- (void) createNewRegions;
-- (void) createNewCities;
+- (void) loadObjectsFromDataStore;
+- (void) loadData;
+- (void) addNewItem;
+- (void) setOptions;
+- (void) syncData;
+//- (void) createNewRegions;
+//- (void) createNewCities;
 @end

@@ -7,86 +7,23 @@
 //
 
 #import "AddPointViewController.h"
-#import "MapShopAppDelegate.h"
-#import "SPoint.h"
-#import <MapKit/MKAnnotation.h>
-#import <MapKit/MapKit.h>
-#import "PointAnnotationDelegate.h"
+
 
 @implementation AddPointViewController
 
-@synthesize item, parent, commentFld, latFld, longFld, altFld, 
-			mapView, navigationController, navItem, parentId, viewController;
+@synthesize parent, mapView;
 
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+#pragma mark -
+#pragma mark Application init
+
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-		self.title = @"New point";
-		
-		locationManager = [[CLLocationManager alloc] init];
-		locationManager.delegate = self;
-		locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest; // or kCLLocationAccuracyBest
-		
-		
-		
+		//self.title = @"New point";
     }
     return self;
 }
-
-- (void)savePoint {
-	NSLog(@"Saving Point");
-	
-	SPoint* point = [SPoint object];
-	point.name = commentFld.text;
-	point.shop_id = self.parentId;
-	point.altitude = curAlt;
-	point.latitude = curLat;
-	point.longitude = curLong;
-    point.shop = (Shop*)self.parent;
-	point.sync = [NSNumber numberWithBool:YES];
-    
-    //[[RKObjectManager sharedManager].objectStore save];
-    //[self.navigationController popViewControllerAnimated:YES];
-	[[RKObjectManager sharedManager] postObject:point delegate:self]; 
-	
-	
-}
-
-- (IBAction) removeFocus {
-	[commentFld resignFirstResponder];
-}
-
-#pragma mark -
-#pragma mark RestKit
-
-
-#pragma mark RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-	//NSLog(@"Objects loaded");
-	//[[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
-	//[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"Loaded items in add point: %@", objects);
-	
-    //[[RKObjectManager sharedManager].objectStore save];
-    [self.viewController loadObjectsFromDataStore];
-	[self.navigationController popViewControllerAnimated:YES];
-	//[self loadObjectsFromDataStore];
-	//[_tableView reloadData];
-	
-}
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
-	[alert show];
-	NSLog(@"Hit error: %@", error);
-	
-	//[self loadObjectsFromDataStore];
-	//[_tableView reloadData];
-	
-}
+ */
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -95,90 +32,242 @@
 	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePoint)];
 	self.navigationItem.rightBarButtonItem = saveButton;
 	
-	//if (locationManager) {
-		[locationManager startUpdatingLocation];
-	//}
-	
-	mapView.showsUserLocation=TRUE;
-	mapView.mapType=MKMapTypeHybrid;
+	mapView.showsUserLocation = YES;
+	mapView.mapType = MKMapTypeHybrid;
 	mapView.delegate = self;
+    
+    NSFetchRequest* request = [SPoint fetchRequest];
+	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	double lastLocationLat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLatitude"];
-	double lastLocationLong = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLongitude"];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"shop=%@", parent];
+	[request setPredicate:predicate];
 	
-	PointAnnotationDelegate * annotation = [[PointAnnotationDelegate alloc] init];
-	[mapView addAnnotation:annotation];
-	[annotation release];
-
-	
-	if (lastLocationLat) {
-		
-		//MKReverseGeocoder *reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:_coordinate];
-		//reverseGeocoder.delegate = self;
-		//[reverseGeocoder start];
-		
-		
-		MKCoordinateRegion region;
-		MKCoordinateSpan span;
-		span.latitudeDelta=0.0039;
-		span.longitudeDelta=0.0034;
-		
-		CLLocationCoordinate2D location=mapView.userLocation.coordinate;
-		location.latitude = lastLocationLat;
-		location.longitude = lastLocationLong;
-		
-		region.span = span;
-		region.center = location;
-		
-		
-		
-		//[mapView setRegion:region animated:FALSE];
-		//	[mapView regionThatFits:region];
-		
-		
-	}
-	
-	[self gotoLocation]; 
-	
+	NSArray *pins = [[[SPoint objectsWithFetchRequest:request] mutableCopy] autorelease];
+    
+    if ([pins count] > 0) {
+        
+        MKMapRect flyTo = MKMapRectNull;
+        
+        for(SPoint *pin in pins) {
+            PointAnnotationDelegate *annot = [[PointAnnotationDelegate alloc] init];
+            annot.latitude = pin.latitude;
+            annot.longitude = pin.longitude;
+            annot.title = pin.name;
+            annot.subtitle = pin.comment; 
+            annot.point_id = pin.id;
+            [mapView addAnnotation:annot];
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(annot.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+            if (MKMapRectIsNull(flyTo)) {
+                flyTo = pointRect;
+            } else {
+                flyTo = MKMapRectUnion(flyTo, pointRect);
+            }
+            [annot release];
+        }
+        mapView.visibleMapRect = flyTo;
+    } else {
+        showUserLocation = true;
+    }
+    
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dropPin:)];
+    [mapView addGestureRecognizer:longPressGesture];
+    [longPressGesture release];
+    
 }
 
-- (void)gotoLocation
-{
-    // start off by default in San Francisco
-	double lastLocationLat = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLatitude"];
-	double lastLocationLong = [[NSUserDefaults standardUserDefaults] doubleForKey:@"LastLocationLongitude"];
+#pragma mark -
+#pragma mark Memory management
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+
+	mapView.delegate = nil;
+	mapView = nil;
+    parent = nil;
+    
+}
+
+- (void)dealloc {
+	[self.parent release];
+    mapView.delegate = nil;
+	[mapView release];
+    [super dealloc];
+}
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (void)dropPin:(UILongPressGestureRecognizer *)gestureRecognizer {
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
+        NSLog(@"Drop a pin");
+        
+        CGPoint location = [gestureRecognizer locationInView:self.mapView];
+        CLLocationCoordinate2D coordinate = [mapView convertPoint:location toCoordinateFromView:self.mapView];
+        
+        
+        PointAnnotationDelegate * mapannotation = [[PointAnnotationDelegate alloc] init];
+        mapannotation.latitude = [NSNumber numberWithDouble:coordinate.latitude];
+        mapannotation.longitude = [NSNumber numberWithDouble:coordinate.longitude];
+        mapannotation.title = @"New point";
+        mapannotation.subtitle = @"Subtitle";
+        [mapView addAnnotation:mapannotation];
+        [mapannotation release];
+    }
+}
+
+- (void)savePoints {
+	NSLog(@"Saving Point");
 	
-	if (lastLocationLat) {
-		MKCoordinateRegion newRegion;
-		newRegion.center.latitude = lastLocationLat;
-		newRegion.center.longitude = lastLocationLong;
-		newRegion.span.latitudeDelta = 0.112872;
-		newRegion.span.longitudeDelta = 0.109863;
-		
-		[mapView setRegion:newRegion animated:YES];
-	}
+	
+    
+    for(PointAnnotationDelegate *annot in mapView.annotations) {
+        if ([annot isKindOfClass:[PointAnnotationDelegate class]]) {
+            if ([annot point_id]) {
+                SPoint* point = [SPoint objectWithPrimaryKeyValue:[annot point_id]];
+                if (point) {
+                    point.shop_id = [self.parent id];
+                    point.shop = (Shop*)self.parent;
+                    point.latitude = annot.latitude;
+                    point.longitude = annot.longitude;
+                    point.sync = [NSNumber numberWithBool:YES];
+                    
+                    NSLog(@"Updating a Point: %@", point);
+                    [[RKObjectManager sharedManager] putObject:point delegate:self];
+                }
+                
+            } else {
+                SPoint* point = [SPoint object];
+                point.name = @"Point";
+                point.shop_id = [self.parent id];
+                point.shop = (Shop*)self.parent;
+                point.latitude = annot.latitude;
+                point.longitude = annot.longitude;
+                point.sync = [NSNumber numberWithBool:YES];
+                
+                NSLog(@"Creating a Point: %@", point);
+                [[RKObjectManager sharedManager] postObject:point delegate:self];
+                //[point release];
+            }
+        }
+    }
+    
+    NSLog(@"Points to save = %@", mapView.annotations);
+    
+	//[[RKObjectManager sharedManager] postObject:point delegate:self];
+}
+
+- (IBAction) removeFocus {
+	//[commentFld resignFirstResponder];
+}
+
+#pragma mark -
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+	NSLog(@"Loaded items in add point: %@", objects);
+    //[self.viewController loadObjectsFromDataStore];
+	//[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+	[alert show];
+	NSLog(@"Hit error: %@", error);
 }
 
 
 #pragma mark -
 #pragma mark MKMapViewDelegate
 
-- (void)showDetails:(id)sender
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    // the detail view does not want a toolbar so hide it
-	NSLog(@"Show details");
-    //[self.navigationController setToolbarHidden:YES animated:NO];
+    if (showUserLocation == YES) {
+        [self gotoLocation];
+        showUserLocation = NO;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
     
-    //[self.navigationController pushViewController:self.detailViewController animated:YES];
 }
 
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView 
+    didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
+    
+}
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[PointAnnotationDelegate class]]) {
+        static NSString* PointAnnotationIdentifier = @"pointAnnotationIdentifier";
+        
+        MKPinAnnotationView* pinView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:PointAnnotationIdentifier];
+        
+        if (!pinView) {
+            MKPinAnnotationView* customPinView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PointAnnotationIdentifier] autorelease];
+            [customPinView setPinColor:MKPinAnnotationColorRed];
+            [customPinView setAnimatesDrop:YES];
+            [customPinView setDraggable:YES];
+            NSLog(@"Draggable pin");
+            [customPinView setCanShowCallout:YES];
+            [customPinView setSelected:YES animated:YES];
+            
+            /*
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [rightButton addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
+            [rightButton setTitle:@"Delete" forState:UIControlStateNormal];
+            customPinView.rightCalloutAccessoryView = rightButton;
+            
+            [rightButton release];
+            */
+            return customPinView;
+        } else
+        {
+            pinView.annotation = annotation;
+        }
+        
+        return pinView;
+        
+    } 
+    
+    return nil;
+}
+
+
+#pragma mark -
+#pragma mark Maps
+
+- (void)gotoLocation
+{
+    MKCoordinateRegion newRegion;
+	newRegion.center = mapView.userLocation.coordinate;
+	newRegion.span.latitudeDelta = 0.0010;
+	newRegion.span.longitudeDelta = 0.0010;
+	
+	[mapView setRegion:newRegion animated:YES];
+}
 
 #pragma mark -
 #pragma mark MKReverseGeocoderDelegate methods
-
+/*
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)newPlacemark {
     //[self notifyCalloutInfo:newPlacemark];
+    NSLog(@"newPlacemark: %@", newPlacemark);
+    addressFld.text = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", [newPlacemark thoroughfare], [newPlacemark subThoroughfare], [newPlacemark locality], [newPlacemark postalCode], [newPlacemark country]];
     geocoder.delegate = nil;
     [geocoder release];
 }
@@ -189,18 +278,18 @@
     [geocoder release];
 }
 
-
-
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
+- (IBAction)reverseGeocodeCurrentLocation {
+    if (!self.reverseGeocoder) {
+        self.reverseGeocoder = [[[MKReverseGeocoder alloc] initWithCoordinate:mapView.userLocation.location.coordinate] autorelease];
+        reverseGeocoder.delegate = self;
+        [reverseGeocoder start];
+    }
 }
-
+*/
 
 #pragma mark -
 #pragma mark Location manager
-
+/*
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
@@ -213,40 +302,44 @@
 		return;
 	}
 	
-	//if (newLocation.horizontalAccuracy > 100) { 
-	//	return;
-	//}
+	if (newLocation.horizontalAccuracy > 100) { 
+		return;
+	}
+    [curLong release];
+    [curLat release];
+    [curAlt release];
+    
 	
 	curLong = [[NSNumber numberWithDouble:newLocation.coordinate.longitude] retain];
 	curLat = [[NSNumber numberWithDouble:newLocation.coordinate.latitude] retain];
 	curAlt = [[NSNumber numberWithDouble:newLocation.altitude] retain];
 	
 	
-	int degrees = newLocation.coordinate.latitude;
+	//int degrees = newLocation.coordinate.latitude;
 	
-	double decimal = fabs(newLocation.coordinate.latitude - degrees);
-	int minutes = decimal * 60;
-	double seconds = decimal * 3600 - minutes * 60;
+	//double decimal = fabs(newLocation.coordinate.latitude - degrees);
+	//int minutes = decimal * 60;
+	//double seconds = decimal * 3600 - minutes * 60;
 	
-	NSString *lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
-					 degrees, minutes, seconds];
+	//NSString *lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
+	//				 degrees, minutes, seconds];
 
-	latFld.text = lat;
-	degrees = newLocation.coordinate.longitude;
+	//latFld.text = lat;
+	//degrees = newLocation.coordinate.longitude;
 	
-	decimal = fabs(newLocation.coordinate.longitude - degrees);
-	minutes = decimal * 60;
-	seconds = decimal * 3600 - minutes * 60;
-	NSString *longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
-					   degrees, minutes, seconds];
-	longFld.text = longt;
+	//decimal = fabs(newLocation.coordinate.longitude - degrees);
+	//minutes = decimal * 60;
+	//seconds = decimal * 3600 - minutes * 60;
+	//NSString *longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
+	//				   degrees, minutes, seconds];
+	//longFld.text = longt;
 	
-	altFld.text = [NSString stringWithFormat:@" %1.2f", curAlt];
+	//altFld.text = [NSString stringWithFormat:@" %1.2f", curAlt];
 	
 	// Update map
-	[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.latitude forKey:@"LastLocationLatitude"];
-	[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.longitude forKey:@"LastLocationLongitude"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
+	//[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.latitude forKey:@"LastLocationLatitude"];
+	//[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.longitude forKey:@"LastLocationLongitude"];
+	//[[NSUserDefaults standardUserDefaults] synchronize];
 	
 }
 
@@ -261,62 +354,26 @@
 						   cancelButtonTitle:@"OK"
 						   otherButtonTitles:nil] autorelease] show];
 		//self.toggle.on = NO;
-		[locationManager stopUpdatingLocation];
+		//[locationManager stopUpdatingLocation];
 	}
 			
 	
 }
+ */
+/*
 
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
 	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
 	annView.animatesDrop=TRUE;
+    annView.draggable = TRUE;
 	return annView;
 }
+ */
 
 
-#pragma mark -
-#pragma mark Memory management
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	self.commentFld = nil;
-	self.latFld = nil;
-	self.longFld = nil;
-	self.altFld = nil;
-	[locationManager stopUpdatingLocation];
-	locationManager = nil;
-	mapView.delegate = nil;
-	mapView = nil;
 
-}
-
-- (void)dealloc {
-	[commentFld release];
-	[latFld release];
-	[longFld release];
-	[altFld release];
-	[item release];
-	[parent release];
-	[locationManager stopUpdatingLocation];
-	[locationManager release];
-	mapView.delegate = nil;
-	[mapView release];
-	[parentId release];
-	[curLat release];
-	[curLong release];
-	[curAlt release];
-    [viewController release];
-    [super dealloc];
-}
 
 
 @end

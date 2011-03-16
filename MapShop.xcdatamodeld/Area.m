@@ -34,7 +34,7 @@
 }
 
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
-    [NSDictionary dictionaryWithObject:@"city_id" forKey:@"city"]; 
+    return [NSDictionary dictionaryWithObject:@"city_id" forKey:@"city"]; 
 } 
 
 @end

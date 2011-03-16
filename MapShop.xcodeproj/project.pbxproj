@@ -31,8 +31,6 @@
 		B2551FCA13279593008BBECF /* 168-upload-photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B2551FC913279593008BBECF /* 168-upload-photo-2.png */; };
 		B2551FCC132795A5008BBECF /* 172-pricetag.png in Resources */ = {isa = PBXBuildFile; fileRef = B2551FCB132795A5008BBECF /* 172-pricetag.png */; };
 		B2551FCE132795C8008BBECF /* 193-location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2551FCD132795C8008BBECF /* 193-location-arrow.png */; };
-		B25520281327AE1E008BBECF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25520271327AE1E008BBECF /* MapKit.framework */; };
-		B25B364D12E4544800F15585 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B364B12E4544800F15585 /* RootViewController.m */; };
 		B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */; };
 		B28355D712EB869C001246FB /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CC12EB869C001246FB /* Area.m */; };
 		B28355D812EB869C001246FB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* City.m */; };
@@ -40,12 +38,7 @@
 		B28355DA12EB869C001246FB /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D212EB869C001246FB /* Category.m */; };
 		B28355DB12EB869C001246FB /* SPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D412EB869C001246FB /* SPoint.m */; };
 		B28355DC12EB869C001246FB /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D612EB869C001246FB /* Region.m */; };
-		B290453012FDD3900090A524 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452B12FDD3750090A524 /* libRestKitCoreData.a */; };
-		B290453312FDD3960090A524 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452112FDD3750090A524 /* libRestKitNetwork.a */; };
-		B290453412FDD3970090A524 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452312FDD3750090A524 /* libRestKitObjectMapping.a */; };
-		B290453E12FDD3A60090A524 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452512FDD3750090A524 /* libRestKitSupport.a */; };
 		B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B290454D12FDD3D80090A524 /* MobileCoreServices.framework */; };
-		B290465812FDE5CA0090A524 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */; };
 		B29047F812FE1E4A0090A524 /* BG.png in Resources */ = {isa = PBXBuildFile; fileRef = B29047F612FE1E4A0090A524 /* BG.png */; };
 		B29047F912FE1E4A0090A524 /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29047F712FE1E4A0090A524 /* BG@2x.png */; };
 		B290481512FF1E210090A524 /* RegionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B290481312FF1E210090A524 /* RegionsViewController.m */; };
@@ -64,7 +57,17 @@
 		B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */; };
 		B29E247912E9990300835600 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E247712E9990300835600 /* AddPointViewController.m */; };
 		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
-		B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29E259A12E9B9E200835600 /* CoreLocation.framework */; };
+		B2C9C11713314635000BF647 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11213314635000BF647 /* libRestKitCoreData.a */; };
+		B2C9C11813314635000BF647 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */; };
+		B2C9C11913314635000BF647 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11413314635000BF647 /* libRestKitNetwork.a */; };
+		B2C9C11A13314635000BF647 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */; };
+		B2C9C11B13314635000BF647 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11613314635000BF647 /* libRestKitSupport.a */; };
+		B2D32FE2132D31E100525D89 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE1132D31E000525D89 /* MapKit.framework */; };
+		B2D32FE4132D31EC00525D89 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE3132D31EB00525D89 /* CoreLocation.framework */; };
+		B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D32FF7132E819A00525D89 /* EditAddressViewController.m */; };
+		B2D32FFA132E81BB00525D89 /* EditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D32FF8132E81A700525D89 /* EditAddressViewController.xib */; };
+		B2D33004132F55E200525D89 /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D33003132F55E100525D89 /* 13-target.png */; };
+		B2D33009132F569900525D89 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D33008132F569900525D89 /* 74-location.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +127,7 @@
 			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
 			remoteInfo = UISpec;
 		};
-		B290455612FDD5D90090A524 /* PBXContainerItemProxy */ = {
+		B2C9C11C1331467A000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
 			proxyType = 1;
@@ -168,9 +171,6 @@
 		B2551FC913279593008BBECF /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "168-upload-photo-2.png"; path = "../../Downloads/glyphish-icons/icons/168-upload-photo-2.png"; sourceTree = SOURCE_ROOT; };
 		B2551FCB132795A5008BBECF /* 172-pricetag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "172-pricetag.png"; sourceTree = "<group>"; };
 		B2551FCD132795C8008BBECF /* 193-location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "193-location-arrow.png"; sourceTree = "<group>"; };
-		B25520271327AE1E008BBECF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos4.1/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
-		B25B364A12E4544800F15585 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		B25B364B12E4544800F15585 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		B25B37C012E46B2B00F15585 /* AddRegionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRegionController.h; sourceTree = "<group>"; };
 		B25B37C112E46B2B00F15585 /* AddRegionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRegionController.m; sourceTree = "<group>"; };
 		B28355CB12EB869C001246FB /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
@@ -213,7 +213,18 @@
 		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
-		B29E259A12E9B9E200835600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = iphoneos4.1/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
+		B2C9C11213314635000BF647 /* libRestKitCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitCoreData.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitCoreData.a"; sourceTree = "<absolute>"; };
+		B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitJSONParserYAJL.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitJSONParserYAJL.a"; sourceTree = "<absolute>"; };
+		B2C9C11413314635000BF647 /* libRestKitNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitNetwork.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitNetwork.a"; sourceTree = "<absolute>"; };
+		B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitObjectMapping.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitObjectMapping.a"; sourceTree = "<absolute>"; };
+		B2C9C11613314635000BF647 /* libRestKitSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitSupport.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitSupport.a"; sourceTree = "<absolute>"; };
+		B2D32FE1132D31E000525D89 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B2D32FE3132D31EB00525D89 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B2D32FF6132E819500525D89 /* EditAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressViewController.h; sourceTree = "<group>"; };
+		B2D32FF7132E819A00525D89 /* EditAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressViewController.m; sourceTree = "<group>"; };
+		B2D32FF8132E81A700525D89 /* EditAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditAddressViewController.xib; path = Classes/EditAddressViewController.xib; sourceTree = "<group>"; };
+		B2D33003132F55E100525D89 /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "13-target.png"; sourceTree = "<group>"; };
+		B2D33008132F569900525D89 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,20 +232,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C9C11713314635000BF647 /* libRestKitCoreData.a in Frameworks */,
+				B2C9C11813314635000BF647 /* libRestKitJSONParserYAJL.a in Frameworks */,
+				B2C9C11913314635000BF647 /* libRestKitNetwork.a in Frameworks */,
+				B2C9C11A13314635000BF647 /* libRestKitObjectMapping.a in Frameworks */,
+				B2C9C11B13314635000BF647 /* libRestKitSupport.a in Frameworks */,
+				B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */,
+				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
+				B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */,
+				B29E213C12E8584800835600 /* SystemConfiguration.framework in Frameworks */,
+				B2D32FE4132D31EC00525D89 /* CoreLocation.framework in Frameworks */,
+				B2D32FE2132D31E100525D89 /* MapKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
-				B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */,
-				B29E213C12E8584800835600 /* SystemConfiguration.framework in Frameworks */,
-				B29E259B12E9B9E200835600 /* CoreLocation.framework in Frameworks */,
-				B290453012FDD3900090A524 /* libRestKitCoreData.a in Frameworks */,
-				B290453312FDD3960090A524 /* libRestKitNetwork.a in Frameworks */,
-				B290453412FDD3970090A524 /* libRestKitObjectMapping.a in Frameworks */,
-				B290453E12FDD3A60090A524 /* libRestKitSupport.a in Frameworks */,
-				B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */,
-				B290465812FDE5CA0090A524 /* libRestKitJSONParserYAJL.a in Frameworks */,
-				B25520281327AE1E008BBECF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +264,6 @@
 			children = (
 				1D3623240D0F684500981E51 /* MapShopAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapShopAppDelegate.m */,
-				B25B364A12E4544800F15585 /* RootViewController.h */,
-				B25B364B12E4544800F15585 /* RootViewController.m */,
 				B25B37C012E46B2B00F15585 /* AddRegionController.h */,
 				B25B37C112E46B2B00F15585 /* AddRegionController.m */,
 				B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */,
@@ -281,6 +290,8 @@
 				B2551E0213268675008BBECF /* ShopDetailsTabViewController.m */,
 				B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */,
 				B2987C601329862C00338693 /* PointAnnotationDelegate.m */,
+				B2D32FF6132E819500525D89 /* EditAddressViewController.h */,
+				B2D32FF7132E819A00525D89 /* EditAddressViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -322,27 +333,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B2551FCD132795C8008BBECF /* 193-location-arrow.png */,
-				B2551FCB132795A5008BBECF /* 172-pricetag.png */,
-				B2551FC913279593008BBECF /* 168-upload-photo-2.png */,
-				B2551FC71327953D008BBECF /* 117-todo.png */,
-				B2551FC51327951B008BBECF /* 103-map.png */,
-				B2551FC3132794E7008BBECF /* 86-camera.png */,
-				B2551FC1132794B8008BBECF /* 71-compass.png */,
-				B2551FBF13279440008BBECF /* 07-map-marker.png */,
-				B2551F7D132780A9008BBECF /* AddRegionController.xib */,
-				B2551E2813268D55008BBECF /* shopThumb.png */,
-				B2551E0313268675008BBECF /* ShopDetailsTabViewController.xib */,
-				B29048C812FF2BA90090A524 /* listbg.png */,
-				B29048C912FF2BA90090A524 /* listbg@2x.png */,
-				B290481412FF1E210090A524 /* RegionsViewController.xib */,
-				B29047F612FE1E4A0090A524 /* BG.png */,
-				B29047F712FE1E4A0090A524 /* BG@2x.png */,
-				B29E247812E9990300835600 /* AddPointViewController.xib */,
-				B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */,
-				B29E21B512E8640F00835600 /* ShopPointsViewController.xib */,
-				B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */,
-				B29E09A612E7246400835600 /* ShopsViewController.xib */,
+				B2D33007132F564000525D89 /* images */,
+				B2D33006132F561800525D89 /* nibs */,
+				B2D33005132F55E600525D89 /* icons */,
 				8D1107310486CEB800E47090 /* MapShop-Info.plist */,
 			);
 			name = Resources;
@@ -351,8 +344,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B29E259A12E9B9E200835600 /* CoreLocation.framework */,
-				B25520271327AE1E008BBECF /* MapKit.framework */,
+				B2C9C11213314635000BF647 /* libRestKitCoreData.a */,
+				B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */,
+				B2C9C11413314635000BF647 /* libRestKitNetwork.a */,
+				B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */,
+				B2C9C11613314635000BF647 /* libRestKitSupport.a */,
+				B2D32FE3132D31EB00525D89 /* CoreLocation.framework */,
+				B2D32FE1132D31E000525D89 /* MapKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -394,6 +392,51 @@
 			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
+		B2D33005132F55E600525D89 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				B2D33008132F569900525D89 /* 74-location.png */,
+				B2551FCD132795C8008BBECF /* 193-location-arrow.png */,
+				B2551FCB132795A5008BBECF /* 172-pricetag.png */,
+				B2551FC913279593008BBECF /* 168-upload-photo-2.png */,
+				B2551FC71327953D008BBECF /* 117-todo.png */,
+				B2551FC51327951B008BBECF /* 103-map.png */,
+				B2551FC3132794E7008BBECF /* 86-camera.png */,
+				B2551FC1132794B8008BBECF /* 71-compass.png */,
+				B2551FBF13279440008BBECF /* 07-map-marker.png */,
+				B2D33003132F55E100525D89 /* 13-target.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		B2D33006132F561800525D89 /* nibs */ = {
+			isa = PBXGroup;
+			children = (
+				B29E247812E9990300835600 /* AddPointViewController.xib */,
+				B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */,
+				B29E21B512E8640F00835600 /* ShopPointsViewController.xib */,
+				B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */,
+				B29E09A612E7246400835600 /* ShopsViewController.xib */,
+				B290481412FF1E210090A524 /* RegionsViewController.xib */,
+				B2551E0313268675008BBECF /* ShopDetailsTabViewController.xib */,
+				B2551F7D132780A9008BBECF /* AddRegionController.xib */,
+				B2D32FF8132E81A700525D89 /* EditAddressViewController.xib */,
+			);
+			name = nibs;
+			sourceTree = "<group>";
+		};
+		B2D33007132F564000525D89 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B2551E2813268D55008BBECF /* shopThumb.png */,
+				B29048C812FF2BA90090A524 /* listbg.png */,
+				B29048C912FF2BA90090A524 /* listbg@2x.png */,
+				B29047F612FE1E4A0090A524 /* BG.png */,
+				B29047F712FE1E4A0090A524 /* BG@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,7 +451,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B290455712FDD5D90090A524 /* PBXTargetDependency */,
+				B2C9C11D1331467A000BF647 /* PBXTargetDependency */,
 			);
 			name = MapShop;
 			productName = MapShop;
@@ -548,6 +591,9 @@
 				B2551FCA13279593008BBECF /* 168-upload-photo-2.png in Resources */,
 				B2551FCC132795A5008BBECF /* 172-pricetag.png in Resources */,
 				B2551FCE132795C8008BBECF /* 193-location-arrow.png in Resources */,
+				B2D32FFA132E81BB00525D89 /* EditAddressViewController.xib in Resources */,
+				B2D33004132F55E200525D89 /* 13-target.png in Resources */,
+				B2D33009132F569900525D89 /* 74-location.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +614,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MapShopAppDelegate.m in Sources */,
 				28193060112F816700ECF9B4 /* MapShop.xcdatamodeld in Sources */,
-				B25B364D12E4544800F15585 /* RootViewController.m in Sources */,
 				B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */,
 				B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */,
 				B29E21B612E8640F00835600 /* ShopPointsViewController.m in Sources */,
@@ -588,6 +633,7 @@
 				B2551D36132672B6008BBECF /* ShopsViewController.m in Sources */,
 				B2551E0413268675008BBECF /* ShopDetailsTabViewController.m in Sources */,
 				B2987C611329862C00338693 /* PointAnnotationDelegate.m in Sources */,
+				B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,10 +647,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B290455712FDD5D90090A524 /* PBXTargetDependency */ = {
+		B2C9C11D1331467A000BF647 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
-			targetProxy = B290455612FDD5D90090A524 /* PBXContainerItemProxy */;
+			targetProxy = B2C9C11C1331467A000BF647 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,10 +661,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0.1;
+				CURRENT_PROJECT_VERSION = 0.3;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_GC = unsupported;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
@@ -629,11 +675,11 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				GCC_WARN_SHADOW = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				HEADER_SEARCH_PATHS = ./RestKit/Build;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
+					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -642,6 +688,7 @@
 				PRODUCT_NAME = MapShop;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 			};
 			name = Debug;
 		};
@@ -652,7 +699,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				CURRENT_PROJECT_VERSION = 0.3;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
@@ -662,11 +710,11 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				GCC_WARN_SHADOW = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				HEADER_SEARCH_PATHS = RestKit/build;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
+					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -676,6 +724,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -740,14 +789,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
+				"INFOPLIST_FILE[sdk=*]" = "";
+				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 			};
 			name = Distribution;
 		};
@@ -758,7 +813,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				CURRENT_PROJECT_VERSION = 0.3;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapShop_Prefix.pch;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
@@ -768,11 +824,11 @@
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				GCC_WARN_SHADOW = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				HEADER_SEARCH_PATHS = RestKit/build;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Classes/CoreResource/Examples/CoreTest/GHUnit\"",
+					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -783,6 +839,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -819,12 +876,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
+				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 			};
 			name = Debug;
 		};
@@ -832,13 +894,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
+				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SYMROOT = "$(SOURCE_ROOT)/Build";
 			};
 			name = Release;
 		};

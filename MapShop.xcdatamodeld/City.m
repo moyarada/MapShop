@@ -42,7 +42,7 @@
 }
 
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
-    [NSDictionary dictionaryWithObject:@"region_id" forKey:@"region"]; 
+    return [NSDictionary dictionaryWithObject:@"region_id" forKey:@"region"]; 
 } 
 
 @end

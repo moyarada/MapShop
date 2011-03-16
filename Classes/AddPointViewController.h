@@ -10,41 +10,24 @@
 #import <RestKit/CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
-#import <MapKit/MKReverseGeocoder.h>
-#import "ShopPointsViewController.h"
+#import "RestKit/RestKit.h"
+#import "PointAnnotationDelegate.h"
+#import "Shop.h"
+#import <CoreData/CoreData.h>
+#import "MapShopAppDelegate.h"
+#import "SPoint.h"
 
-@interface AddPointViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, MKAnnotation, RKObjectLoaderDelegate> {
-	UITextField *commentFld;
-	UITextField *latFld;
-	UITextField  *longFld;
-	UITextField  *altFld;
-	NSString *item;
-	RKManagedObject *parent;
-	NSNumber *parentId;
-	CLLocationManager *locationManager;
-	NSNumber *curLat;
-	NSNumber *curLong;
-	NSNumber *curAlt;
-	MKMapView *mapView;
-	MKReverseGeocoder *geoCoder;
-	MKPlacemark *mPlacemark;
-	UINavigationItem *navItem;
-    ShopPointsViewController *viewController;
+@interface AddPointViewController : UIViewController <MKMapViewDelegate, RKObjectLoaderDelegate> {
+	Shop *parent;
+    MKMapView *mapView;
+    BOOL showUserLocation;
 }
 
-@property (nonatomic, retain) UINavigationController *navigationController;
-@property (nonatomic, retain) UINavigationItem *navItem;
-@property (nonatomic, retain) IBOutlet UITextField *commentFld;
-@property (nonatomic, retain) IBOutlet UITextField *latFld;
-@property (nonatomic, retain) IBOutlet UITextField  *longFld;
-@property (nonatomic, retain) IBOutlet UITextField  *altFld;
-@property (nonatomic, retain) NSString *item;
-@property (nonatomic, retain) RKManagedObject *parent;
-@property (nonatomic, retain) NSNumber *parentId;
+@property (nonatomic, retain) Shop *parent;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
-@property (nonatomic, retain) ShopPointsViewController *viewController;
 
 - (IBAction) removeFocus;
 - (void) gotoLocation;
+- (void) savePoints;
 
 @end

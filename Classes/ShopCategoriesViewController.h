@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
+#import "RestKit/CoreData/CoreData.h"
 
-
-@interface ShopCategoriesViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
-	NSManagedObject *currentShop;
-	NSFetchedResultsController *fetchedResultsController_;
-    NSManagedObjectContext *managedObjectContext_;
+@interface ShopCategoriesViewController : UITableViewController  {
+	RKManagedObject *currentShop;
+	//NSFetchedResultsController *fetchedResultsController_;
+    //NSManagedObjectContext *managedObjectContext_;
 }
 
-@property (nonatomic, retain) NSManagedObject *currentShop;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) RKManagedObject *currentShop;
+//@property (nonatomic, retain) RKManagedObjectContext *managedObjectContext;
+//@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

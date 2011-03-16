@@ -99,8 +99,8 @@
     website.text = [currentShop website];
     phone.text = [currentShop phone];
     
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(updateShop)];
-	self.navigationItem.rightBarButtonItem = saveButton;
+    //UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(updateShop)];
+	//self.navigationItem.rightBarButtonItem = saveButton;
 }
 
 

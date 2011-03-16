@@ -47,7 +47,7 @@
 	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"area=%@", parentItem];
 	[request setPredicate:predicate];
 	
-	_items = [[[[currentItem class] objectsWithFetchRequest:request] mutableCopy] retain];
+	_items = [[[currentItem class] objectsWithFetchRequest:request] mutableCopy];
 	NSLog(@" Items = %@", _items);
 	
 	
@@ -57,7 +57,7 @@
 	//NSLog(@"Loading data");
 	RKObjectManager* objectManager = [RKObjectManager sharedManager];
 	NSString* path = [NSString stringWithFormat:@"/areas/%@/shops.json", parentId];
-	[[objectManager loadObjectsAtResourcePath:path objectClass:[currentItem class] delegate:self] retain];
+	[objectManager loadObjectsAtResourcePath:path objectClass:[currentItem class] delegate:self];
 	
 	NSLog(@"Loading data");
 }
@@ -81,7 +81,6 @@
 	[self.navigationController pushViewController:detailedViewController animated:YES];
 	
 	[detailedViewController release];
-	
 	
 }
 

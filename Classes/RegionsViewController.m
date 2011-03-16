@@ -86,7 +86,7 @@
 	NSFetchRequest* request = [Region fetchRequest];
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-	_statuses = [[Region objectsWithFetchRequest:request] retain];
+	_statuses = [Region objectsWithFetchRequest:request];
 	
 }
 
@@ -110,7 +110,7 @@
 - (void)loadData {
 	NSLog(@"Loading data");
 	RKObjectManager* objectManager = [RKObjectManager sharedManager];
-	[[objectManager loadObjectsAtResourcePath:@"/regions.json" objectClass:[Region class] delegate:self] retain];
+	[objectManager loadObjectsAtResourcePath:@"/regions.json" objectClass:[Region class] delegate:self];
 	NSLog(@"Loading data");
 }
 

@@ -32,12 +32,12 @@
 	
 	//addRegionController.viewController = self;
 	
-	addPointViewController.navItem = self.navigationItem;
-	addPointViewController.navigationController = self.navigationController;
-	addPointViewController.parentId = self.parentId;
-    addPointViewController.viewController = self;
-    addPointViewController.parent = self.parentItem;
-	[self.navigationController pushViewController:addPointViewController animated:YES];
+	//addPointViewController.navItem = self.navigationItem;
+	//addPointViewController.navigationController = self.navigationController;
+	//addPointViewController.parentId = [parent id];
+    //addPointViewController.viewController = self;
+    //addPointViewController.parent = (Shop*)self.parentItem;
+	//[self.navigationController pushViewController:addPointViewController animated:YES];
 	
 	[addPointViewController release];
 }
@@ -84,7 +84,7 @@
 	//NSLog(@"Loading data");
 	RKObjectManager* objectManager = [RKObjectManager sharedManager];
 	NSString* path = [NSString stringWithFormat:@"/shops/%@/points.json", parentId];
-	[[objectManager loadObjectsAtResourcePath:path objectClass:[currentItem class] delegate:self] retain];
+	[objectManager loadObjectsAtResourcePath:path objectClass:[currentItem class] delegate:self];
 	
 	NSLog(@"Loading data");
 }

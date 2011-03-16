@@ -82,12 +82,33 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
+	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)] autorelease];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
 	[self loadObjectsFromDataStore];
-	//[self loadData];
-	
+}
+
+- (void)viewDidUnload {
+	_items = nil;
+    parentItem = nil;
+    currentItem = nil;
+    entityName = nil;
+    navigationController = nil;
+    parentId = nil;    
+    
+    [super viewDidUnload];
+}
+
+
+- (void)dealloc {
+	[_items release];
+	[_tableView release];
+	[parentItem release];
+	[currentItem release];
+	[parentId release];
+    [entityName release];
+    [navigationController release];
+    [super dealloc];
 }
 
 
@@ -216,7 +237,29 @@
 	//NSLog(@"Loaded items in generic: %@", objects);
     if ([objects count] > 0) {
         NSLog(@"Showing first object %@", [objects objectAtIndex:0]);
+        NSObject *obj = [objects objectAtIndex:0];
+        if (syncNow == YES) {
+            if ([obj isKindOfClass:[Region class]]) {
+                syncingEntity = @"City";
+                [self syncData];
+            } else if ([obj isKindOfClass:[City class]]) {
+                syncingEntity = @"Area";
+                [self syncData];
+            } else if ([obj isKindOfClass:[Area class]]) {
+                syncingEntity = @"Shop";
+                [self syncData];
+            } else if ([obj isKindOfClass:[Shop class]]) {
+                syncingEntity = @"Point";
+                [self syncData];
+            } else if ([obj isKindOfClass:[SPoint class]]) {
+                syncingEntity = nil;
+                syncNow = NO;
+                NSLog(@"Sync is finished");
+            } 
+        }
     }
+    
+    
     
 	[self loadObjectsFromDataStore];
 	[_tableView reloadData];
@@ -237,13 +280,11 @@
 	[_items release];
 	NSLog(@"Loading data from Store in generic");
 	NSFetchRequest* request = [[currentItem class] fetchRequest];
-	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-	
-	//NSPredicate *predicate = [NSPredicate predicateWithFormat: @"region_id=%@", parentId];
-	//[request setPredicate:predicate];
-	
-	_items = (NSMutableArray*)[[[currentItem class] objectsWithFetchRequest:request] retain];
+	//[descriptor release];
+    _items = (NSMutableArray*)[[[currentItem class] objectsWithFetchRequest:request] retain];
+    //[request release];
 	NSLog(@" Items in generic = %@", _items);
 	
 	
@@ -271,39 +312,61 @@
 
 - (void) syncData {
     NSLog(@"Sync data");
+    syncNow = YES;
+    
+    //RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    if (syncingEntity == nil) {
+        syncingEntity = @"Region";
+    }
     
     //load all data
-    RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSString* path = [NSString stringWithFormat:@"/regions.json", parentId];
-    [[objectManager loadObjectsAtResourcePath:path objectClass:[Region class] delegate:self] retain];
-   
-    path = [NSString stringWithFormat:@"/cities.json", parentId];
-    [[objectManager loadObjectsAtResourcePath:path objectClass:[City class] delegate:self] retain];
+    if (syncingEntity == @"Region") {
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        NSString* path = [NSString stringWithFormat:@"/regions.json", parentId] ;
+        [objectManager loadObjectsAtResourcePath:path objectClass:[Region class] delegate:self];
+        //[path release];
+    }
     
-    path = [NSString stringWithFormat:@"/areas.json", parentId];
-    [[objectManager loadObjectsAtResourcePath:path objectClass:[Area class] delegate:self] retain];
+    if (syncingEntity == @"City") {
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        NSString* path = [NSString stringWithFormat:@"/cities.json", parentId];
+        [objectManager loadObjectsAtResourcePath:path objectClass:[City class] delegate:self];
+        //[path release];
+    }
     
-    path = [NSString stringWithFormat:@"/shops.json", parentId];
-    [[objectManager loadObjectsAtResourcePath:path objectClass:[Shop class] delegate:self] retain];
+    if (syncingEntity == @"Area") {
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        NSString* path = [NSString stringWithFormat:@"/areas.json", parentId];
+        [objectManager loadObjectsAtResourcePath:path objectClass:[Area class] delegate:self];
+        //[path release];
+    }
     
-    path = [NSString stringWithFormat:@"/points.json", parentId];
-    [[objectManager loadObjectsAtResourcePath:path objectClass:[SPoint class] delegate:self] retain];
+    if (syncingEntity == @"Shop") {
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        NSString* path = [NSString stringWithFormat:@"/shops.json", parentId];
+        [objectManager loadObjectsAtResourcePath:path objectClass:[Shop class] delegate:self];
+        //[path release];
+    }
     
-    [path release];
+    if (syncingEntity == @"Point") {
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        NSString* path = [NSString stringWithFormat:@"/points.json", parentId];
+        [objectManager loadObjectsAtResourcePath:path objectClass:[SPoint class] delegate:self];
+        //[path release];
+    }
     
     //1 push all changes to server
     //[self createNewRegions];
     
-    
-    
 }
 
-
+/*
 - (void) createNewRegions {
     NSFetchRequest* request = [Region fetchRequest];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"sync == true"];
 	[request setPredicate:predicate];
-	
+	//[predicate release];
+    
 	NSMutableArray *regions = [[[Region objectsWithFetchRequest:request] mutableCopy] retain];
     
     if ([regions count] > 0) {
@@ -312,6 +375,7 @@
             [[RKObjectManager sharedManager] postObject:obj delegate:self]; 
         }
     }
+    [regions release];
 }
 
 - (void) createNewCities {
@@ -327,9 +391,11 @@
             [[RKObjectManager sharedManager] postObject:obj delegate:self]; 
         }
     }
+    
+    [items release];
 }
 
-
+*/
 
 
 #pragma mark -
@@ -357,22 +423,7 @@
     // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
-- (void)viewDidUnload {
-	[_items release];
-	//[_tableView release];
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
 
-
-- (void)dealloc {
-	[_items release];
-	[_tableView release];
-	[parentItem release];
-	[currentItem release];
-	[parentId release];
-    [super dealloc];
-}
 
 
 @end

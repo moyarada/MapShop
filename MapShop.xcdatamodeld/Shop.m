@@ -41,7 +41,7 @@
 }
 
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
-    [NSDictionary dictionaryWithObject:@"area_id" forKey:@"area"]; 
+   return [NSDictionary dictionaryWithObject:@"area_id" forKey:@"area"]; 
 } 
 
 @end

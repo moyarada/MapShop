@@ -94,7 +94,7 @@
 	
 	[self.navigationController pushViewController:genericViewController animated:YES];
 	
-	//[genericViewController release];
+	[genericViewController release];
 	
 	
 }
