@@ -45,6 +45,11 @@
 		B290481612FF1E210090A524 /* RegionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290481412FF1E210090A524 /* RegionsViewController.xib */; };
 		B29048CA12FF2BA90090A524 /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C812FF2BA90090A524 /* listbg.png */; };
 		B29048CB12FF2BA90090A524 /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B29048C912FF2BA90090A524 /* listbg@2x.png */; };
+		B294CDCE1331505800EABF1C /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B294CDC91331505800EABF1C /* libRestKitCoreData.a */; };
+		B294CDCF1331505800EABF1C /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B294CDCA1331505800EABF1C /* libRestKitJSONParserYAJL.a */; };
+		B294CDD01331505800EABF1C /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B294CDCB1331505800EABF1C /* libRestKitNetwork.a */; };
+		B294CDD11331505800EABF1C /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B294CDCC1331505800EABF1C /* libRestKitObjectMapping.a */; };
+		B294CDD21331505800EABF1C /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B294CDCD1331505800EABF1C /* libRestKitSupport.a */; };
 		B2987C611329862C00338693 /* PointAnnotationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2987C601329862C00338693 /* PointAnnotationDelegate.m */; };
 		B29E09A812E7246400835600 /* ShopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E09A612E7246400835600 /* ShopsViewController.xib */; };
 		B29E0A3D12E7441C00835600 /* ShopDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */; };
@@ -57,11 +62,6 @@
 		B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */; };
 		B29E247912E9990300835600 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E247712E9990300835600 /* AddPointViewController.m */; };
 		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
-		B2C9C11713314635000BF647 /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11213314635000BF647 /* libRestKitCoreData.a */; };
-		B2C9C11813314635000BF647 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */; };
-		B2C9C11913314635000BF647 /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11413314635000BF647 /* libRestKitNetwork.a */; };
-		B2C9C11A13314635000BF647 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */; };
-		B2C9C11B13314635000BF647 /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C9C11613314635000BF647 /* libRestKitSupport.a */; };
 		B2D32FE2132D31E100525D89 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE1132D31E000525D89 /* MapKit.framework */; };
 		B2D32FE4132D31EC00525D89 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE3132D31EB00525D89 /* CoreLocation.framework */; };
 		B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D32FF7132E819A00525D89 /* EditAddressViewController.m */; };
@@ -71,68 +71,68 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B290452012FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B294CDC71331504600EABF1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25956956126DF0A8004BAC4C;
+			remoteInfo = RestKit;
+		};
+		B2C9C16613314DB7000BF647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 253A07FC1255161B00976E89;
 			remoteInfo = RestKitNetwork;
 		};
-		B290452212FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C16813314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 253A08031255162C00976E89;
 			remoteInfo = RestKitObjectMapping;
 		};
-		B290452412FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C16A13314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 253A080C12551D3000976E89;
 			remoteInfo = RestKitSupport;
 		};
-		B290452612FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C16C13314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2590E64F125231F600531FA8;
 			remoteInfo = "RestKitJSONParser+YAJL";
 		};
-		B290452812FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C16E13314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2590E66B1252353700531FA8;
 			remoteInfo = "RestKitJSONParser+SBJSON";
 		};
-		B290452A12FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C17013314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 253A081412551D5300976E89;
 			remoteInfo = RestKitCoreData;
 		};
-		B290452C12FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C17213314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2523360511E79F090048F9B4;
 			remoteInfo = RestKitThree20;
 		};
-		B290452E12FDD3750090A524 /* PBXContainerItemProxy */ = {
+		B2C9C17413314DB7000BF647 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+			containerPortal = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
 			remoteInfo = UISpec;
-		};
-		B2C9C11C1331467A000BF647 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25956956126DF0A8004BAC4C;
-			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -185,7 +185,6 @@
 		B28355D412EB869C001246FB /* SPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPoint.m; sourceTree = "<group>"; };
 		B28355D512EB869C001246FB /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		B28355D612EB869C001246FB /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
-		B290450A12FDD3750090A524 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		B290454D12FDD3D80090A524 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B29047F612FE1E4A0090A524 /* BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG.png; sourceTree = "<group>"; };
 		B29047F712FE1E4A0090A524 /* BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG@2x.png"; sourceTree = "<group>"; };
@@ -194,6 +193,12 @@
 		B290481412FF1E210090A524 /* RegionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegionsViewController.xib; path = Classes/RegionsViewController.xib; sourceTree = "<group>"; };
 		B29048C812FF2BA90090A524 /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		B29048C912FF2BA90090A524 /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
+		B294CDC91331505800EABF1C /* libRestKitCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRestKitCoreData.a; sourceTree = SOURCE_ROOT; };
+		B294CDCA1331505800EABF1C /* libRestKitJSONParserYAJL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRestKitJSONParserYAJL.a; sourceTree = SOURCE_ROOT; };
+		B294CDCB1331505800EABF1C /* libRestKitNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRestKitNetwork.a; sourceTree = SOURCE_ROOT; };
+		B294CDCC1331505800EABF1C /* libRestKitObjectMapping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRestKitObjectMapping.a; sourceTree = SOURCE_ROOT; };
+		B294CDCD1331505800EABF1C /* libRestKitSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRestKitSupport.a; sourceTree = SOURCE_ROOT; };
+		B294CDD3133152C200EABF1C /* RestKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestKit.h; path = RestKit/Code/RestKit.h; sourceTree = "<group>"; };
 		B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointAnnotationDelegate.h; sourceTree = "<group>"; };
 		B2987C601329862C00338693 /* PointAnnotationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointAnnotationDelegate.m; sourceTree = "<group>"; };
 		B29E09A612E7246400835600 /* ShopsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopsViewController.xib; path = Classes/ShopsViewController.xib; sourceTree = "<group>"; };
@@ -202,7 +207,6 @@
 		B29E0A3C12E7441C00835600 /* ShopDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopDetailedViewController.xib; path = Classes/ShopDetailedViewController.xib; sourceTree = "<group>"; };
 		B29E213712E8583D00835600 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B29E213B12E8584800835600 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B29E218312E85ABC00835600 /* MapShopIPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapShopIPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29E218512E85ABD00835600 /* MapShopIPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapShopIPad-Info.plist"; sourceTree = "<group>"; };
 		B29E21B312E8640F00835600 /* ShopPointsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPointsViewController.h; sourceTree = "<group>"; };
 		B29E21B412E8640F00835600 /* ShopPointsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopPointsViewController.m; sourceTree = "<group>"; };
@@ -213,11 +217,7 @@
 		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
-		B2C9C11213314635000BF647 /* libRestKitCoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitCoreData.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitCoreData.a"; sourceTree = "<absolute>"; };
-		B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitJSONParserYAJL.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitJSONParserYAJL.a"; sourceTree = "<absolute>"; };
-		B2C9C11413314635000BF647 /* libRestKitNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitNetwork.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitNetwork.a"; sourceTree = "<absolute>"; };
-		B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitObjectMapping.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitObjectMapping.a"; sourceTree = "<absolute>"; };
-		B2C9C11613314635000BF647 /* libRestKitSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; name = libRestKitSupport.a; path = "/Users/mikebevz/Development/MapShop/RestKit/Build/Debug-iphoneos/libRestKitSupport.a"; sourceTree = "<absolute>"; };
+		B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		B2D32FE1132D31E000525D89 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2D32FE3132D31EB00525D89 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B2D32FF6132E819500525D89 /* EditAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressViewController.h; sourceTree = "<group>"; };
@@ -232,11 +232,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C9C11713314635000BF647 /* libRestKitCoreData.a in Frameworks */,
-				B2C9C11813314635000BF647 /* libRestKitJSONParserYAJL.a in Frameworks */,
-				B2C9C11913314635000BF647 /* libRestKitNetwork.a in Frameworks */,
-				B2C9C11A13314635000BF647 /* libRestKitObjectMapping.a in Frameworks */,
-				B2C9C11B13314635000BF647 /* libRestKitSupport.a in Frameworks */,
+				B294CDCE1331505800EABF1C /* libRestKitCoreData.a in Frameworks */,
+				B294CDCF1331505800EABF1C /* libRestKitJSONParserYAJL.a in Frameworks */,
+				B294CDD01331505800EABF1C /* libRestKitNetwork.a in Frameworks */,
+				B294CDD11331505800EABF1C /* libRestKitObjectMapping.a in Frameworks */,
+				B294CDD21331505800EABF1C /* libRestKitSupport.a in Frameworks */,
 				B29E213812E8583D00835600 /* CFNetwork.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				B290454E12FDD3D80090A524 /* MobileCoreServices.framework in Frameworks */,
@@ -246,13 +246,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B29E218112E85ABC00835600 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* MapShop.app */,
-				B29E218312E85ABC00835600 /* MapShopIPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +300,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				B290450A12FDD3750090A524 /* RestKit.xcodeproj */,
+				B294CDD3133152C200EABF1C /* RestKit.h */,
+				B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */,
 				B25B37BD12E46ACD00F15585 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -344,11 +337,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2C9C11213314635000BF647 /* libRestKitCoreData.a */,
-				B2C9C11313314635000BF647 /* libRestKitJSONParserYAJL.a */,
-				B2C9C11413314635000BF647 /* libRestKitNetwork.a */,
-				B2C9C11513314635000BF647 /* libRestKitObjectMapping.a */,
-				B2C9C11613314635000BF647 /* libRestKitSupport.a */,
+				B294CDC91331505800EABF1C /* libRestKitCoreData.a */,
+				B294CDCA1331505800EABF1C /* libRestKitJSONParserYAJL.a */,
+				B294CDCB1331505800EABF1C /* libRestKitNetwork.a */,
+				B294CDCC1331505800EABF1C /* libRestKitObjectMapping.a */,
+				B294CDCD1331505800EABF1C /* libRestKitSupport.a */,
 				B2D32FE3132D31EB00525D89 /* CoreLocation.framework */,
 				B2D32FE1132D31E000525D89 /* MapKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -370,26 +363,26 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		B290450B12FDD3750090A524 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B290452112FDD3750090A524 /* libRestKitNetwork.a */,
-				B290452312FDD3750090A524 /* libRestKitObjectMapping.a */,
-				B290452512FDD3750090A524 /* libRestKitSupport.a */,
-				B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */,
-				B290452912FDD3750090A524 /* libRestKitJSONParserSBJSON.a */,
-				B290452B12FDD3750090A524 /* libRestKitCoreData.a */,
-				B290452D12FDD3750090A524 /* libRestKitThree20.a */,
-				B290452F12FDD3750090A524 /* UISpec.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B29E218912E85AC400835600 /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		B2C9C15113314DB6000BF647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2C9C16713314DB7000BF647 /* libRestKitNetwork.a */,
+				B2C9C16913314DB7000BF647 /* libRestKitObjectMapping.a */,
+				B2C9C16B13314DB7000BF647 /* libRestKitSupport.a */,
+				B2C9C16D13314DB7000BF647 /* libRestKitJSONParserYAJL.a */,
+				B2C9C16F13314DB7000BF647 /* libRestKitJSONParserSBJSON.a */,
+				B2C9C17113314DB7000BF647 /* libRestKitCoreData.a */,
+				B2C9C17313314DB7000BF647 /* libRestKitThree20.a */,
+				B2C9C17513314DB7000BF647 /* UISpec.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B2D33005132F55E600525D89 /* icons */ = {
@@ -451,28 +444,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				B2C9C11D1331467A000BF647 /* PBXTargetDependency */,
+				B294CDC81331504600EABF1C /* PBXTargetDependency */,
 			);
 			name = MapShop;
 			productName = MapShop;
 			productReference = 1D6058910D05DD3D006BFB54 /* MapShop.app */;
-			productType = "com.apple.product-type.application";
-		};
-		B29E218212E85ABC00835600 /* MapShopIPad */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B29E218812E85ABD00835600 /* Build configuration list for PBXNativeTarget "MapShopIPad" */;
-			buildPhases = (
-				B29E217F12E85ABC00835600 /* Resources */,
-				B29E218012E85ABC00835600 /* Sources */,
-				B29E218112E85ABC00835600 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MapShopIPad;
-			productName = MapShopIPad;
-			productReference = B29E218312E85ABC00835600 /* MapShopIPad.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -494,73 +470,72 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B290450B12FDD3750090A524 /* Products */;
-					ProjectRef = B290450A12FDD3750090A524 /* RestKit.xcodeproj */;
+					ProductGroup = B2C9C15113314DB6000BF647 /* Products */;
+					ProjectRef = B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MapShop */,
-				B29E218212E85ABC00835600 /* MapShopIPad */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B290452112FDD3750090A524 /* libRestKitNetwork.a */ = {
+		B2C9C16713314DB7000BF647 /* libRestKitNetwork.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitNetwork.a;
-			remoteRef = B290452012FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C16613314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452312FDD3750090A524 /* libRestKitObjectMapping.a */ = {
+		B2C9C16913314DB7000BF647 /* libRestKitObjectMapping.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitObjectMapping.a;
-			remoteRef = B290452212FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C16813314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452512FDD3750090A524 /* libRestKitSupport.a */ = {
+		B2C9C16B13314DB7000BF647 /* libRestKitSupport.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitSupport.a;
-			remoteRef = B290452412FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C16A13314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452712FDD3750090A524 /* libRestKitJSONParserYAJL.a */ = {
+		B2C9C16D13314DB7000BF647 /* libRestKitJSONParserYAJL.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitJSONParserYAJL.a;
-			remoteRef = B290452612FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C16C13314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452912FDD3750090A524 /* libRestKitJSONParserSBJSON.a */ = {
+		B2C9C16F13314DB7000BF647 /* libRestKitJSONParserSBJSON.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitJSONParserSBJSON.a;
-			remoteRef = B290452812FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C16E13314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452B12FDD3750090A524 /* libRestKitCoreData.a */ = {
+		B2C9C17113314DB7000BF647 /* libRestKitCoreData.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitCoreData.a;
-			remoteRef = B290452A12FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C17013314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452D12FDD3750090A524 /* libRestKitThree20.a */ = {
+		B2C9C17313314DB7000BF647 /* libRestKitThree20.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKitThree20.a;
-			remoteRef = B290452C12FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C17213314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B290452F12FDD3750090A524 /* UISpec.app */ = {
+		B2C9C17513314DB7000BF647 /* UISpec.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = UISpec.app;
-			remoteRef = B290452E12FDD3750090A524 /* PBXContainerItemProxy */;
+			remoteRef = B2C9C17413314DB7000BF647 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -597,13 +572,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B29E217F12E85ABC00835600 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -637,20 +605,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B29E218012E85ABC00835600 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B2C9C11D1331467A000BF647 /* PBXTargetDependency */ = {
+		B294CDC81331504600EABF1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
-			targetProxy = B2C9C11C1331467A000BF647 /* PBXContainerItemProxy */;
+			targetProxy = B294CDC71331504600EABF1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -680,6 +641,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -715,6 +677,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -726,62 +689,6 @@
 				SDKROOT = iphoneos;
 				SYMROOT = "$(SOURCE_ROOT)/Build";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B29E218612E85ABD00835600 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "MapShopIPad-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = MapShopIPad;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = Debug;
-		};
-		B29E218712E85ABD00835600 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "MapShopIPad-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = MapShopIPad;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -829,6 +736,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
+					"\"$(SRCROOT)\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -841,34 +749,6 @@
 				SDKROOT = iphoneos;
 				SYMROOT = "$(SOURCE_ROOT)/Build";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Distribution;
-		};
-		B2C491E613013CDC00422518 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "MapShopIPad-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = MapShopIPad;
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-				ZERO_LINK = NO;
 			};
 			name = Distribution;
 		};
@@ -919,16 +799,6 @@
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
 				B2C491E513013CDC00422518 /* Distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B29E218812E85ABD00835600 /* Build configuration list for PBXNativeTarget "MapShopIPad" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B29E218612E85ABD00835600 /* Debug */,
-				B29E218712E85ABD00835600 /* Release */,
-				B2C491E613013CDC00422518 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
