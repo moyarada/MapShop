@@ -226,14 +226,15 @@
             [customPinView setCanShowCallout:YES];
             [customPinView setSelected:YES animated:YES];
             
-            /*
-            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             [rightButton addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
-            [rightButton setTitle:@"Delete" forState:UIControlStateNormal];
+            //[rightButton setImage:[UIImage imageNamed:@""] forState:<#(UIControlState)#>]
+            //[rightButton setTitle:@"Delete"];
             customPinView.rightCalloutAccessoryView = rightButton;
             
-            [rightButton release];
-            */
+            //[rightButton release];
+            
             return customPinView;
         } else
         {
@@ -245,6 +246,23 @@
     } 
     
     return nil;
+}
+
+- (void)showDetails: (id)sender {
+    NSLog(@"Touched the button");
+}
+
+- (void)mapView:(MKMapView *)mView annotationView:(MKAnnotationView *)annoView calloutAccessoryControlTapped:(UIControl *)control {
+    NSLog(@"Pin was touched: %@", [(PointAnnotationDelegate *)annoView.annotation point_id]);
+    
+    //TODO Send request to server to remove a pin;
+    SPoint *point = [SPoint objectWithPrimaryKeyValue:[(PointAnnotationDelegate *)annoView.annotation point_id]];
+    if (point) {
+        [[RKObjectManager sharedManager] deleteObject:point delegate:self];
+    }
+    
+    [mView removeAnnotation:annoView.annotation];
+    
 }
 
 

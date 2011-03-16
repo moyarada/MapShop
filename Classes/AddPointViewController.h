@@ -29,5 +29,6 @@
 - (IBAction) removeFocus;
 - (void) gotoLocation;
 - (void) savePoints;
+- (void)showDetails: (id)sender;
 
 @end
