@@ -38,7 +38,7 @@
     return [NSDictionary dictionaryWithObject:@"city_id" forKey:@"city"]; 
 } 
 
-- (NSString*) path {
++ (NSString*) path {
     return @"/areas.json";
 }
 

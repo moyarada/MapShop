@@ -19,8 +19,8 @@
 
     UITabBarController *tabBarController;
 
-	ShopDetailsTabViewController *shopDetailsTabViewController;
-    AddPointViewController *addPointViewController;    
+	//ShopDetailsTabViewController *shopDetailsTabViewController;
+    //AddPointViewController *addPointViewController;    
 }
 
 @property (nonatomic, retain) Shop *currentShop;

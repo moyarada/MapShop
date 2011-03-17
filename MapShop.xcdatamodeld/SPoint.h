@@ -5,11 +5,11 @@
 //  Created by Mike Bevz on 22/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
-#import "Shop.h"
 #import "AbstractModel.h"
+#import "Shop.h"
 
-@interface SPoint :  AbstractModel  
+
+@interface SPoint : AbstractModel  
 {
 }
 

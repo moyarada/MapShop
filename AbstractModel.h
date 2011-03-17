@@ -8,13 +8,15 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData/CoreData.h>
-#import "GenericTableViewController.h"
+
 
 @interface AbstractModel : RKManagedObject <RKObjectLoaderDelegate> {
     UIViewController *_delegate;
 }
 
--(NSString *) path;
--(void)update: (UIViewController*)delegate;
+@property (nonatomic, retain) UIViewController *_delegate;
+
++(NSString *) path;
++(void)update: (id)delegate;
 
 @end

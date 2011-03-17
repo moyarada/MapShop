@@ -77,7 +77,6 @@
 		B2D32FE4132D31EC00525D89 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE3132D31EB00525D89 /* CoreLocation.framework */; };
 		B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D32FF7132E819A00525D89 /* EditAddressViewController.m */; };
 		B2D32FFA132E81BB00525D89 /* EditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D32FF8132E81A700525D89 /* EditAddressViewController.xib */; };
-		B2D33004132F55E200525D89 /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D33003132F55E100525D89 /* 13-target.png */; };
 		B2D33009132F569900525D89 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D33008132F569900525D89 /* 74-location.png */; };
 /* End PBXBuildFile section */
 
@@ -247,7 +246,6 @@
 		B2D32FF6132E819500525D89 /* EditAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressViewController.h; sourceTree = "<group>"; };
 		B2D32FF7132E819A00525D89 /* EditAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressViewController.m; sourceTree = "<group>"; };
 		B2D32FF8132E81A700525D89 /* EditAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditAddressViewController.xib; path = Classes/EditAddressViewController.xib; sourceTree = "<group>"; };
-		B2D33003132F55E100525D89 /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "13-target.png"; sourceTree = "<group>"; };
 		B2D33008132F569900525D89 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,7 +325,6 @@
 			children = (
 				B2B73C181332197500D40884 /* Vendors */,
 				B294CDD3133152C200EABF1C /* RestKit.h */,
-				B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */,
 				B25B37BD12E46ACD00F15585 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -402,6 +399,7 @@
 		B2B73C181332197500D40884 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */,
 				B2B73C191332198500D40884 /* EGOTableViewPullRefresh */,
 			);
 			name = Vendors;
@@ -476,7 +474,6 @@
 				B2551FC3132794E7008BBECF /* 86-camera.png */,
 				B2551FC1132794B8008BBECF /* 71-compass.png */,
 				B2551FBF13279440008BBECF /* 07-map-marker.png */,
-				B2D33003132F55E100525D89 /* 13-target.png */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -646,7 +643,6 @@
 				B2551FCC132795A5008BBECF /* 172-pricetag.png in Resources */,
 				B2551FCE132795C8008BBECF /* 193-location-arrow.png in Resources */,
 				B2D32FFA132E81BB00525D89 /* EditAddressViewController.xib in Resources */,
-				B2D33004132F55E200525D89 /* 13-target.png in Resources */,
 				B2D33009132F569900525D89 /* 74-location.png in Resources */,
 				B2B73C281332198500D40884 /* blackArrow.png in Resources */,
 				B2B73C291332198500D40884 /* blackArrow@2x.png in Resources */,
@@ -727,6 +723,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
@@ -763,6 +760,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
@@ -792,6 +790,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				"INFOPLIST_FILE[sdk=*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
@@ -822,6 +821,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
 				INFOPLIST_FILE = "MapShop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/RestKit/Build/Debug-iphoneos\"",
@@ -851,6 +851,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
@@ -869,6 +870,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;

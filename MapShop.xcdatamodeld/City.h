@@ -5,11 +5,11 @@
 //  Created by Mike Bevz on 22/01/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
-#import "Region.h"
 #import "AbstractModel.h"
+#import "Region.h"
 
-@interface City :  AbstractModel   
+
+@interface City : AbstractModel   
 {
 
 }

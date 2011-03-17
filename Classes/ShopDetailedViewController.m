@@ -29,12 +29,12 @@
     [super viewDidLoad];
 	self.title = [currentShop name];
     
-    shopDetailsTabViewController = [[ShopDetailsTabViewController alloc] initWithNibName:@"ShopDetailsTabViewController" bundle:[NSBundle mainBundle]];
+    ShopDetailsTabViewController *shopDetailsTabViewController = [[ShopDetailsTabViewController alloc] initWithNibName:@"ShopDetailsTabViewController" bundle:[NSBundle mainBundle]];
 	shopDetailsTabViewController.currentShop = currentShop;
     shopDetailsTabViewController.title = @"Details";
     shopDetailsTabViewController.tabBarItem.image = [UIImage imageNamed:@"172-pricetag"];
     
-    addPointViewController = [[AddPointViewController alloc] initWithNibName:@"AddPointViewController" bundle:[NSBundle mainBundle]];
+    AddPointViewController *addPointViewController = [[AddPointViewController alloc] initWithNibName:@"AddPointViewController" bundle:[NSBundle mainBundle]];
     addPointViewController.parent = currentShop;
     addPointViewController.title = @"Location";
     addPointViewController.tabBarItem.image = [UIImage imageNamed:@"193-location-arrow"];
@@ -83,12 +83,14 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    
     self.tabBarController = nil;
     self.currentShop = nil;
 }
 
 - (void)dealloc {
-	[currentShop release];
+    [self.tabBarController release];
+	[self.currentShop release];
 	[super dealloc];
 }
 

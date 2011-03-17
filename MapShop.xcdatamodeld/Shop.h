@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-
-#import "Area.h"
 #import "AbstractModel.h"
+#import "Area.h"
 
-@interface Shop :  AbstractModel    
+
+@interface Shop : AbstractModel    
 {
 }
 

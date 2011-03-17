@@ -13,18 +13,30 @@
 #import "Area.h"
 #import "Shop.h"
 #import "SPoint.h"
+#import "CrashReporter/CrashReporter.h"
 
 
 @implementation MapShopAppDelegate
 
 @synthesize window, navigationController;
 
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+    // Crash reporter
+    
+    
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    
+        
+    //
     
 	// Override point for customization after application launch.
 	NSLog(@"Loading main view");
 	// Initialize RestKit
-	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://10.0.0.3:3000"];//@"http://shopic.and-ants.com"];
+	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://shopic.and-ants.com"];
 	objectManager.format = RKMappingFormatJSON;
 	RKObjectMapper* mapper = objectManager.mapper;
 	
@@ -102,7 +114,7 @@
 	
 	UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:genericViewController] autorelease];
 	[self setNavigationController:controller];
-	[self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+	[self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
 	[controller release];
 	[genericViewController release];
 	
@@ -113,14 +125,23 @@
     [self.window makeKeyAndVisible];
 	
     
+    
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    //[[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"FinishedSafely"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
 - (void)dealloc {
     [navigationController release];
+    [window release];
     [super dealloc];
 }
+
+
 
 
 @end

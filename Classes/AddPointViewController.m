@@ -34,7 +34,7 @@
 	
 	mapView.showsUserLocation = YES;
 	mapView.mapType = MKMapTypeHybrid;
-	mapView.delegate = self;
+	//mapView.delegate = self;
     
     NSFetchRequest* request = [SPoint fetchRequest];
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
@@ -44,7 +44,7 @@
 	[request setPredicate:predicate];
     
 	
-	NSArray *pins = [[[SPoint objectsWithFetchRequest:request] mutableCopy] autorelease];
+	NSArray *pins = [SPoint objectsWithFetchRequest:request];
     
     if ([pins count] > 0) {
         
@@ -87,17 +87,20 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-
-	mapView.delegate = nil;
-	mapView = nil;
+    NSLog(@"Unload view");
+	self.mapView.delegate = nil;
+	self.mapView = nil;
     parent = nil;
     
 }
 
 - (void)dealloc {
+    
+    NSLog(@"De Alloc View");
 	[self.parent release];
-    mapView.delegate = nil;
-	[mapView release];
+    self.mapView.delegate = nil;
+	[self.mapView release];
+    
     [super dealloc];
 }
 
@@ -123,7 +126,7 @@
         mapannotation.title = @"New point";
         mapannotation.subtitle = @"Subtitle";
         [mapView addAnnotation:mapannotation];
-        [mapannotation release];
+        //[mapannotation release];
     }
 }
 
@@ -165,6 +168,7 @@
     
     NSLog(@"Points to save = %@", mapView.annotations);
     
+    //TODO this alert must popup when we saved out pins. Otherwise it craches the app
     UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Pins saved/updated" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
     [alert show];
     
@@ -226,7 +230,6 @@
             [customPinView setPinColor:MKPinAnnotationColorRed];
             [customPinView setAnimatesDrop:YES];
             [customPinView setDraggable:YES];
-            NSLog(@"Draggable pin");
             [customPinView setCanShowCallout:YES];
             [customPinView setSelected:YES animated:YES];
             

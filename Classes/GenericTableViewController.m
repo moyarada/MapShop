@@ -53,13 +53,13 @@
 	[self setOptions];
 
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-	
+	/*
 	UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
 	imageView.frame = CGRectOffset(imageView.frame, 0, -64);
 	imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view insertSubview:imageView atIndex:0];
 	[imageView release];
-
+     */
 	
 	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
 	_tableView.autoresizesSubviews = YES;
@@ -68,8 +68,8 @@
 	_tableView.delegate = self;
 	[self.view addSubview:_tableView];
 	
-	_tableView.backgroundColor = [UIColor clearColor];
-	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	_tableView.backgroundColor = [UIColor whiteColor];
+	_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 	
 	
 	
@@ -102,6 +102,16 @@
 	[self loadObjectsFromDataStore];
 }
 
+#pragma mark -
+#pragma mark Memory management
+
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
 - (void)viewDidUnload {
 	_items = nil;
     parentItem = nil;
@@ -127,6 +137,8 @@
 
 
 
+
+
 - (void)reloadTableViewDataSource{
 	
 	//  should be calling your tableviews data source model to reload
@@ -141,7 +153,8 @@
 	NSLog(@"Reload finished for %@", entityName);
     _reloading = NO;
 	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_tableView];
-	
+    [self loadObjectsFromDataStore];
+	[_tableView reloadData];
 }
 
 #pragma mark -
@@ -161,7 +174,7 @@
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
 	[self reloadTableViewDataSource];
-	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+	
 	
 }
 
@@ -235,14 +248,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString* reuseIdentifier = [NSString stringWithFormat:@"%@ Cell", self.entityName];
+    //NSString* reuseIdentifier = [NSString stringWithFormat:@"Cell"];
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	
     if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] autorelease];
-		cell.textLabel.font = [UIFont systemFontOfSize:18];
-		cell.textLabel.numberOfLines = 0;
-		cell.textLabel.backgroundColor = [UIColor clearColor];
-		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];    
+		cell.textLabel.font = [UIFont systemFontOfSize:20];
+		cell.textLabel.numberOfLines = 1;
+		//cell.textLabel.backgroundColor = [UIColor clearColor];
+        //cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		//cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];    
 	}
     
 	cell.textLabel.text = [[_items objectAtIndex:indexPath.row] name];
@@ -253,7 +270,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CGSize size = [[[_items objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:CGSizeMake(300, 9000)];
+	CGSize size = [[[_items objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:28] constrainedToSize:CGSizeMake(300, 9000)];
 	return size.height + 10;
 }
 
@@ -484,15 +501,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Memory management
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
 
 
 

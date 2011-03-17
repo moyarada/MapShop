@@ -12,6 +12,7 @@
 #import <RestKit/ObjectMapping/RKDynamicRouter.h>
 #import <RestKit/ObjectMapping/RKRailsRouter.h>
 
+
 @interface MapShopAppDelegate : NSObject <UIApplicationDelegate> {
 	UIWindow* window;
 	UINavigationController *navigationController;
@@ -19,6 +20,8 @@
 
 @property (nonatomic, retain) UIWindow* window;
 @property (nonatomic, retain) UINavigationController *navigationController;
+
+
 
 @end
 

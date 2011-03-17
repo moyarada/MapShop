@@ -4,3 +4,6 @@
 [submodule "EgoTableView"]
 	path = EgoTableView
 	url = https://github.com/enormego/EGOTableViewPullRefresh.git
+[submodule "CrashReporter"]
+	path = CrashReporter
+	url = git://github.com/TheRealKerni/CrashReporterDemo.git

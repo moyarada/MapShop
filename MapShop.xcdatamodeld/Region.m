@@ -38,7 +38,7 @@
 } 
 
 
-- (NSString*) path {
++ (NSString*) path {
     return @"/regions.json";
 }
 
