@@ -6,11 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/CoreData/CoreData.h>
 #import "City.h"
+#import "AbstractModel.h"
 
-@interface Area :  RKManagedObject  
+@interface Area :  AbstractModel  
 {
 }
 

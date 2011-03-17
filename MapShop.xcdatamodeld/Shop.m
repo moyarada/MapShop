@@ -33,6 +33,7 @@
             @"website",@"website",
             @"phone",@"phone",
             @"address",@"address",
+            @"del",@"del",
 			nil];
 }
 
@@ -43,5 +44,9 @@
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
    return [NSDictionary dictionaryWithObject:@"area_id" forKey:@"area"]; 
 } 
+
+- (NSString*) path {
+    return @"/shops.json";
+}
 
 @end

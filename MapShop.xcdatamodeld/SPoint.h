@@ -6,11 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/CoreData/CoreData.h>
 #import "Shop.h"
+#import "AbstractModel.h"
 
-@interface SPoint :  RKManagedObject  
+@interface SPoint :  AbstractModel  
 {
 }
 

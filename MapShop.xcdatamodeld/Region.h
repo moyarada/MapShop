@@ -6,10 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/CoreData/CoreData.h>
+#import "AbstractModel.h"
 
-@interface Region : RKManagedObject  
+@interface Region : AbstractModel  
 {
 
 }
@@ -21,5 +20,7 @@
 @property (nonatomic, retain) NSNumber * upd;
 @property (nonatomic, retain) NSNumber * del;
 @property (nonatomic, retain) NSSet* cities;
+
+
 
 @end

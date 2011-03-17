@@ -63,7 +63,10 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	_items = [[[Region objectsWithFetchRequest:request] mutableCopy] retain];
+    NSPredicate *predicate2 = [NSPredicate predicateWithFormat: @"del == false"];
+	[request setPredicate:predicate2];
+    
+	_items = [[Region objectsWithFetchRequest:request] mutableCopy];
 	//NSLog(@" Items = %@", _items);
 	
 	

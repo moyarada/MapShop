@@ -1,3 +1,6 @@
 [submodule "RestKit"]
 	path = RestKit
 	url = git://github.com/twotoasters/RestKit.git
+[submodule "EgoTableView"]
+	path = EgoTableView
+	url = https://github.com/enormego/EGOTableViewPullRefresh.git

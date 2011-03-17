@@ -33,6 +33,7 @@
 			@"altitude",@"altitude",
 			@"longitude",@"longitude",
 			@"latitude",@"latitude",
+            @"del",@"del",
 			nil];
 }
 
@@ -43,6 +44,10 @@
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
     return [NSDictionary dictionaryWithObject:@"shop_id" forKey:@"shop"]; 
 } 
+
+- (NSString*) path {
+    return @"/points.json";
+}
 
 
 @end

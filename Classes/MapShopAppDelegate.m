@@ -24,7 +24,7 @@
 	// Override point for customization after application launch.
 	NSLog(@"Loading main view");
 	// Initialize RestKit
-	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://shopic.and-ants.com"];
+	RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://10.0.0.3:3000"];//@"http://shopic.and-ants.com"];
 	objectManager.format = RKMappingFormatJSON;
 	RKObjectMapper* mapper = objectManager.mapper;
 	

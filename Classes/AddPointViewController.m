@@ -40,8 +40,9 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"shop=%@", parent];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(shop=%@) AND (del == false)", parent];
 	[request setPredicate:predicate];
+    
 	
 	NSArray *pins = [[[SPoint objectsWithFetchRequest:request] mutableCopy] autorelease];
     
@@ -164,6 +165,9 @@
     
     NSLog(@"Points to save = %@", mapView.annotations);
     
+    UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Pins saved/updated" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+    [alert show];
+    
 	//[[RKObjectManager sharedManager] postObject:point delegate:self];
 }
 
@@ -269,7 +273,7 @@
 #pragma mark -
 #pragma mark Maps
 
-- (void)gotoLocation
+- (IBAction)gotoLocation
 {
     MKCoordinateRegion newRegion;
 	newRegion.center = mapView.userLocation.coordinate;

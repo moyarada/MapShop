@@ -7,12 +7,10 @@
 //
 
 
-#import <RestKit/RestKit.h>
-#import <RestKit/CoreData/CoreData.h>
 #import "Area.h"
+#import "AbstractModel.h"
 
-
-@interface Shop :  RKManagedObject    
+@interface Shop :  AbstractModel    
 {
 }
 

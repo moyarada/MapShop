@@ -44,8 +44,9 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"area=%@", parentItem];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"(area=%@) AND (del == false)", parentItem];
 	[request setPredicate:predicate];
+   
 	
 	_items = [[[currentItem class] objectsWithFetchRequest:request] mutableCopy];
 	NSLog(@" Items = %@", _items);

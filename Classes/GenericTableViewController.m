@@ -16,6 +16,7 @@
 @synthesize currentItem, parentItem;
 @synthesize navigationController;
 @synthesize parentId, entityName;
+@synthesize _reloading;
 
 
 
@@ -81,10 +82,23 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
+    if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *hView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - _tableView.bounds.size.height, self.view.frame.size.width, _tableView.bounds.size.height)];
+		hView.delegate = self;
+		[_tableView addSubview:hView];
+		_refreshHeaderView = hView;
+		[hView release];
+		
+	}
 	
 	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)] autorelease];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
+    //  update the last update date
+	[_refreshHeaderView refreshLastUpdatedDate];
+    
 	[self loadObjectsFromDataStore];
 }
 
@@ -110,6 +124,59 @@
     [navigationController release];
     [super dealloc];
 }
+
+
+
+- (void)reloadTableViewDataSource{
+	
+	//  should be calling your tableviews data source model to reload
+	NSLog(@"Reload %@", entityName);
+    _reloading = YES;
+    [[NSClassFromString(entityName) class] update:self];
+	
+}
+
+- (void)doneLoadingTableViewData{
+	
+	NSLog(@"Reload finished for %@", entityName);
+    _reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_tableView];
+	
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+	[self reloadTableViewDataSource];
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+	
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+	
+	return _reloading; // should return if data source model is reloading
+	
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+	
+	return [NSDate date]; // should return date data source was last changed
+	
+}
+
 
 
 
@@ -254,6 +321,10 @@
             } else if ([obj isKindOfClass:[SPoint class]]) {
                 syncingEntity = nil;
                 syncNow = NO;
+                
+                UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Sync" message:@"Synchronization is finished!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+                [alert show];
+                
                 NSLog(@"Sync is finished");
             } 
         }

@@ -28,6 +28,7 @@
 			@"name", @"name",
 			@"comment", @"comment",
 			@"region_id",@"region_id",
+            @"del", @"del",
 			nil];
 }
 
@@ -44,5 +45,9 @@
 + (NSDictionary*)relationshipToPrimaryKeyPropertyMappings { 
     return [NSDictionary dictionaryWithObject:@"region_id" forKey:@"region"]; 
 } 
+
+- (NSString*) path {
+    return @"/cities.json";
+}
 
 @end

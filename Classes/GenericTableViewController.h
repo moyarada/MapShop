@@ -13,8 +13,9 @@
 #import "Area.h"
 #import "Shop.h"
 #import "SPoint.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface GenericTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> {
+@interface GenericTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate, EGORefreshTableHeaderDelegate> {
 	UITableView* _tableView;
 	NSMutableArray *_items;
 	RKManagedObject* currentItem;
@@ -24,6 +25,8 @@
 	UINavigationController *navigationController;
     NSString *syncingEntity;
     BOOL syncNow;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
 }
 
 @property (nonatomic, retain) RKManagedObject* currentItem;
@@ -31,6 +34,7 @@
 @property (nonatomic, retain) NSNumber* parentId;
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, retain) NSString* entityName;
+@property (nonatomic) BOOL _reloading;
 
 
 - (void) loadObjectsFromDataStore;
@@ -40,4 +44,8 @@
 - (void) syncData;
 //- (void) createNewRegions;
 //- (void) createNewCities;
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
+
 @end

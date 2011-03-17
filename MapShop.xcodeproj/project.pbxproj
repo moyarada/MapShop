@@ -62,6 +62,17 @@
 		B29E21BC12E8643D00835600 /* ShopCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E21BA12E8643D00835600 /* ShopCategoriesViewController.xib */; };
 		B29E247912E9990300835600 /* AddPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E247712E9990300835600 /* AddPointViewController.m */; };
 		B29E247A12E9990300835600 /* AddPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29E247812E9990300835600 /* AddPointViewController.xib */; };
+		B2B73C271332198500D40884 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B73C1D1332198500D40884 /* EGORefreshTableHeaderView.m */; };
+		B2B73C281332198500D40884 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C1F1332198500D40884 /* blackArrow.png */; };
+		B2B73C291332198500D40884 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C201332198500D40884 /* blackArrow@2x.png */; };
+		B2B73C2A1332198500D40884 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C211332198500D40884 /* blueArrow.png */; };
+		B2B73C2B1332198500D40884 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C221332198500D40884 /* blueArrow@2x.png */; };
+		B2B73C2C1332198500D40884 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C231332198500D40884 /* grayArrow.png */; };
+		B2B73C2D1332198500D40884 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C241332198500D40884 /* grayArrow@2x.png */; };
+		B2B73C2E1332198500D40884 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C251332198500D40884 /* whiteArrow.png */; };
+		B2B73C2F1332198500D40884 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B73C261332198500D40884 /* whiteArrow@2x.png */; };
+		B2B73C3913321BD700D40884 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B73C3813321BD700D40884 /* QuartzCore.framework */; };
+		B2B73C3C133222AF00D40884 /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B73C3B133222AB00D40884 /* AbstractModel.m */; };
 		B2D32FE2132D31E100525D89 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE1132D31E000525D89 /* MapKit.framework */; };
 		B2D32FE4132D31EC00525D89 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D32FE3132D31EB00525D89 /* CoreLocation.framework */; };
 		B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D32FF7132E819A00525D89 /* EditAddressViewController.m */; };
@@ -217,6 +228,19 @@
 		B29E247612E9990300835600 /* AddPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPointViewController.h; sourceTree = "<group>"; };
 		B29E247712E9990300835600 /* AddPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPointViewController.m; sourceTree = "<group>"; };
 		B29E247812E9990300835600 /* AddPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddPointViewController.xib; path = Classes/AddPointViewController.xib; sourceTree = "<group>"; };
+		B2B73C1C1332198500D40884 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		B2B73C1D1332198500D40884 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		B2B73C1F1332198500D40884 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		B2B73C201332198500D40884 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		B2B73C211332198500D40884 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		B2B73C221332198500D40884 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		B2B73C231332198500D40884 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		B2B73C241332198500D40884 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		B2B73C251332198500D40884 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		B2B73C261332198500D40884 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		B2B73C3813321BD700D40884 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B2B73C3A133222AA00D40884 /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractModel.h; sourceTree = "<group>"; };
+		B2B73C3B133222AB00D40884 /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractModel.m; sourceTree = "<group>"; };
 		B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		B2D32FE1132D31E000525D89 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2D32FE3132D31EB00525D89 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -232,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B73C3913321BD700D40884 /* QuartzCore.framework in Frameworks */,
 				B294CDCE1331505800EABF1C /* libRestKitCoreData.a in Frameworks */,
 				B294CDCF1331505800EABF1C /* libRestKitJSONParserYAJL.a in Frameworks */,
 				B294CDD01331505800EABF1C /* libRestKitNetwork.a in Frameworks */,
@@ -300,6 +325,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B2B73C181332197500D40884 /* Vendors */,
 				B294CDD3133152C200EABF1C /* RestKit.h */,
 				B2C9C15013314DB6000BF647 /* RestKit.xcodeproj */,
 				B25B37BD12E46ACD00F15585 /* Models */,
@@ -337,6 +363,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2B73C3813321BD700D40884 /* QuartzCore.framework */,
 				B294CDC91331505800EABF1C /* libRestKitCoreData.a */,
 				B294CDCA1331505800EABF1C /* libRestKitJSONParserYAJL.a */,
 				B294CDCB1331505800EABF1C /* libRestKitNetwork.a */,
@@ -359,6 +386,8 @@
 			isa = PBXGroup;
 			children = (
 				2819305F112F816700ECF9B4 /* MapShop.xcdatamodeld */,
+				B2B73C3A133222AA00D40884 /* AbstractModel.h */,
+				B2B73C3B133222AB00D40884 /* AbstractModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -368,6 +397,56 @@
 			children = (
 			);
 			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		B2B73C181332197500D40884 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				B2B73C191332198500D40884 /* EGOTableViewPullRefresh */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		B2B73C191332198500D40884 /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				B2B73C1A1332198500D40884 /* Classes */,
+				B2B73C1E1332198500D40884 /* Resources */,
+			);
+			name = EGOTableViewPullRefresh;
+			path = EgoTableView/EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		B2B73C1A1332198500D40884 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B2B73C1B1332198500D40884 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B2B73C1B1332198500D40884 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2B73C1C1332198500D40884 /* EGORefreshTableHeaderView.h */,
+				B2B73C1D1332198500D40884 /* EGORefreshTableHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B2B73C1E1332198500D40884 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2B73C1F1332198500D40884 /* blackArrow.png */,
+				B2B73C201332198500D40884 /* blackArrow@2x.png */,
+				B2B73C211332198500D40884 /* blueArrow.png */,
+				B2B73C221332198500D40884 /* blueArrow@2x.png */,
+				B2B73C231332198500D40884 /* grayArrow.png */,
+				B2B73C241332198500D40884 /* grayArrow@2x.png */,
+				B2B73C251332198500D40884 /* whiteArrow.png */,
+				B2B73C261332198500D40884 /* whiteArrow@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B2C9C15113314DB6000BF647 /* Products */ = {
@@ -569,6 +648,14 @@
 				B2D32FFA132E81BB00525D89 /* EditAddressViewController.xib in Resources */,
 				B2D33004132F55E200525D89 /* 13-target.png in Resources */,
 				B2D33009132F569900525D89 /* 74-location.png in Resources */,
+				B2B73C281332198500D40884 /* blackArrow.png in Resources */,
+				B2B73C291332198500D40884 /* blackArrow@2x.png in Resources */,
+				B2B73C2A1332198500D40884 /* blueArrow.png in Resources */,
+				B2B73C2B1332198500D40884 /* blueArrow@2x.png in Resources */,
+				B2B73C2C1332198500D40884 /* grayArrow.png in Resources */,
+				B2B73C2D1332198500D40884 /* grayArrow@2x.png in Resources */,
+				B2B73C2E1332198500D40884 /* whiteArrow.png in Resources */,
+				B2B73C2F1332198500D40884 /* whiteArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +689,8 @@
 				B2551E0413268675008BBECF /* ShopDetailsTabViewController.m in Sources */,
 				B2987C611329862C00338693 /* PointAnnotationDelegate.m in Sources */,
 				B2D32FF9132E81BB00525D89 /* EditAddressViewController.m in Sources */,
+				B2B73C271332198500D40884 /* EGORefreshTableHeaderView.m in Sources */,
+				B2B73C3C133222AF00D40884 /* AbstractModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

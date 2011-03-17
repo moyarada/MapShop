@@ -23,7 +23,7 @@
 			@"id", @"id",
 			@"name", @"name",
 			@"comment", @"comment",
-            
+            @"del",@"del",
 			nil];
 }
 
@@ -37,6 +37,10 @@
             nil]; 
 } 
 
+
+- (NSString*) path {
+    return @"/regions.json";
+}
 
 
 
