@@ -58,6 +58,7 @@
             annot.subtitle = pin.comment; 
             annot.point_id = pin.id;
             [mapView addAnnotation:annot];
+            
             MKMapPoint annotationPoint = MKMapPointForCoordinate(annot.coordinate);
             MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
             if (MKMapRectIsNull(flyTo)) {
@@ -84,6 +85,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 
 - (void)viewDidUnload {
     [super viewDidUnload];
@@ -120,11 +122,12 @@
         CLLocationCoordinate2D coordinate = [mapView convertPoint:location toCoordinateFromView:self.mapView];
         
         
-        PointAnnotationDelegate * mapannotation = [[PointAnnotationDelegate alloc] init];
+        PointAnnotationDelegate * mapannotation = [[[PointAnnotationDelegate alloc] init] autorelease];
         mapannotation.latitude = [NSNumber numberWithDouble:coordinate.latitude];
         mapannotation.longitude = [NSNumber numberWithDouble:coordinate.longitude];
         mapannotation.title = @"New point";
         mapannotation.subtitle = @"Subtitle";
+        mapannotation.point_id = nil;
         [mapView addAnnotation:mapannotation];
         //[mapannotation release];
     }
@@ -268,7 +271,7 @@
         [[RKObjectManager sharedManager] deleteObject:point delegate:self];
     }
     
-    [mView removeAnnotation:annoView.annotation];
+    [annoView removeFromSuperview];
     
 }
 

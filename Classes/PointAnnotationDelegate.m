@@ -30,10 +30,10 @@
 // Implementing this method ensures the Key-Value observers will be notified when the properties
 // from which coordinate is derived have changed.
 //
-+ (NSSet *)keyPathsForValuesAffectingCoordinate
-{
-    return [NSSet setWithObjects:@"latitude", @"longitude", nil];
-}
+//+ (NSSet *)keyPathsForValuesAffectingCoordinate
+//{
+//    return [NSSet setWithObjects:@"latitude", @"longitude", nil];
+//}
 
 -(id)init
 {
@@ -43,13 +43,14 @@
 }
 
 
-
 - (void)dealloc {
-	//[image release];
-    //[latitude release];
-    //[longitude release];
-    //[title release];
-    //[subtitle release];
+    NSLog(@"De Alloc Annotation: %@", title);
+	[title release];
+    [subtitle release];
+    [image release];
+    [latitude release];
+    [longitude release];
+    [point_id release];
     [super dealloc];
 }
 
