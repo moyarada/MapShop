@@ -34,6 +34,7 @@
 		B25B37C312E46B2B00F15585 /* AddRegionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B37C112E46B2B00F15585 /* AddRegionController.m */; };
 		B2605DA31332D2E700F92715 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2605DA21332D2E700F92715 /* CrashReporter.framework */; };
 		B2605DA71332D30F00F92715 /* CrashReportSender.m in Sources */ = {isa = PBXBuildFile; fileRef = B2605DA61332D30F00F92715 /* CrashReportSender.m */; };
+		B2605DBB133386FC00F92715 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2605DBA133386FC00F92715 /* Default.png */; };
 		B28355D712EB869C001246FB /* Area.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CC12EB869C001246FB /* Area.m */; };
 		B28355D812EB869C001246FB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355CE12EB869C001246FB /* City.m */; };
 		B28355D912EB869C001246FB /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = B28355D012EB869C001246FB /* Shop.m */; };
@@ -188,6 +189,7 @@
 		B2605DA21332D2E700F92715 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = CrashReporter/iPhone/CrashReporter.framework; sourceTree = "<group>"; };
 		B2605DA51332D30F00F92715 /* CrashReportSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrashReportSender.h; path = CrashReporter/iPhone/Classes/CrashReportSender.h; sourceTree = "<group>"; };
 		B2605DA61332D30F00F92715 /* CrashReportSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrashReportSender.m; path = CrashReporter/iPhone/Classes/CrashReportSender.m; sourceTree = "<group>"; };
+		B2605DBA133386FC00F92715 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		B28355CB12EB869C001246FB /* Area.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
 		B28355CC12EB869C001246FB /* Area.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Area.m; sourceTree = "<group>"; };
 		B28355CD12EB869C001246FB /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -284,36 +286,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B2605DA91333804700F92715 /* ViewControllers */,
+				B2605DA81333803200F92715 /* MapAnnotations */,
 				1D3623240D0F684500981E51 /* MapShopAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapShopAppDelegate.m */,
-				B25B37C012E46B2B00F15585 /* AddRegionController.h */,
-				B25B37C112E46B2B00F15585 /* AddRegionController.m */,
-				B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */,
-				B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */,
-				B29E21B312E8640F00835600 /* ShopPointsViewController.h */,
-				B29E21B412E8640F00835600 /* ShopPointsViewController.m */,
-				B29E21B812E8643D00835600 /* ShopCategoriesViewController.h */,
-				B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */,
-				B29E247612E9990300835600 /* AddPointViewController.h */,
-				B29E247712E9990300835600 /* AddPointViewController.m */,
-				B290481212FF1E210090A524 /* RegionsViewController.h */,
-				B290481312FF1E210090A524 /* RegionsViewController.m */,
-				B255181213258011008BBECF /* GenericTableViewController.h */,
-				B255181313258011008BBECF /* GenericTableViewController.m */,
-				B25519BA1325AD45008BBECF /* AreasViewController.h */,
-				B25519BB1325AD45008BBECF /* AreasViewController.m */,
-				B25519BD1325AD9C008BBECF /* CitiesViewController.h */,
-				B25519BE1325AD9C008BBECF /* CitiesViewController.m */,
-				B2551AB5132631A7008BBECF /* RegionViewController+Generic.h */,
-				B2551AB6132631A7008BBECF /* RegionViewController+Generic.m */,
-				B2551D34132672B6008BBECF /* ShopsViewController.h */,
-				B2551D35132672B6008BBECF /* ShopsViewController.m */,
-				B2551E0113268675008BBECF /* ShopDetailsTabViewController.h */,
-				B2551E0213268675008BBECF /* ShopDetailsTabViewController.m */,
-				B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */,
-				B2987C601329862C00338693 /* PointAnnotationDelegate.m */,
-				B2D32FF6132E819500525D89 /* EditAddressViewController.h */,
-				B2D32FF7132E819A00525D89 /* EditAddressViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -405,6 +381,48 @@
 			name = CrashReporter;
 			sourceTree = "<group>";
 		};
+		B2605DA81333803200F92715 /* MapAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				B2987C5F1329862C00338693 /* PointAnnotationDelegate.h */,
+				B2987C601329862C00338693 /* PointAnnotationDelegate.m */,
+			);
+			name = MapAnnotations;
+			sourceTree = "<group>";
+		};
+		B2605DA91333804700F92715 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B2D32FF6132E819500525D89 /* EditAddressViewController.h */,
+				B2D32FF7132E819A00525D89 /* EditAddressViewController.m */,
+				B25B37C012E46B2B00F15585 /* AddRegionController.h */,
+				B25B37C112E46B2B00F15585 /* AddRegionController.m */,
+				B29E0A3A12E7441C00835600 /* ShopDetailedViewController.h */,
+				B29E0A3B12E7441C00835600 /* ShopDetailedViewController.m */,
+				B29E21B312E8640F00835600 /* ShopPointsViewController.h */,
+				B29E21B412E8640F00835600 /* ShopPointsViewController.m */,
+				B29E21B812E8643D00835600 /* ShopCategoriesViewController.h */,
+				B29E21B912E8643D00835600 /* ShopCategoriesViewController.m */,
+				B29E247612E9990300835600 /* AddPointViewController.h */,
+				B29E247712E9990300835600 /* AddPointViewController.m */,
+				B290481212FF1E210090A524 /* RegionsViewController.h */,
+				B290481312FF1E210090A524 /* RegionsViewController.m */,
+				B255181213258011008BBECF /* GenericTableViewController.h */,
+				B255181313258011008BBECF /* GenericTableViewController.m */,
+				B25519BA1325AD45008BBECF /* AreasViewController.h */,
+				B25519BB1325AD45008BBECF /* AreasViewController.m */,
+				B25519BD1325AD9C008BBECF /* CitiesViewController.h */,
+				B25519BE1325AD9C008BBECF /* CitiesViewController.m */,
+				B2551AB5132631A7008BBECF /* RegionViewController+Generic.h */,
+				B2551AB6132631A7008BBECF /* RegionViewController+Generic.m */,
+				B2551D34132672B6008BBECF /* ShopsViewController.h */,
+				B2551D35132672B6008BBECF /* ShopsViewController.m */,
+				B2551E0113268675008BBECF /* ShopDetailsTabViewController.h */,
+				B2551E0213268675008BBECF /* ShopDetailsTabViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B29E218912E85AC400835600 /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +470,7 @@
 		B2B73C1E1332198500D40884 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2605DBA133386FC00F92715 /* Default.png */,
 				B2B73C1F1332198500D40884 /* blackArrow.png */,
 				B2B73C201332198500D40884 /* blackArrow@2x.png */,
 				B2B73C211332198500D40884 /* blueArrow.png */,
@@ -669,6 +688,7 @@
 				B2B73C2D1332198500D40884 /* grayArrow@2x.png in Resources */,
 				B2B73C2E1332198500D40884 /* whiteArrow.png in Resources */,
 				B2B73C2F1332198500D40884 /* whiteArrow@2x.png in Resources */,
+				B2605DBB133386FC00F92715 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

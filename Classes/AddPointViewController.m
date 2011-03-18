@@ -8,6 +8,9 @@
 
 #import "AddPointViewController.h"
 
+#define CONST_fps 25.
+#define CONST_map_shift 0.15
+
 
 @implementation AddPointViewController
 
@@ -32,9 +35,39 @@
 	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePoint)];
 	self.navigationItem.rightBarButtonItem = saveButton;
 	
-	mapView.showsUserLocation = YES;
-	mapView.mapType = MKMapTypeHybrid;
-	//mapView.delegate = self;
+	self.mapView.showsUserLocation = YES;
+	self.mapView.mapType = MKMapTypeHybrid;
+    [self.mapView.userLocation setTitle:@"You are here"];
+    
+    
+    locationManager = [[CLLocationManager alloc] init];
+
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    locationManager.distanceFilter = 10;
+    locationManager.headingFilter = 1;
+    if ([CLLocationManager headingAvailable] == YES) {
+        locationManager.headingFilter = kCLHeadingFilterNone;
+        [locationManager startUpdatingHeading];
+    } else {
+        NSLog(@"No compass available on this device");
+    }
+    locationManager.delegate = self; 
+    
+    /*
+    [MTLocationManager sharedInstance].locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [MTLocationManager sharedInstance].locationManager.distanceFilter = kCLDistanceFilterNone;
+    [MTLocationManager sharedInstance].locationManager.headingFilter = 5; // 5 Degrees
+    [MTLocationManager sharedInstance].mapView = self.mapView;
+    
+    MTLocateMeBarButtonItem *locateMeItem = [[[MTLocateMeBarButtonItem alloc] initWithLocationStatus:MTLocationStatusIdle] autorelease];
+    // set delegate that is called when mode of Button changes
+    locateMeItem.delegate = [MTLocationManager sharedInstance];
+    locateMeItem.headingEnabled = YES;
+    
+    NSArray *toolbarItems = [NSArray arrayWithObject:locateMeItem];
+    [toolbar setItems:toolbarItems animated:NO];
+    */
     
     NSFetchRequest* request = [SPoint fetchRequest];
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
@@ -93,7 +126,11 @@
 	self.mapView.delegate = nil;
 	self.mapView = nil;
     parent = nil;
-    
+    [locationManager stopUpdatingLocation];
+    locationManager.delegate = nil;
+    locationManager = nil;
+    toolbar = nil;
+    toggleHeading = nil;
 }
 
 - (void)dealloc {
@@ -102,14 +139,26 @@
 	[self.parent release];
     self.mapView.delegate = nil;
 	[self.mapView release];
+    //[locationManager stopUpdatingLocation];
+    locationManager.delegate = nil;
+    [locationManager release];
+    [toolbar release];
+    [toggleHeading release];
     
     [super dealloc];
 }
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        useHeading = NO;
+        [toggleHeading setStyle:UIBarButtonItemStyleBordered];
+    } 
+    
     return YES;
 }
+
 
 #pragma mark -
 #pragma mark Actions
@@ -317,7 +366,6 @@
 
 #pragma mark -
 #pragma mark Location manager
-/*
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
@@ -331,16 +379,19 @@
 	}
 	
 	if (newLocation.horizontalAccuracy > 100) { 
+        NSLog(@"Accurracy is not good enough: %@", newLocation.horizontalAccuracy);
 		return;
 	}
-    [curLong release];
-    [curLat release];
-    [curAlt release];
+    //[curLong release];
+    //[curLat release];
+    //[curAlt release];
+
+     
+    [self.mapView.userLocation setCoordinate:newLocation.coordinate];
     
-	
-	curLong = [[NSNumber numberWithDouble:newLocation.coordinate.longitude] retain];
-	curLat = [[NSNumber numberWithDouble:newLocation.coordinate.latitude] retain];
-	curAlt = [[NSNumber numberWithDouble:newLocation.altitude] retain];
+	//curLong = [[NSNumber numberWithDouble:newLocation.coordinate.longitude] retain];
+	//curLat = [[NSNumber numberWithDouble:newLocation.coordinate.latitude] retain];
+	//curAlt = [[NSNumber numberWithDouble:newLocation.altitude] retain];
 	
 	
 	//int degrees = newLocation.coordinate.latitude;
@@ -368,7 +419,7 @@
 	//[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.latitude forKey:@"LastLocationLatitude"];
 	//[[NSUserDefaults standardUserDefaults] setDouble: newLocation.coordinate.longitude forKey:@"LastLocationLongitude"];
 	//[[NSUserDefaults standardUserDefaults] synchronize];
-	
+	//self.mapView.userLocation.coordinate = newLocation;
 }
 
 -(void)locationManager:(CLLocationManager*)manager
@@ -381,27 +432,48 @@
 									delegate:nil
 						   cancelButtonTitle:@"OK"
 						   otherButtonTitles:nil] autorelease] show];
-		//self.toggle.on = NO;
 		//[locationManager stopUpdatingLocation];
 	}
 			
 	
 }
- */
-/*
 
-- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
-	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
-	annView.animatesDrop=TRUE;
-    annView.draggable = TRUE;
-	return annView;
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)heading {
+    if (useHeading) {
+        mapUpNorth = NO;
+        /*
+        [self.mapView setTransform:CGAffineTransformMakeRotation(heading.magneticHeading * M_PI / -180)];
+        for (PointAnnotationDelegate *annotation in self.mapView.annotations) {
+            MKAnnotationView *annotationView = [self.mapView viewForAnnotation:annotation]; 
+            [annotationView setTransform:CGAffineTransformMakeRotation(heading.magneticHeading * 3.14159 / 180)];
+        }*/
+        
+        
+    } else {
+        if (mapUpNorth == NO) {
+            /*
+            [self.mapView setTransform:CGAffineTransformMakeRotation(M_PI / -180)];
+            for (PointAnnotationDelegate *annotation in self.mapView.annotations) {
+                MKAnnotationView *annotationView = [self.mapView viewForAnnotation:annotation]; 
+                [annotationView setTransform:CGAffineTransformMakeRotation(M_PI / -180)];
+            }*/
+        }
+        mapUpNorth = YES;
+    }
+    
 }
- */
+ 
 
+- (IBAction) toggleHeading {
+    if (useHeading) {
+        useHeading = NO;
+        [toggleHeading setStyle:UIBarButtonItemStyleBordered];
+    } else {
+        useHeading = YES;
+        [toggleHeading setStyle:UIBarButtonItemStyleDone];
+    }
 
-
-
-
+}
 
 
 @end

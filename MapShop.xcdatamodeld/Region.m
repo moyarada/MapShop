@@ -31,11 +31,12 @@
 	return @"id";
 }
 
+/*
 + (NSDictionary*)elementToRelationshipMappings { 
     return [NSDictionary dictionaryWithKeysAndObjects: 
             @"cities", @"cities", 
             nil]; 
-} 
+} */
 
 
 + (NSString*) path {

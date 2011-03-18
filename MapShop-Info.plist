@@ -31,5 +31,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>gps</string>
+		<string>location-services</string>
+	</array>
 </dict>
 </plist>

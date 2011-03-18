@@ -62,6 +62,7 @@
 - (BOOL)tabBarController:(UITabBarController *)tbController shouldSelectViewController:(UIViewController *)viewController {
     
     if ([viewController isKindOfClass:[AddPointViewController class]]) {
+        
         UIBarButtonItem *editButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:viewController action:@selector(savePoints)] autorelease];
         self.navigationItem.rightBarButtonItem = editButton;
         

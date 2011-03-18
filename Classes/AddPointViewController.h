@@ -16,16 +16,27 @@
 #import <CoreData/CoreData.h>
 #import "MapShopAppDelegate.h"
 #import "SPoint.h"
+#import "CoreLocation/CLLocationManager.h"
+#import "QuartzCore/QuartzCore.h"
+//#import "MTLocationManager.h"
 
-@interface AddPointViewController : UIViewController <MKMapViewDelegate, RKObjectLoaderDelegate> {
+@interface AddPointViewController : UIViewController <MKMapViewDelegate, RKObjectLoaderDelegate, CLLocationManagerDelegate> {
 	Shop *parent;
     MKMapView *mapView;
+    CLLocationManager *locationManager;
     BOOL showUserLocation;
+    BOOL useHeading;
+    BOOL mapUpNorth;
+    IBOutlet UIBarButtonItem *toggleHeading;
+    IBOutlet UIToolbar *toolbar;
+    
+    
 }
 
 @property (nonatomic, retain) Shop *parent;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
+- (IBAction) toggleHeading;
 - (IBAction) removeFocus;
 - (void) gotoLocation;
 - (void) savePoints;
