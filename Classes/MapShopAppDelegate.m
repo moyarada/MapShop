@@ -13,8 +13,9 @@
 #import "Area.h"
 #import "Shop.h"
 #import "SPoint.h"
-#import "CrashReporter/CrashReporter.h"
 
+
+#define CRASH_REPORTER_URL [NSURL URLWithString:@"http://crasher.and-ants.com/crash_v200.php"]
 
 @implementation MapShopAppDelegate
 
@@ -30,6 +31,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
+    _application = application;
         
     //
     
@@ -124,9 +126,24 @@
 	[self.window addSubview:[navigationController view]];
     [self.window makeKeyAndVisible];
 	
-    
+    [[CrashReportSender sharedCrashReportSender] sendCrashReportToURL:CRASH_REPORTER_URL 
+                                                             delegate:self 
+                                                     activateFeedback:YES];
     
     return YES;
+}
+
+#pragma mark CrashReportSenderDelegate
+
+-(void)connectionOpened
+{
+	_application.networkActivityIndicatorVisible = YES;
+}
+
+
+-(void)connectionClosed
+{
+	_application.networkActivityIndicatorVisible = NO;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

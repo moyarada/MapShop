@@ -11,11 +11,12 @@
 #import <RestKit/CoreData/CoreData.h>
 #import <RestKit/ObjectMapping/RKDynamicRouter.h>
 #import <RestKit/ObjectMapping/RKRailsRouter.h>
+#import "CrashReportSender.h"
 
-
-@interface MapShopAppDelegate : NSObject <UIApplicationDelegate> {
+@interface MapShopAppDelegate : NSObject <UIApplicationDelegate, CrashReportSenderDelegate> {
 	UIWindow* window;
 	UINavigationController *navigationController;
+    UIApplication *_application;
 }
 
 @property (nonatomic, retain) UIWindow* window;
